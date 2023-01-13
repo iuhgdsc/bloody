@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bloody_challenge">
+    package="com.example.bloody">
    <application
-        android:label="bloody_challenge"
+        android:label="bloody"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

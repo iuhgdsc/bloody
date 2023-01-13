@@ -1,6 +1,6 @@
 {
-    "name": "bloody_challenge",
-    "short_name": "bloody_challenge",
+    "name": "bloody",
+    "short_name": "bloody",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
