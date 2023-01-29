@@ -1,3 +1,4 @@
+import 'package:bloody/pages/HomeEvent_Emergency.dart';
 import 'package:bloody/pages/HomeEvent_Page1.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
     HomeEvent_Page1(),
-    Center(child: Text("Kai3")),
+    HomeEvent_Emergency(),
   ];
   void _onItemTapped(int index) {
     setState(() {
