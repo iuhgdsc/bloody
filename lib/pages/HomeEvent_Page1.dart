@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:bloody/widgets/CPN_HomeEventHeader.dart';
+import 'package:bloody/widgets/HomeEvent_BottomOf.dart';
 import 'package:flutter/material.dart';
 import '../model/Center_Blood.dart';
 
@@ -35,6 +38,36 @@ class _HomeEvent_Page1 extends State<HomeEvent_Page1>
         isJoined: false)
   ];
 
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+
+  bool end = false;
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 2), (Timer timer) {
+      if (_currentPage == 2) {
+        end = true;
+      } else if (_currentPage == 0) {
+        end = false;
+      }
+
+      if (end == false) {
+        _currentPage++;
+      } else {
+        _currentPage--;
+      }
+
+      if (_pageController.hasClients) {
+        var animateToPage = _pageController.animateToPage(
+          _currentPage,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -46,6 +79,7 @@ class _HomeEvent_Page1 extends State<HomeEvent_Page1>
           margin: const EdgeInsets.symmetric(vertical: 5),
           height: height * 0.23,
           child: PageView.builder(
+              controller: _pageController,
               itemCount: center_bloods.length,
               itemBuilder: (context, index) {
                 return SizedBox(
@@ -285,15 +319,7 @@ class _HomeEvent_Page1 extends State<HomeEvent_Page1>
                   ],
                 )),
           )),
-      Container(
-        margin: EdgeInsets.only(top: 15),
-        height: 300,
-        color: Color.fromARGB(255, 25, 65, 223),
-      ),
-      Container(
-        height: 300,
-        color: Color.fromARGB(255, 234, 234, 100),
-      )
+      HomeEvent_BottomOf(),
     ]));
   }
 }
