@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bloody/pages/signUp/signup.dart';
 import 'package:bloody/screens/signUp/signup_info.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
@@ -48,10 +49,10 @@ class _OtpFormState extends State<OtpForm> {
     return Form(
       child: Column(
         children: [
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 40,
               ),
               SizedBox(
@@ -59,7 +60,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   autofocus: true,
                   obscureText: false,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
@@ -68,7 +69,7 @@ class _OtpFormState extends State<OtpForm> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               SizedBox(
@@ -76,14 +77,14 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   focusNode: pin2FocusNode,
                   obscureText: false,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
                   onChanged: (value) => nextField(value, pin3FocusNode),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               SizedBox(
@@ -91,14 +92,14 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   focusNode: pin3FocusNode,
                   obscureText: false,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
                   onChanged: (value) => nextField(value, pin4FocusNode),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               SizedBox(
@@ -106,7 +107,7 @@ class _OtpFormState extends State<OtpForm> {
                 child: TextFormField(
                   focusNode: pin4FocusNode,
                   obscureText: false,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
@@ -130,15 +131,18 @@ class _OtpFormState extends State<OtpForm> {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SignUpInfo())),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpInfo()),
+              ),
             },
             child: const Text(
               "Tiếp tục",
               style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  color: Colors.white),
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                color: Colors.white,
+              ),
             ),
           ),
         ],
