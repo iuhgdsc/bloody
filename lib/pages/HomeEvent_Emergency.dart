@@ -22,7 +22,7 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
         time_ago: "2 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/huyen.png"),
+        avatar: "assets/joker.png"),
     Emergency_ToExport(
         id: "2",
         name: "Cần gấp máu cho bệnh nhân suy thận",
@@ -32,7 +32,7 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
         time_ago: "2 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/huyen.png"),
+        avatar: "assets/joker.png"),
     Emergency_ToExport(
         id: "3",
         name: "Cần gấp máu cho bệnh nhân viêm phổi",
@@ -42,7 +42,7 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
         time_ago: "3 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/huyen.png"),
+        avatar: "assets/joker.png"),
   ];
 
   @override

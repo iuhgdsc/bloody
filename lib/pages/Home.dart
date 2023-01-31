@@ -90,7 +90,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                             height: 35,
                                             fit: BoxFit.cover,
                                             image: AssetImage(
-                                              'assets/huyen.png',
+                                              'assets/joker.png',
                                             ),
                                             opacity:
                                                 const AlwaysStoppedAnimation(1),

@@ -1,5 +1,7 @@
+import 'package:bloody/config/routes/app_route_config.dart';
 import 'package:bloody/pages/Home.dart';
 import 'package:flutter/material.dart';
+import 'package:bloody/config/routes/app_route_config.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,7 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme(
@@ -25,7 +27,11 @@ class MyApp extends StatelessWidget {
           onError: Colors.grey,
         ),
       ),
-      home: Home(),
+
+      routeInformationParser: NyAppRouter().router.routeInformationParser,
+      routerDelegate: NyAppRouter().router.routerDelegate,
+
+      // home: Home(),
     );
   }
 }

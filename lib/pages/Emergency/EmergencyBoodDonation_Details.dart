@@ -1,6 +1,8 @@
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:go_router/go_router.dart';
 
 class EmergencyBoodDonation_Details extends StatefulWidget {
   @override
@@ -178,21 +180,27 @@ class _EmergencyBoodDonation_Details
                   opacity: const AlwaysStoppedAnimation(1),
                 ),
               ),
-              Container(
-                  margin: EdgeInsets.only(top: 5, bottom: 15),
-                  height: height * 0.054,
-                  width: width * 0.86,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 182, 27, 45),
-                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Tham gia",
-                      style:
-                          TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context)
+                      .pushNamed(MyAppRouteConstants.donation1RouteName);
+                },
+                child: Container(
+                    margin: EdgeInsets.only(top: 5, bottom: 15),
+                    height: height * 0.054,
+                    width: width * 0.86,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 182, 27, 45),
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        "Tham gia",
+                        style: TextStyle(
+                            color: Color.fromARGB(252, 225, 225, 225)),
+                      ),
+                    )),
+              )
             ],
           ),
         ));
