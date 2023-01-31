@@ -6,7 +6,7 @@ final ButtonStyle buttonPrimary = ElevatedButton.styleFrom(
   elevation: 0,
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(
-        Radius.circular(100)
+      Radius.circular(100),
     ),
   ),
 );
