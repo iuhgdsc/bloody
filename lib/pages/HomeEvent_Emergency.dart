@@ -91,7 +91,7 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
                             return Container(
                               child: Column(children: [
                                 Container(
-                                  height: height * 0.2,
+                                  height: height * 0.18,
                                 ),
                                 Expanded(child: EmergencyBoodDonation_Details())
                               ]),

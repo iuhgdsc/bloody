@@ -66,6 +66,7 @@ flutter:
     - assets/joker.png
     - assets/back.png
     - assets/MapOfBD.png
+    - assets/MapBD2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

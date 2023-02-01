@@ -1,7 +1,9 @@
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/pages/HomeEvent.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,6 +13,27 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> with WidgetsBindingObserver {
+  FocusNode _focus = FocusNode();
+
+  TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _focus.removeListener(_onFocusChange);
+    _focus.dispose();
+  }
+
+  void _onFocusChange() {
+    GoRouter.of(context).pushNamed(MyAppRouteConstants.searchAdvancedRouteName);
+  }
+
   int _currentIndex = 0;
   List<Widget> body = [
     HomeEvent(),
@@ -68,6 +91,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                   height: heightAP - 2,
                                   width: width - 140,
                                   child: TextField(
+                                    focusNode: _focus,
                                     decoration: InputDecoration(
                                       hintText: "Tìm kiếm sự kiện tại đây",
                                       hintStyle: TextStyle(
