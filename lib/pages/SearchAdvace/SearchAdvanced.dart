@@ -1,3 +1,4 @@
+import 'package:bloody/model/SearchAdvance/OptionSearch.dart';
 import 'package:bloody/widgets/CPN_HomeEventHeader.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,12 @@ class SearchAdvanced extends StatefulWidget {
 
 class _SearchAdvanced extends State<SearchAdvanced>
     with WidgetsBindingObserver {
+  List<OptionSearch> optionSearch = [
+    OptionSearch(id: "1", name: "dwewd", icon: "fefe"),
+    OptionSearch(id: "2", name: "efefe", icon: "efef"),
+    OptionSearch(id: "3", name: "efer", icon: "rferfe"),
+    OptionSearch(id: "4", name: "fefe", icon: "efe"),
+  ];
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -57,7 +64,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 237, 235),
                 border: Border.all(
@@ -70,7 +77,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                 Container(
                   child: Center(
                     child: Icon(Icons.date_range_outlined,
-                        size: 30, color: Color.fromARGB(255, 182, 27, 45)),
+                        size: 25, color: Color.fromARGB(255, 182, 27, 45)),
                   ),
                 ),
                 Container(
@@ -78,7 +85,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                   child: Text("Thời gian",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 13,
                           color: Color.fromARGB(255, 182, 27, 45),
                           fontWeight: FontWeight.w500)),
                 ))

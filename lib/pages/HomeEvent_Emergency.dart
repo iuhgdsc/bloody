@@ -1,7 +1,9 @@
-import 'package:bloody/model/Emergency_ToExport.dart';
+import 'package:bloody/model/Emergency/Emergency_New.dart';
+import 'package:bloody/model/Emergency/Emergency_ToExport.dart';
 import 'package:bloody/pages/Emergency/EmergencyBoodDonation_Details.dart';
 import 'package:bloody/widgets/CPN_HomeEventHeader.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeEvent_Emergency extends StatefulWidget {
   @override
@@ -45,6 +47,25 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
         avatar: "assets/joker.png"),
   ];
 
+  List<Emergency_New> emergency_New = [
+    Emergency_New(
+      id: "1",
+      name: "Cần gấp máu cho bệnh nhân viêm phổi",
+      image: "https://i.imgur.com/gZejUZc.png",
+      blood_group: "Nhóm máu B, 4 đơn vị",
+      address: "Nhóm máu B, 4 đơn vị",
+      time_ago: "23 phút trước",
+    ),
+    Emergency_New(
+      id: "2",
+      name: "Cần gấp máu cho nạn nhân LVNN",
+      image: "https://i.imgur.com/g585Iv9.png",
+      blood_group: "Nhóm máu O, 10 đơn vị",
+      address: "Bệnh viện nhân dân Gia Định ...",
+      time_ago: "1 giờ trước",
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -79,8 +100,13 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
             ])),
       ),
       Container(
-          height: height * 0.8,
-          child: ListView.builder(
+          // height: height * 1.1,
+          child: Column(
+        children: [
+          ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
               itemCount: emergency_ToExport.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
@@ -218,7 +244,150 @@ class _HomeEvent_Emergency extends State<HomeEvent_Emergency>
                         ]),
                       ),
                     )));
-              }))
+              }),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+                margin: EdgeInsets.only(top: 5, bottom: 5),
+                height: height * 0.054,
+                width: width * 0.86,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 182, 27, 45),
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                child: Center(
+                  child: Text(
+                    "Xem tất cả",
+                    style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
+                  ),
+                )),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 15),
+            height: height * 0.05,
+            alignment: Alignment.center,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Text("Trường hợp khẩn cấp mới nhất",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 37, 37, 37),
+                      fontWeight: FontWeight.w500)),
+            ),
+          ),
+          ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: emergency_New.length,
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Container(
+                              child: Column(children: [
+                                Container(
+                                  height: height * 0.18,
+                                ),
+                                Expanded(child: EmergencyBoodDonation_Details())
+                              ]),
+                            );
+                          });
+                    },
+                    child: SizedBox(
+                        child: Container(
+                      decoration: BoxDecoration(
+                          border: Border(
+                        bottom: BorderSide(
+                          width: 0.01,
+                          color: Color.fromARGB(255, 68, 68, 68),
+                        ),
+                      )),
+                      child: Container(
+                        height: height * 0.15,
+                        child: Row(children: [
+                          Container(
+                              width: width * 0.25,
+                              height: height * 0.17,
+                              padding: EdgeInsets.symmetric(vertical: 11),
+                              alignment: Alignment.topCenter,
+                              child: Column(children: [
+                                Image.network(
+                                  height: 75,
+                                  "${emergency_New[index].image}",
+                                ),
+                                Text("${emergency_New[index].time_ago}",
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: Color.fromARGB(255, 59, 59, 59)))
+                              ])),
+                          Container(
+                            width: width * 0.7,
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * 0.009),
+                            child: Column(children: [
+                              Container(
+                                  height: height * 0.04,
+                                  padding: EdgeInsets.only(
+                                    top: height * 0.014,
+                                  ),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "${emergency_New[index].name}",
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 38, 38, 38),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Container(
+                                height: height * 0.03,
+                                padding: EdgeInsets.only(top: 3),
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  "${emergency_New[index].blood_group}",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Color.fromARGB(255, 69, 69, 69)),
+                                ),
+                              ),
+                              Container(
+                                height: height * 0.03,
+                                padding: EdgeInsets.only(top: 3),
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  "${emergency_New[index].address}",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Color.fromARGB(255, 69, 69, 69)),
+                                ),
+                              ),
+                            ]),
+                          )
+                        ]),
+                      ),
+                    )));
+              }),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+                margin: EdgeInsets.only(top: 5, bottom: 5),
+                height: height * 0.054,
+                width: width * 0.86,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 182, 27, 45),
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                child: Center(
+                  child: Text(
+                    "Xem tất cả",
+                    style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
+                  ),
+                )),
+          ),
+        ],
+      ))
     ]));
   }
 }

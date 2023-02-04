@@ -1,3 +1,4 @@
+import 'package:bloody/widgets/HomeEventBottom/HE_Screen1.dart';
 import 'package:flutter/material.dart';
 
 class HomeEvent_BottomOf extends StatefulWidget {
@@ -11,12 +12,7 @@ class _HomeEvent_BottomOf extends State<HomeEvent_BottomOf>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
-    Center(
-      child: Container(
-        height: 700,
-        color: Color.fromARGB(255, 182, 27, 45),
-      ),
-    ),
+    HE_Screen1(),
     Center(
       child: Text("Kaiii2"),
     ),
@@ -35,7 +31,7 @@ class _HomeEvent_BottomOf extends State<HomeEvent_BottomOf>
     double height = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.only(top: 15, bottom: 70),
-      height: height * 0.6,
+      height: height * 0.8,
       color: Color.fromARGB(255, 135, 158, 2),
       child: DefaultTabController(
         length: 3,

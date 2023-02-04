@@ -82,270 +82,276 @@ class _Donation2 extends State<Donation2> with WidgetsBindingObserver {
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
-            // appBar: AppBar(
-            //   titleSpacing: 0.0,
-            //   elevation: 0.0,
-            //   backgroundColor: Color.fromARGB(255, 247, 247, 247),
-            //   title:
-            //   ),
-            body: SingleChildScrollView(
-      child: Column(children: [
-        Container(
-          height: height * 0.055,
-          child: Row(children: [
-            Container(
-              width: width * 0.12,
-              child: Center(
-                child: Image(
-                  image: AssetImage('assets/back.png'),
-                  width: 20,
-                  height: 20,
-                  color: Color.fromARGB(255, 16, 16, 16),
-                ),
+            appBar: AppBar(
+              iconTheme: IconThemeData(
+                color: Color.fromARGB(255, 16, 16, 16),
+              ),
+              titleSpacing: 0.0,
+              elevation: 0.0,
+              backgroundColor: Color.fromARGB(255, 247, 247, 247),
+              title: Container(
+                height: height * 0.055,
+                child: Row(children: [
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 23),
+                      child: Center(
+                          child: Text("Câu hỏi lọc hồ sơ",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 41, 41, 41),
+                                  fontWeight: FontWeight.w600))),
+                    ),
+                  )
+                ]),
               ),
             ),
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(right: 23),
-                child: Center(
-                    child: Text("Câu hỏi lọc hồ sơ",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 41, 41, 41),
-                            fontWeight: FontWeight.w600))),
-              ),
-            )
-          ]),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: questionRegister.length,
-            itemBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                  child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 0.8,
-                          color: Color.fromARGB(255, 52, 50, 50),
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.009,
-                            ),
-                            child: Row(children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 5, vertical: 15),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 182, 27, 45),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30.0)),
-                                  ),
-                                  width: width * 0.065,
-                                  height: width * 0.065,
-                                  child: Center(
-                                      child: Text(
-                                    "${questionRegister[index].numberQuestion}",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        fontWeight: FontWeight.w600),
-                                  )),
+            body: SingleChildScrollView(
+              child: Column(children: [
+                SizedBox(
+                  height: 10,
+                ),
+                ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: questionRegister.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                          child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 5),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 0.8,
+                                  color: Color.fromARGB(255, 52, 50, 50),
                                 ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
                               ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 15, horizontal: 10),
-                                width: width * 0.7,
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  "${questionRegister[index].question}",
-                                  style: TextStyle(
-                                      height: 1.1,
-                                      color: Color.fromARGB(255, 38, 38, 38),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              )
-                            ]),
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.01,
-                            ),
-                            height: height * 0.11,
-                            child: Column(
-                              children: <Widget>[
-                                ListTile(
-                                  title: Text(
-                                      "${questionRegister[index].answer1}"),
-                                  dense: true,
-                                  visualDensity: VisualDensity(vertical: -3),
-                                  leading: Radio<SingingCharacter>(
-                                    value: SingingCharacter.btn1,
-                                    groupValue: _character,
-                                    onChanged: (SingingCharacter? value) {
-                                      setState(() {
-                                        _character = value;
-                                      });
-                                    },
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.009,
+                                    ),
+                                    child: Row(children: [
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 15),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color.fromARGB(
+                                                255, 182, 27, 45),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30.0)),
+                                          ),
+                                          width: width * 0.065,
+                                          height: width * 0.065,
+                                          child: Center(
+                                              child: Text(
+                                            "${questionRegister[index].numberQuestion}",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color.fromARGB(
+                                                    255, 255, 255, 255),
+                                                fontWeight: FontWeight.w600),
+                                          )),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 15, horizontal: 10),
+                                        width: width * 0.7,
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
+                                          "${questionRegister[index].question}",
+                                          style: TextStyle(
+                                              height: 1.1,
+                                              color: Color.fromARGB(
+                                                  255, 38, 38, 38),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      )
+                                    ]),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Text(
-                                      "${questionRegister[index].answer2}"),
-                                  dense: true,
-                                  visualDensity: VisualDensity(vertical: -3),
-                                  leading: Radio<SingingCharacter>(
-                                    value: SingingCharacter.btn2,
-                                    groupValue: _character,
-                                    onChanged: (SingingCharacter? value) {
-                                      setState(() {
-                                        _character = value;
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )));
-            }),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: question2.length,
-            itemBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                  child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 0.8,
-                          color: Color.fromARGB(255, 52, 50, 50),
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.009,
-                            ),
-                            child: Row(children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 5, vertical: 15),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 182, 27, 45),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30.0)),
-                                  ),
-                                  width: width * 0.065,
-                                  height: width * 0.065,
-                                  child: Center(
-                                      child: Text(
-                                    "${question2[index].numberQuestion}",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        fontWeight: FontWeight.w600),
-                                  )),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 15, horizontal: 10),
-                                width: width * 0.7,
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  "${question2[index].question}",
-                                  style: TextStyle(
-                                      height: 1.1,
-                                      color: Color.fromARGB(255, 38, 38, 38),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              )
-                            ]),
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.01,
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    itemCount: question2[index].answers.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Container(
-                                        child: Row(children: [
-                                          Checkbox(
-                                            checkColor: Colors.white,
-                                            fillColor: MaterialStateProperty
-                                                .resolveWith(getColor),
-                                            value: isChecked,
-                                            onChanged: (bool? value) {
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.01,
+                                    ),
+                                    height: height * 0.11,
+                                    child: Column(
+                                      children: <Widget>[
+                                        ListTile(
+                                          title: Text(
+                                              "${questionRegister[index].answer1}"),
+                                          dense: true,
+                                          visualDensity:
+                                              VisualDensity(vertical: -3),
+                                          leading: Radio<SingingCharacter>(
+                                            value: SingingCharacter.btn1,
+                                            groupValue: _character,
+                                            onChanged:
+                                                (SingingCharacter? value) {
                                               setState(() {
-                                                isChecked = value!;
+                                                _character = value;
                                               });
                                             },
                                           ),
-                                          Container(
-                                            child: Text("Anser"),
-                                          )
-                                        ]),
-                                      );
-                                    })
-                              ],
-                            ),
-                          ),
-                        ],
-                      )));
-            }),
-        GestureDetector(
-          onTap: () {
-            GoRouter.of(context)
-                .pushNamed(MyAppRouteConstants.donation3RouteName);
-          },
-          child: Container(
-              margin: EdgeInsets.only(top: 5, bottom: 5),
-              height: height * 0.054,
-              width: width * 0.86,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 182, 27, 45),
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              ),
-              child: Center(
-                child: Text(
-                  "Đăng kí",
-                  style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
-                ),
-              )),
-        )
-      ]),
-    )));
+                                        ),
+                                        ListTile(
+                                          title: Text(
+                                              "${questionRegister[index].answer2}"),
+                                          dense: true,
+                                          visualDensity:
+                                              VisualDensity(vertical: -3),
+                                          leading: Radio<SingingCharacter>(
+                                            value: SingingCharacter.btn2,
+                                            groupValue: _character,
+                                            onChanged:
+                                                (SingingCharacter? value) {
+                                              setState(() {
+                                                _character = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )));
+                    }),
+                ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: question2.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                          child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 5),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 0.8,
+                                  color: Color.fromARGB(255, 52, 50, 50),
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.009,
+                                    ),
+                                    child: Row(children: [
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 15),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color.fromARGB(
+                                                255, 182, 27, 45),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30.0)),
+                                          ),
+                                          width: width * 0.065,
+                                          height: width * 0.065,
+                                          child: Center(
+                                              child: Text(
+                                            "${question2[index].numberQuestion}",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color.fromARGB(
+                                                    255, 255, 255, 255),
+                                                fontWeight: FontWeight.w600),
+                                          )),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 15, horizontal: 10),
+                                        width: width * 0.7,
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
+                                          "${question2[index].question}",
+                                          style: TextStyle(
+                                              height: 1.1,
+                                              color: Color.fromARGB(
+                                                  255, 38, 38, 38),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      )
+                                    ]),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.01,
+                                    ),
+                                    child: Column(
+                                      children: <Widget>[
+                                        ListView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            scrollDirection: Axis.vertical,
+                                            shrinkWrap: true,
+                                            itemCount:
+                                                question2[index].answers.length,
+                                            itemBuilder: (BuildContext context,
+                                                int index) {
+                                              return Container(
+                                                child: Row(children: [
+                                                  Checkbox(
+                                                    checkColor: Colors.white,
+                                                    fillColor:
+                                                        MaterialStateProperty
+                                                            .resolveWith(
+                                                                getColor),
+                                                    value: isChecked,
+                                                    onChanged: (bool? value) {
+                                                      setState(() {
+                                                        isChecked = value!;
+                                                      });
+                                                    },
+                                                  ),
+                                                  Container(
+                                                    child: Text("Anser"),
+                                                  )
+                                                ]),
+                                              );
+                                            })
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )));
+                    }),
+                GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context)
+                        .pushNamed(MyAppRouteConstants.donation3RouteName);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.only(top: 5, bottom: 5),
+                      height: height * 0.054,
+                      width: width * 0.86,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 182, 27, 45),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Đăng kí",
+                          style: TextStyle(
+                              color: Color.fromARGB(252, 225, 225, 225)),
+                        ),
+                      )),
+                )
+              ]),
+            )));
   }
 }
