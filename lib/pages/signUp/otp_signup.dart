@@ -1,21 +1,21 @@
-import 'package:bloody/screens/screen2.dart';
+// ignore_for_file: prefer_const_constructors
+
+import 'package:bloody/screens/otp_login/constains.dart';
+import 'package:bloody/screens/otp_login/size_config.dart';
+import 'package:bloody/screens/signUp/signup_info.dart';
+import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/button.dart';
-import '../otp_screen/constains.dart';
-import '../otp_screen/size_config.dart';
-import '../screen1/screen1.dart';
-
-class OtpForm1 extends StatefulWidget {
-  const OtpForm1({
+class OtpForm extends StatefulWidget {
+  const OtpForm({
     Key? key,
   }) : super(key: key);
 
   @override
-  _OtpFormState1 createState() => _OtpFormState1();
+  _OtpFormState createState() => _OtpFormState();
 }
 
-class _OtpFormState1 extends State<OtpForm1> {
+class _OtpFormState extends State<OtpForm> {
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
@@ -50,7 +50,9 @@ class _OtpFormState1 extends State<OtpForm1> {
           SizedBox(height: 40),
           Row(
             children: [
-              SizedBox(width: 40,),
+              SizedBox(
+                width: 40,
+              ),
               SizedBox(
                 width: getProportionateScreenWidth(50),
                 child: TextFormField(
@@ -65,7 +67,9 @@ class _OtpFormState1 extends State<OtpForm1> {
                   },
                 ),
               ),
-              SizedBox(width: 20,),
+              SizedBox(
+                width: 20,
+              ),
               SizedBox(
                 width: getProportionateScreenWidth(50),
                 child: TextFormField(
@@ -78,7 +82,9 @@ class _OtpFormState1 extends State<OtpForm1> {
                   onChanged: (value) => nextField(value, pin3FocusNode),
                 ),
               ),
-              SizedBox(width: 20,),
+              SizedBox(
+                width: 20,
+              ),
               SizedBox(
                 width: getProportionateScreenWidth(50),
                 child: TextFormField(
@@ -91,7 +97,9 @@ class _OtpFormState1 extends State<OtpForm1> {
                   onChanged: (value) => nextField(value, pin4FocusNode),
                 ),
               ),
-              SizedBox(width: 20,),
+              SizedBox(
+                width: 20,
+              ),
               SizedBox(
                 width: getProportionateScreenWidth(50),
                 child: TextFormField(
@@ -116,9 +124,12 @@ class _OtpFormState1 extends State<OtpForm1> {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () => {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Screen2())),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpInfo()),
+              ),
             },
-            child:const Text(
+            child: const Text(
               "Tiếp tục",
               style: TextStyle(
                   fontWeight: FontWeight.w400,

@@ -57,7 +57,7 @@ pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
 add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
 
 # Define the application target. To change its name, change BINARY_NAME above,
-# not the value here, or `flutter run` will no longer work.
+# not the value here, or `flutter run` will no maper work.
 #
 # Any new source files that you add to the application should be added here.
 add_executable(${BINARY_NAME}

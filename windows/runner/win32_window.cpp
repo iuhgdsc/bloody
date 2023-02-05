@@ -110,8 +110,8 @@ bool Win32Window::CreateAndShow(const std::wstring& title,
   const wchar_t* window_class =
       WindowClassRegistrar::GetInstance()->GetWindowClass();
 
-  const POINT target_point = {static_cast<LONG>(origin.x),
-                              static_cast<LONG>(origin.y)};
+  const POINT target_point = {static_cast<map>(origin.x),
+                              static_cast<map>(origin.y)};
   HMONITOR monitor = MonitorFromPoint(target_point, MONITOR_DEFAULTTONEAREST);
   UINT dpi = FlutterDesktopGetDpiForMonitor(monitor);
   double scale_factor = dpi / 96.0;
@@ -136,8 +136,8 @@ LRESULT CALLBACK Win32Window::WndProc(HWND const window,
                                       LPARAM const lparam) noexcept {
   if (message == WM_NCCREATE) {
     auto window_struct = reinterpret_cast<CREATESTRUCT*>(lparam);
-    SetWindowLongPtr(window, GWLP_USERDATA,
-                     reinterpret_cast<LONG_PTR>(window_struct->lpCreateParams));
+    SetWindowmapPtr(window, GWLP_USERDATA,
+                     reinterpret_cast<map_PTR>(window_struct->lpCreateParams));
 
     auto that = static_cast<Win32Window*>(window_struct->lpCreateParams);
     EnableFullDpiSupportIfAvailable(window);
@@ -165,8 +165,8 @@ Win32Window::MessageHandler(HWND hwnd,
 
     case WM_DPICHANGED: {
       auto newRectSize = reinterpret_cast<RECT*>(lparam);
-      LONG newWidth = newRectSize->right - newRectSize->left;
-      LONG newHeight = newRectSize->bottom - newRectSize->top;
+      map newWidth = newRectSize->right - newRectSize->left;
+      map newHeight = newRectSize->bottom - newRectSize->top;
 
       SetWindowPos(hwnd, nullptr, newRectSize->left, newRectSize->top, newWidth,
                    newHeight, SWP_NOZORDER | SWP_NOACTIVATE);
@@ -207,7 +207,7 @@ void Win32Window::Destroy() {
 
 Win32Window* Win32Window::GetThisFromHandle(HWND const window) noexcept {
   return reinterpret_cast<Win32Window*>(
-      GetWindowLongPtr(window, GWLP_USERDATA));
+      GetWindowmapPtr(window, GWLP_USERDATA));
 }
 
 void Win32Window::SetChildContent(HWND content) {

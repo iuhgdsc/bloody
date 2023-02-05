@@ -7,14 +7,14 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.5"
+    version: "3.3.6"
   args:
     dependency: transitive
     description:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   async:
     dependency: transitive
     description:
@@ -30,7 +30,7 @@ packages:
     source: hosted
     version: "2.1.0"
   carousel_slider:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: carousel_slider
       url: "https://pub.dartlang.org"
@@ -98,19 +98,26 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_lints:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_markdown:
+    dependency: "direct main"
+    description:
+      name: flutter_markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.13"
   flutter_native_splash:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.16"
+    version: "2.2.17"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -121,6 +128,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "10.3.0"
   html:
     dependency: transitive
     description:
@@ -134,7 +148,7 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.0"
+    version: "4.0.13"
   js:
     dependency: transitive
     description:
@@ -149,6 +163,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  markdown:
+    dependency: transitive
+    description:
+      name: markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.1"
   matcher:
     dependency: transitive
     description:
@@ -274,5 +295,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.18.5 <3.0.0"
-  flutter: ">=2.5.0"
+  dart: ">=2.18.4 <3.0.0"
+  flutter: ">=3.0.0"
