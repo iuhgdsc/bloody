@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class QRCode extends StatelessWidget {
   QRCode({Key? key}) : super(key: key);
   static String routeName = "/success";
-  //init user object
+
   User user = User(
     name: "Nguyễn Việt Hoàng",
     birthday: DateTime(2000, 08, 15),
@@ -16,191 +14,195 @@ class QRCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          title: const Text(
-            "Mã QR của bạn",
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/register_success.png"),
-              fit: BoxFit.cover,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            leading: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
             ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 38,
+            title: const Text(
+              "Mã QR của bạn",
+              style: TextStyle(
+                color: Colors.black,
               ),
-              Center(
-                child: Image.asset(
-                  "assets/images/qrcode.png",
-                  height: 225,
-                  width: 225,
+            ),
+            centerTitle: true,
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/register_success.png"),
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(
-                height: 100,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text(
-                  "Thông tin cá nhân",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 38,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 20, right: 20),
-                height: 180,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(9),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Icon(
-                              Icons.account_circle_sharp,
-                              color: Color(0xFF79747E),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  Center(
+                    child: Image.asset(
+                      "assets/images/qrcode.png",
+                      height: 225,
+                      width: 225,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "Thông tin cá nhân",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    height: 180,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(9),
+                          child: Row(
                             children: [
-                              Text("Họ tên",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xFF79747E))),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                user.name,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Icon(
+                                  Icons.account_circle_sharp,
+                                  color: Color(0xFF79747E),
                                 ),
                               ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Họ tên",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Color(0xFF79747E))),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    user.name,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider(
-                      color: Colors.black,
-                      thickness: 1,
-                      height: 4,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(9),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Icon(
-                              Icons.calendar_month_rounded,
-                              color: Color(0xFF79747E),
-                            ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                        Divider(
+                          color: Colors.black,
+                          thickness: 1,
+                          height: 4,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(9),
+                          child: Row(
                             children: [
-                              Text("Ngày sinh",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xFF79747E))),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                user.birthday.compareTo(DateTime.now()) > 0
-                                    ? "Chưa cập nhật"
-                                    : "${user.birthday.day}/"
-                                        '0'
-                                        "${user.birthday.month}/${user.birthday.year}",
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Icon(
+                                  Icons.calendar_month_rounded,
+                                  color: Color(0xFF79747E),
                                 ),
                               ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Ngày sinh",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Color(0xFF79747E))),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    user.birthday.compareTo(DateTime.now()) > 0
+                                        ? "Chưa cập nhật"
+                                        : "${user.birthday.day}/"
+                                            '0'
+                                            "${user.birthday.month}/${user.birthday.year}",
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider(
-                      color: Colors.black,
-                      thickness: 1,
-                      height: 4,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(9),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Icon(
-                              //can't find the icon like the design
-                              Icons.perm_identity,
-                              color: Color(0xFF79747E),
-                            ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                        Divider(
+                          color: Colors.black,
+                          thickness: 1,
+                          height: 4,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(9),
+                          child: Row(
                             children: [
-                              Text("Số CMND/CCCD",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xFF79747E))),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                user.id,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Icon(
+                                  Icons.perm_identity,
+                                  color: Color(0xFF79747E),
                                 ),
                               ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Số CMND/CCCD",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Color(0xFF79747E))),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    user.id,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          )),
     );
   }
 }
 
-//move to model folder and create user.dart file
 class User {
   String name;
   DateTime birthday;

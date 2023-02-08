@@ -2,7 +2,6 @@ import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/Register/Question.dart';
 import 'package:bloody/model/Register/QuestionRegister.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:go_router/go_router.dart';
 
 enum SingingCharacter { btn1, btn2 }
