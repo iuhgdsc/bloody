@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:bloody/pages/signUp/signup.dart';
 import 'package:bloody/screens/signUp/signup_info.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';

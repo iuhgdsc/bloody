@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:bloody/pages/otp_login.dart';
+import 'package:bloody/screens/otp_login.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';

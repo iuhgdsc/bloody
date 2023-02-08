@@ -1,5 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
-
+import 'package:bloody/widgets/HomeEventBottom/HE_Screen1.dart';
 import 'package:flutter/material.dart';
 
 class HomeEventBottomOf extends StatefulWidget {
@@ -15,182 +14,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
-    Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "Đêm trước hiến máu không nên thức quá khuya(ngủ ít nhất 6 tiếng).",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "Nên ăn nhẹ, KHÔN ăn các loại đồ ăn có nhiều đạm, nhiều mỡ.",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "KHÔNG uống rượu, bia.",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "Chuẩn bị tâm lý thực sự thoải mái.",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "Mang theo giấy tờ tùy thân.",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "\u2022",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text(
-                "Uống nhiều nước.",
-                maxLines: 4,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
+    HE_Screen1(),
     Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -509,49 +333,37 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 182, 27, 45),
-          appBar: AppBar(
             backgroundColor: Color.fromARGB(255, 182, 27, 45),
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            title: Container(
-              margin: const EdgeInsets.only(top: 6),
-              child: TabBar(
-                onTap: _onItemTapped,
-                indicatorColor: Color.fromARGB(255, 181, 25, 43),
-                unselectedLabelColor: Color.fromARGB(255, 166, 166, 166),
-                labelColor: Color.fromARGB(255, 255, 255, 255),
-                tabs: const [
-                  Tab(
-                    text: 'Trước khi\nhiến máu',
-                  ),
-                  Tab(
-                    text: 'Sau khi\nhiến máu',
-                  ),
-                  Tab(
-                    text: 'Thông tin]\nnhóm máu',
-                  ),
-                ],
+            appBar: AppBar(
+              backgroundColor: Color.fromARGB(255, 182, 27, 45),
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              title: Container(
+                margin: const EdgeInsets.only(top: 6),
+                child: TabBar(
+                  onTap: _onItemTapped,
+                  indicatorColor: Color.fromARGB(255, 181, 25, 43),
+                  unselectedLabelColor: Color.fromARGB(255, 166, 166, 166),
+                  labelColor: Color.fromARGB(255, 255, 255, 255),
+                  tabs: const [
+                    Tab(
+                      text: 'Trước khi\nhiến máu',
+                    ),
+                    Tab(
+                      text: 'Sau khi\nhiến máu',
+                    ),
+                    Tab(
+                      text: 'Thông tin]\nnhóm máu',
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          body: Container(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  blurRadius: 7,
-                  offset: const Offset(0, 3), // changes position of shadow
-                ),
-              ],
-            ),
-            child: body.elementAt(_currentIndex),
-          ),
-        ),
+            body: Container(
+              child: Container(
+                child: body.elementAt(_currentIndex),
+              ),
+            )),
       ),
     );
   }

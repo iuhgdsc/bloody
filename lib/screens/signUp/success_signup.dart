@@ -1,5 +1,5 @@
-import 'package:bloody/pages/signUp/auth_face_signup.dart';
-import 'package:bloody/pages/home.dart';
+import 'package:bloody/screens/signUp/auth_face_signup.dart';
+import 'package:bloody/screens/home.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 

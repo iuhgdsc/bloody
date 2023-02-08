@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-import 'package:bloody/pages/Home.dart';
+import 'package:bloody/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class Person extends StatefulWidget {
@@ -28,7 +27,7 @@ class _PersonState extends State<Person> {
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Home()),
+                      MaterialPageRoute(builder: (context) => Home()),
                     ),
                   },
                   icon: const Icon(

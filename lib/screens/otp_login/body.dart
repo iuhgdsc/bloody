@@ -1,7 +1,7 @@
 import 'package:bloody/screens/otp_login/size_config.dart';
 import 'package:flutter/material.dart';
 
-import '../../pages/login.dart';
+import '../../screens/login.dart';
 import 'otp_form.dart';
 
 class Body extends StatelessWidget {

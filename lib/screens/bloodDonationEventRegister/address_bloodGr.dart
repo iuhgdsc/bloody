@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:bloody/screens/donation/qa.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:flutter/material.dart';
 
 class AddressBloodGr extends StatefulWidget {

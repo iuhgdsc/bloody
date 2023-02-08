@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
-
 import 'dart:async';
 
 import 'package:bloody/model/Center_Blood.dart';
-import 'package:bloody/screens/donation/address_bloodGr.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_bloodGr.dart';
 import 'package:bloody/widgets/CPN_HomeEventHeader.dart';
 import 'package:bloody/widgets/HomeEvent_BottomOf.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +60,13 @@ class _Event extends State<Event> with WidgetsBindingObserver {
         _currentPage--;
       }
 
-      if (_pageController.hasClients) {}
+      if (_pageController.hasClients) {
+        var animateToPage = _pageController.animateToPage(
+          _currentPage,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
+      }
     });
   }
 
@@ -73,7 +77,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CPNHomeEventHeader(),
+          CPN_HomeEventHeader(),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 5),
             height: height * 0.23,
@@ -104,19 +108,14 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                           height: height * 0.15,
                           child: Row(
                             children: [
-                              // Container(
-                              //   width: width * 0.25,
-                              //   height: height * 0.17,
-                              //   padding: EdgeInsets.symmetric(vertical: 11),
-                              //   alignment: Alignment.topCenter,
-                              //   child: Image(
-                              //       image:
-                              //           AssetImage(center_bloods[index].image)),
-                              // ),
-                              Image.asset(
-                                "assets/images/huyethoc.png",
-                                width: 100,
-                                height: 100,
+                              Container(
+                                width: width * 0.25,
+                                height: height * 0.17,
+                                padding: EdgeInsets.symmetric(vertical: 11),
+                                alignment: Alignment.topCenter,
+                                child: Image(
+                                    image:
+                                        AssetImage(center_bloods[index].image)),
                               ),
                               Container(
                                 width: width * 0.59,
@@ -208,40 +207,35 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                             ],
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: const BoxDecoration(
-                            //color transparent
-                            color: Colors.transparent,
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {
+                        GestureDetector(
+                            onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => AddressBloodGr()),
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFED1A1A),
-                              minimumSize: const Size(double.infinity, 40),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
-                              ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "Đăng ký",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                              height: height * 0.08 - 3,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: width * 0.035, vertical: 9),
+                              child: Container(
+                                  height: 50,
+                                  width: width * 1,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 182, 27, 45),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Tham gia",
+                                      style: TextStyle(
+                                          color: Color.fromARGB(
+                                              252, 225, 225, 225)),
+                                    ),
+                                  )),
+                            ))
                       ],
                     ),
                   ));

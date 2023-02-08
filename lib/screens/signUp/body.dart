@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:bloody/screens/otp_login/otp_form.dart';
 import 'package:bloody/screens/otp_login/size_config.dart';
 import 'package:flutter/material.dart';
 
-import '../../pages/login.dart';
+import '../../screens/login.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
