@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Positioned(
                     child: Container(
-                      margin: EdgeInsets.only(top: 67),
+                      margin: const EdgeInsets.only(top: 67),
                       width: double.maxFinite,
                       child: CarouselSlider.builder(
                         itemCount: urlImages.length,
@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
                           reverse: false,
                           autoPlay: true,
                           autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
+                              const Duration(milliseconds: 800),
                           autoPlayCurve: Curves.decelerate,
                           enlargeCenterPage: true,
                           scrollDirection: Axis.horizontal,
@@ -93,7 +93,7 @@ class _LoginState extends State<Login> {
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => OtpLogin()),
+                    MaterialPageRoute(builder: (context) => const OtpLogin()),
                   ),
                 },
                 child: const Text(
