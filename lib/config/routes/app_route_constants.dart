@@ -1,7 +1,8 @@
 class MyAppRouteConstants {
+  static const String loginRouteName = 'login';
   static const String homeRouteName = 'home';
-  static const String donation1RouteName = 'Donation1';
-  static const String donation2RouteName = 'Donation2';
-  static const String donation3RouteName = 'Donation3';
+  static const String donation1RouteName = 'AddressBloodGr';
+  static const String donation2RouteName = 'QA';
+  static const String donation3RouteName = 'SuccessRegister';
   static const String searchAdvancedRouteName = 'SearchAdvanced';
 }

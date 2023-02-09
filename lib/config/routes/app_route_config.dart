@@ -1,41 +1,41 @@
 import 'package:bloody/config/routes/app_route_constants.dart';
-import 'package:bloody/pages/BloodDonationEventRegister/Donation3.dart';
-import 'package:bloody/pages/Home.dart';
-import 'package:bloody/pages/SearchAdvace/SearchAdvanced.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_bloodGr.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
+import 'package:bloody/screens/login.dart';
+import 'package:bloody/screens/searchAdvance/searchAdvance.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:bloody/pages/BloodDonationEventRegister/Donation1.dart';
-import 'package:bloody/pages/BloodDonationEventRegister/Donation2.dart';
 
 class NyAppRouter {
   GoRouter router = GoRouter(
     routes: [
       GoRoute(
-        name: MyAppRouteConstants.homeRouteName,
+        name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          return MaterialPage(child: Home());
+          return MaterialPage(child: Login());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation1RouteName,
-        path: '/Donation1',
+        path: '/AddressBloodGr',
         pageBuilder: (context, state) {
-          return MaterialPage(child: Donation1());
+          return MaterialPage(child: AddressBloodGr());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation2RouteName,
-        path: '/Donation2',
+        path: '/QA',
         pageBuilder: (context, state) {
-          return MaterialPage(child: Donation2());
+          return MaterialPage(child: QA());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation3RouteName,
-        path: '/Donation3',
+        path: '/SuccessRegister',
         pageBuilder: (context, state) {
-          return MaterialPage(child: Donation3());
+          return MaterialPage(child: SuccessRegister());
         },
       ),
       GoRoute(
@@ -55,5 +55,4 @@ class NyAppRouter {
       ));
     },
   );
-  // return router;
 }

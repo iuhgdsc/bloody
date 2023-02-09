@@ -30,8 +30,8 @@ class _HE_Screen1 extends State<HE_Screen1> with WidgetsBindingObserver {
                   color: Color.fromRGBO(255, 255, 255, 1),
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),
                 ),
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                padding: EdgeInsets.symmetric(vertical: 15),
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
                 child: ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
@@ -41,11 +41,11 @@ class _HE_Screen1 extends State<HE_Screen1> with WidgetsBindingObserver {
                       return Container(
                           padding:
                               EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                          child: Text(" ● " + "${notes[index]}",
+                          child: Text(" ●  " + "${notes[index]}",
                               style: TextStyle(
                                   height: 1.3,
-                                  color: Color.fromARGB(255, 31, 31, 31),
-                                  fontSize: 17,
+                                  color: Color.fromARGB(255, 1, 1, 1),
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w400)));
                     }),
               ),

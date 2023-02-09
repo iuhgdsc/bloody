@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Center_Blood {
+class CenterBlood {
   final String id;
   final String name;
   final String image;
@@ -8,7 +8,7 @@ class Center_Blood {
   final DateTime date;
   bool isJoined = false;
 
-  Center_Blood(
+  CenterBlood(
       {required this.id,
       required this.name,
       required this.image,

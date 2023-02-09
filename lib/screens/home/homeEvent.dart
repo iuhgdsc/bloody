@@ -1,8 +1,10 @@
-import 'package:bloody/pages/HomeEvent_Emergency.dart';
-import 'package:bloody/pages/HomeEvent_Page1.dart';
+import 'package:bloody/screens/home/event.dart';
 import 'package:flutter/material.dart';
+import 'emergency.dart';
 
 class HomeEvent extends StatefulWidget {
+  const HomeEvent({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _HomeEvent();
@@ -10,10 +12,27 @@ class HomeEvent extends StatefulWidget {
 }
 
 class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
+  final FocusNode _focus = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _focus.removeListener(_onFocusChange);
+    _focus.dispose();
+  }
+
+  void _onFocusChange() {}
+
   int _currentIndex = 0;
   List<Widget> body = [
-    HomeEvent_Page1(),
-    HomeEvent_Emergency(),
+    const Event(),
+    const Emergency(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -30,15 +49,16 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
-            appBar: AppBar(
-                title: Container(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Container(
               margin: const EdgeInsets.only(top: 6),
               child: TabBar(
                 onTap: _onItemTapped,
                 indicatorColor: Color.fromARGB(255, 182, 27, 45),
                 unselectedLabelColor: Color.fromARGB(255, 111, 107, 107),
                 labelColor: Color.fromARGB(255, 182, 27, 45),
-                tabs: [
+                tabs: const [
                   Tab(
                     text: 'Sự kiện',
                   ),
@@ -47,12 +67,12 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
                   ),
                 ],
               ),
-            )),
-            body: Container(
-              child: Center(
-                child: body.elementAt(_currentIndex),
-              ),
-            )),
+            ),
+          ),
+          body: Center(
+            child: body.elementAt(_currentIndex),
+          ),
+        ),
       ),
     );
   }

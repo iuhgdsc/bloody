@@ -174,7 +174,7 @@ class _EmergencyBoodDonation_Details
                 child: Image(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    'assets/MapOfBD.png',
+                    'assets/map.png',
                   ),
                   opacity: const AlwaysStoppedAnimation(1),
                 ),

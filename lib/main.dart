@@ -1,19 +1,19 @@
-import 'package:bloody/config/routes/app_route_config.dart';
-import 'package:bloody/pages/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme(
+        colorScheme: const ColorScheme(
           brightness: Brightness.light,
           primary: Color.fromARGB(255, 255, 255, 255),
           onPrimary: Color.fromARGB(255, 255, 255, 255),
@@ -27,11 +27,8 @@ class MyApp extends StatelessWidget {
           onError: Colors.grey,
         ),
       ),
-
       routeInformationParser: NyAppRouter().router.routeInformationParser,
       routerDelegate: NyAppRouter().router.routerDelegate,
-
-      // home: Home(),
     );
   }
 }
