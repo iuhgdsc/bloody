@@ -16,7 +16,7 @@ class Event extends StatefulWidget {
 }
 
 class _Event extends State<Event> with WidgetsBindingObserver {
-  List<CenterBlood> center_bloods = [
+  List<CenterBlood> centerBloods = [
     CenterBlood(
         id: "1",
         name: "Trung tâm Truyền máu Chợ Rẫy",
@@ -83,7 +83,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
             height: height * 0.23,
             child: PageView.builder(
                 controller: _pageController,
-                itemCount: center_bloods.length,
+                itemCount: centerBloods.length,
                 itemBuilder: (context, index) {
                   return SizedBox(
                       child: Container(
@@ -115,7 +115,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                 alignment: Alignment.topCenter,
                                 child: Image(
                                     image:
-                                        AssetImage(center_bloods[index].image)),
+                                        AssetImage(centerBloods[index].image)),
                               ),
                               Container(
                                 width: width * 0.59,
@@ -130,7 +130,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                           left: width * 0.01),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        center_bloods[index].name,
+                                        centerBloods[index].name,
                                         style: TextStyle(
                                             color:
                                                 Color.fromARGB(255, 38, 38, 38),
@@ -159,7 +159,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                             alignment: Alignment.topLeft,
                                             width: width * 0.47,
                                             child: Text(
-                                              center_bloods[index].address,
+                                              centerBloods[index].address,
                                               style: TextStyle(
                                                 fontSize: 13,
                                                 color: Color.fromARGB(
@@ -190,7 +190,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                             alignment: Alignment.centerLeft,
                                             width: width * 0.47,
                                             child: Text(
-                                              "${center_bloods[index].date}",
+                                              "${centerBloods[index].date}",
                                               style: TextStyle(
                                                 fontSize: 13,
                                                 color: Color.fromARGB(

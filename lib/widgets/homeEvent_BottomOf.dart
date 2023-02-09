@@ -44,7 +44,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -73,7 +73,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -102,7 +102,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -131,7 +131,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Column(
@@ -162,7 +162,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -257,7 +257,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -286,7 +286,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -328,23 +328,28 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Container(
-      margin: EdgeInsets.only(top: 15),
+      margin: const EdgeInsets.only(top: 15),
       height: height * 0.6,
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
-            backgroundColor: Color.fromARGB(255, 182, 27, 45),
+            backgroundColor: const Color.fromARGB(255, 182, 27, 45),
             appBar: AppBar(
-              backgroundColor: Color.fromARGB(255, 182, 27, 45),
+              backgroundColor: const Color.fromARGB(255, 182, 27, 45),
               elevation: 0,
               automaticallyImplyLeading: false,
               title: Container(
                 margin: const EdgeInsets.only(top: 6),
                 child: TabBar(
                   onTap: _onItemTapped,
-                  indicatorColor: Color.fromARGB(255, 181, 25, 43),
-                  unselectedLabelColor: Color.fromARGB(255, 166, 166, 166),
-                  labelColor: Color.fromARGB(255, 255, 255, 255),
+                  indicatorColor: const Color.fromARGB(255, 181, 25, 43),
+                  unselectedLabelColor:
+                      const Color.fromARGB(255, 166, 166, 166),
+                  labelColor: const Color.fromARGB(255, 255, 255, 255),
+                  labelStyle: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                  ),
                   tabs: const [
                     Tab(
                       text: 'Trước khi\nhiến máu',
@@ -353,7 +358,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
                       text: 'Sau khi\nhiến máu',
                     ),
                     Tab(
-                      text: 'Thông tin]\nnhóm máu',
+                      text: 'Thông tin\nnhóm máu',
                     ),
                   ],
                 ),

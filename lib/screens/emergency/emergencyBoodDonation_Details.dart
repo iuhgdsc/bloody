@@ -4,6 +4,8 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:go_router/go_router.dart';
 
 class EmergencyBoodDonation_Details extends StatefulWidget {
+  const EmergencyBoodDonation_Details({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _EmergencyBoodDonation_Details();
