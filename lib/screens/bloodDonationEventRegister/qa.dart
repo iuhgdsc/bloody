@@ -1,12 +1,14 @@
 import 'package:bloody/config/routes/app_route_constants.dart';
-import 'package:bloody/model/Register/Question.dart';
-import 'package:bloody/model/Register/QuestionRegister.dart';
+import 'package:bloody/model/Register/question.dart';
+import 'package:bloody/model/Register/question_register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 enum SingingCharacter { btn1, btn2 }
 
 class QA extends StatefulWidget {
+  const QA({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _QA();
@@ -72,9 +74,9 @@ class _QA extends State<QA> with WidgetsBindingObserver {
         MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
-        return Color.fromARGB(255, 222, 120, 97);
+        return const Color.fromARGB(255, 222, 120, 97);
       }
-      return Color.fromARGB(255, 202, 46, 35);
+      return const Color.fromARGB(255, 202, 46, 35);
     }
 
     double height = MediaQuery.of(context).size.height;
@@ -82,19 +84,19 @@ class _QA extends State<QA> with WidgetsBindingObserver {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              iconTheme: IconThemeData(
+              iconTheme: const IconThemeData(
                 color: Color.fromARGB(255, 16, 16, 16),
               ),
               titleSpacing: 0.0,
               elevation: 0.0,
-              backgroundColor: Color.fromARGB(255, 247, 247, 247),
-              title: Container(
+              backgroundColor: const Color.fromARGB(255, 247, 247, 247),
+              title: SizedBox(
                 height: height * 0.055,
                 child: Row(children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(right: 23),
-                      child: Center(
+                      margin: const EdgeInsets.only(right: 23),
+                      child: const Center(
                           child: Text("Câu hỏi lọc hồ sơ",
                               style: TextStyle(
                                   fontSize: 18,
@@ -107,11 +109,11 @@ class _QA extends State<QA> with WidgetsBindingObserver {
             ),
             body: SingleChildScrollView(
               child: Column(children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: questionRegister.length,
@@ -123,10 +125,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 0.8,
-                                  color: Color.fromARGB(255, 52, 50, 50),
+                                  color: const Color.fromARGB(255, 52, 50, 50),
                                 ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.0)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10.0)),
                               ),
                               child: Column(
                                 children: [
@@ -136,10 +138,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     ),
                                     child: Row(children: [
                                       Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             horizontal: 5, vertical: 15),
                                         child: Container(
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color.fromARGB(
                                                 255, 182, 27, 45),
                                             borderRadius: BorderRadius.all(
@@ -149,8 +151,9 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                           height: width * 0.065,
                                           child: Center(
                                               child: Text(
-                                            "${questionRegister[index].numberQuestion}",
-                                            style: TextStyle(
+                                            questionRegister[index]
+                                                .numberQuestion,
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 color: Color.fromARGB(
                                                     255, 255, 255, 255),
@@ -159,13 +162,13 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                         ),
                                       ),
                                       Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             vertical: 15, horizontal: 10),
                                         width: width * 0.7,
                                         alignment: Alignment.topLeft,
                                         child: Text(
-                                          "${questionRegister[index].question}",
-                                          style: TextStyle(
+                                          questionRegister[index].question,
+                                          style: const TextStyle(
                                               height: 1.1,
                                               color: Color.fromARGB(
                                                   255, 38, 38, 38),
@@ -184,10 +187,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                       children: <Widget>[
                                         ListTile(
                                           title: Text(
-                                              "${questionRegister[index].answer1}"),
+                                              questionRegister[index].answer1),
                                           dense: true,
                                           visualDensity:
-                                              VisualDensity(vertical: -3),
+                                              const VisualDensity(vertical: -3),
                                           leading: Radio<SingingCharacter>(
                                             value: SingingCharacter.btn1,
                                             groupValue: _character,
@@ -201,10 +204,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                         ),
                                         ListTile(
                                           title: Text(
-                                              "${questionRegister[index].answer2}"),
+                                              questionRegister[index].answer2),
                                           dense: true,
                                           visualDensity:
-                                              VisualDensity(vertical: -3),
+                                              const VisualDensity(vertical: -3),
                                           leading: Radio<SingingCharacter>(
                                             value: SingingCharacter.btn2,
                                             groupValue: _character,
@@ -223,7 +226,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                               )));
                     }),
                 ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: question2.length,
@@ -235,10 +238,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 0.8,
-                                  color: Color.fromARGB(255, 52, 50, 50),
+                                  color: const Color.fromARGB(255, 52, 50, 50),
                                 ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.0)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10.0)),
                               ),
                               child: Column(
                                 children: [
@@ -248,10 +251,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     ),
                                     child: Row(children: [
                                       Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             horizontal: 5, vertical: 15),
                                         child: Container(
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color.fromARGB(
                                                 255, 182, 27, 45),
                                             borderRadius: BorderRadius.all(
@@ -261,8 +264,8 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                           height: width * 0.065,
                                           child: Center(
                                               child: Text(
-                                            "${question2[index].numberQuestion}",
-                                            style: TextStyle(
+                                            question2[index].numberQuestion,
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 color: Color.fromARGB(
                                                     255, 255, 255, 255),
@@ -271,13 +274,13 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                         ),
                                       ),
                                       Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             vertical: 15, horizontal: 10),
                                         width: width * 0.7,
                                         alignment: Alignment.topLeft,
                                         child: Text(
-                                          "${question2[index].question}",
-                                          style: TextStyle(
+                                          question2[index].question,
+                                          style: const TextStyle(
                                               height: 1.1,
                                               color: Color.fromARGB(
                                                   255, 38, 38, 38),
@@ -295,33 +298,29 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                       children: <Widget>[
                                         ListView.builder(
                                             physics:
-                                                NeverScrollableScrollPhysics(),
+                                                const NeverScrollableScrollPhysics(),
                                             scrollDirection: Axis.vertical,
                                             shrinkWrap: true,
                                             itemCount:
                                                 question2[index].answers.length,
                                             itemBuilder: (BuildContext context,
                                                 int index) {
-                                              return Container(
-                                                child: Row(children: [
-                                                  Checkbox(
-                                                    checkColor: Colors.white,
-                                                    fillColor:
-                                                        MaterialStateProperty
-                                                            .resolveWith(
-                                                                getColor),
-                                                    value: isChecked,
-                                                    onChanged: (bool? value) {
-                                                      setState(() {
-                                                        isChecked = value!;
-                                                      });
-                                                    },
-                                                  ),
-                                                  Container(
-                                                    child: Text("Anser"),
-                                                  )
-                                                ]),
-                                              );
+                                              return Row(children: [
+                                                Checkbox(
+                                                  checkColor: Colors.white,
+                                                  fillColor:
+                                                      MaterialStateProperty
+                                                          .resolveWith(
+                                                              getColor),
+                                                  value: isChecked,
+                                                  onChanged: (bool? value) {
+                                                    setState(() {
+                                                      isChecked = value!;
+                                                    });
+                                                  },
+                                                ),
+                                                const Text("Anser")
+                                              ]);
                                             })
                                       ],
                                     ),
@@ -335,14 +334,14 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                         .pushNamed(MyAppRouteConstants.donation3RouteName);
                   },
                   child: Container(
-                      margin: EdgeInsets.only(top: 5, bottom: 5),
+                      margin: const EdgeInsets.only(top: 5, bottom: 5),
                       height: height * 0.054,
                       width: width * 0.86,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 182, 27, 45),
                         borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Đăng kí",
                           style: TextStyle(

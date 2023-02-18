@@ -16,19 +16,19 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 71,
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 24,
               ),
               IconButton(
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUpInfo()),
+                    MaterialPageRoute(builder: (context) => const SignUpInfo()),
                   ),
                 },
                 icon: const Icon(
@@ -37,10 +37,10 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                 ),
                 color: const Color(0xFF333335),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 50,
               ),
-              Text(
+              const Text(
                 "Xác thực CMND/CCCD",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
@@ -56,10 +56,10 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 110, top: 60),
+            padding: const EdgeInsets.only(left: 110, top: 60),
             child: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -73,7 +73,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -87,7 +87,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.black,
@@ -101,7 +101,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -115,7 +115,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -123,20 +123,20 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Row(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30),
+                padding: const EdgeInsets.only(left: 30),
                 alignment: AlignmentDirectional.topStart,
-                child: Icon(Icons.add_photo_alternate_outlined),
+                child: const Icon(Icons.add_photo_alternate_outlined),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Text(
+              const Text(
                 "Mặt trước",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
               )
@@ -153,14 +153,14 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30),
+                padding: const EdgeInsets.only(left: 30),
                 alignment: AlignmentDirectional.topStart,
-                child: Icon(Icons.add_photo_alternate_outlined),
+                child: const Icon(Icons.add_photo_alternate_outlined),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Text(
+              const Text(
                 "Mặt sau",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
               )
@@ -174,7 +174,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
             ),
             child: Image.asset("assets/images/Rectangle 22.png"),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           ElevatedButton(
@@ -182,7 +182,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
             onPressed: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AuthFaceSignUp()),
+                MaterialPageRoute(builder: (context) => const AuthFaceSignUp()),
               ),
             },
             child: const Text(
@@ -197,10 +197,10 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
             onPressed: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AuthFaceSignUp()),
+                MaterialPageRoute(builder: (context) => const AuthFaceSignUp()),
               ),
             },
-            child: Text(
+            child: const Text(
               "Để sau",
               style: TextStyle(
                   fontWeight: FontWeight.w400,

@@ -93,11 +93,11 @@ class QRCode extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Họ tên",
+                                  const Text("Họ tên",
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Color(0xFF79747E))),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Text(
@@ -112,7 +112,7 @@ class QRCode extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 1,
                           height: 4,
@@ -131,11 +131,11 @@ class QRCode extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Ngày sinh",
+                                  const Text("Ngày sinh",
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Color(0xFF79747E))),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Text(
@@ -154,7 +154,7 @@ class QRCode extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 1,
                           height: 4,
@@ -173,11 +173,11 @@ class QRCode extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Số CMND/CCCD",
+                                  const Text("Số CMND/CCCD",
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Color(0xFF79747E))),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Text(

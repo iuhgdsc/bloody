@@ -1,4 +1,4 @@
-import 'package:bloody/model/MessageNotify.dart';
+import 'package:bloody/model/message_notify.dart';
 import 'package:flutter/material.dart';
 
 class History extends StatelessWidget {

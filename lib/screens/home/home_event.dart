@@ -45,7 +45,7 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
     double height = MediaQuery.of(context).size.height;
     return Container(
       height: height,
-      color: Color.fromARGB(255, 255, 186, 186),
+      color: const Color.fromARGB(255, 255, 186, 186),
       child: DefaultTabController(
         length: 2,
         child: Scaffold(

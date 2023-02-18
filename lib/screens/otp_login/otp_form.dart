@@ -44,10 +44,9 @@ class _OtpFormState extends State<OtpForm> {
                   PhoneAuthProvider.credential(
                       verificationId: Login.verify, smsCode: code);
               await _auth.signInWithCredential(phoneAuthCredential);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SignUpInfo()),
-              );
+
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const SignUpInfo()));
             },
             child: const Text(
               "Tiếp tục",
