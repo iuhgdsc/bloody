@@ -1,10 +1,12 @@
 import 'package:bloody/screens/otp_login.dart';
 import 'package:bloody/widgets/buttton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
+  static String verify = '';
 
   @override
   State<Login> createState() => _LoginState();
@@ -16,6 +18,9 @@ class _LoginState extends State<Login> {
     'assets/images/Frame 2608146.png',
     'assets/images/Frame 2608147.png'
   ];
+  String countryCode = '+84';
+
+  var phone = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +79,10 @@ class _LoginState extends State<Login> {
               Container(
                 padding: const EdgeInsets.only(left: 18, right: 18),
                 child: TextFormField(
+                  keyboardType: TextInputType.phone,
+                  onChanged: (value) {
+                    phone = value;
+                  },
                   obscureText: false,
                   decoration: const InputDecoration(
                     labelText: "Nhập số điện thoại của bạn ở đây",
@@ -90,11 +99,22 @@ class _LoginState extends State<Login> {
               ),
               ElevatedButton(
                 style: buttonPrimary,
-                onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const OtpLogin()),
-                  ),
+                onPressed: () async {
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                    phoneNumber: '$countryCode $phone',
+                    verificationCompleted: (PhoneAuthCredential credential) {},
+                    verificationFailed: (FirebaseAuthException e) {},
+                    codeSent: (String verificationId, int? resendToken) {
+                      Login.verify = verificationId;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const OtpLogin(),
+                        ),
+                      );
+                    },
+                    codeAutoRetrievalTimeout: (String verificationId) {},
+                  );
                 },
                 child: const Text(
                   "Tiếp tục",
