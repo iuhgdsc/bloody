@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class QRCode extends StatelessWidget {
   QRCode({Key? key}) : super(key: key);
   static String routeName = "/success";

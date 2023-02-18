@@ -209,7 +209,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => QA(),
+                          builder: (context) => const QA(),
                         ),
                       );
                     },

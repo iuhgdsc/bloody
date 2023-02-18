@@ -20,8 +20,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
   ];
   @override
   Widget build(BuildContext context) {
-    final _markDownData =
-        textData.map((x) => "- $x\n").reduce((x, y) => "$x$y");
+    final markDownData = textData.map((x) => "- $x\n").reduce((x, y) => "$x$y");
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
@@ -29,10 +28,10 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: height * 0.065,
                 child: Row(children: [
-                  Container(
+                  SizedBox(
                     width: width * 0.12,
                     child: const Center(
                       child: Image(
@@ -110,7 +109,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                       )
                     ],
                   )),
-              Container(
+              SizedBox(
                   height: height * 0.03,
                   width: width * 0.85,
                   child: Row(
@@ -163,7 +162,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                           alignment: Alignment.topLeft,
                           width: width * 0.9,
                           child: Markdown(
-                            data: _markDownData,
+                            data: markDownData,
                           )),
                     ],
                   )),

@@ -1,7 +1,7 @@
 import 'package:bloody/screens/history.dart';
 import 'package:bloody/screens/personal_info.dart';
 import 'package:bloody/screens/qr_code.dart';
-import 'package:bloody/screens/searchAdvance/searchAdvance.dart';
+import 'package:bloody/screens/searchAdvance/search_advance.dart';
 import 'package:flutter/material.dart';
 
 import 'home/home_event.dart';

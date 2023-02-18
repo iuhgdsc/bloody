@@ -60,7 +60,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
           height: 0.5,
           color: const Color.fromARGB(255, 181, 181, 181),
         ),
-        CPNHomeEventHeader(),
+        const CPNHomeEventHeader(),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
           child:

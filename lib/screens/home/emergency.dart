@@ -1,9 +1,8 @@
+import 'package:bloody/model/Emergency/emergency_model.dart';
+import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/screens/emergency/emergency_bood_donation_details.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
-
-import '../../model/Emergency/Emergency_New.dart';
-import '../../model/Emergency/emergency_to_export.dart';
-import '../emergency/emergencyBoodDonation_Details.dart';
 
 class Emergency extends StatefulWidget {
   const Emergency({super.key});
@@ -47,8 +46,8 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
         description: "Phù hợp với hồ sơ hiến máu của bạn",
         avatar: "assets/avatar.png"),
   ];
-  List<EmergencyNew> emergencyNews = [
-    EmergencyNew(
+  List<EmergencyModel> emergencyNews = [
+    EmergencyModel(
       id: "1",
       name: "Cần gấp máu cho bệnh nhân viêm phổi",
       image: "https://i.imgur.com/gZejUZc.png",
@@ -56,7 +55,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
       address: "Nhóm máu B, 4 đơn vị",
       timeAgo: "23 phút trước",
     ),
-    EmergencyNew(
+    EmergencyModel(
       id: "2",
       name: "Cần gấp máu cho nạn nhân LVNN",
       image: "https://i.imgur.com/g585Iv9.png",
@@ -73,7 +72,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CPNHomeEventHeader(),
+          const CPNHomeEventHeader(),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             height: height * 0.09,

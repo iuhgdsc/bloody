@@ -1,4 +1,4 @@
-class EmergencyNew {
+class EmergencyModel {
   final String id;
   final String name;
   final String image;
@@ -6,7 +6,7 @@ class EmergencyNew {
   final String address;
   final String timeAgo;
 
-  EmergencyNew({
+  EmergencyModel({
     required this.id,
     required this.name,
     required this.image,

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bloody/model/center_blood.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/address_bloodgr.dart';
+import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
         image: "assets/images/huyethoc.png",
         address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
         date: DateTime.now(),
-        isJoined: false)
+        isJoined: false),
   ];
 
   final PageController _pageController = PageController(initialPage: 0);

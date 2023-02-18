@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/signUp/signup_info.dart';
 import 'package:bloody/widgets/buttton.dart';
@@ -11,7 +13,7 @@ class OtpForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _OtpFormState createState() => _OtpFormState();
+  State<OtpForm> createState() => _OtpFormState();
 }
 
 class _OtpFormState extends State<OtpForm> {
