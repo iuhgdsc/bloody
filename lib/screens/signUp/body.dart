@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                     onPressed: () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Login()),
+                        MaterialPageRoute(builder: (context) => const Login()),
                       ),
                     },
                     icon: const Icon(
@@ -34,29 +34,29 @@ class Body extends StatelessWidget {
                     ),
                     color: const Color(0xFF333335),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 100,
                   ),
-                  Text(
+                  const Text(
                     "Đăng kí",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
-              SizedBox(height: 25),
-              Text(
+              const SizedBox(height: 25),
+              const Text(
                 "Bạn cần đăng ký tài khoản trước khi sử dụng ứng dụng Bloody",
                 style: TextStyle(
                     height: 1, fontSize: 10, fontWeight: FontWeight.w400),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Container(
-                padding: EdgeInsets.only(left: 90),
+                padding: const EdgeInsets.only(left: 90),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.brightness_1,
                       size: 15,
                       color: Colors.black,
@@ -70,7 +70,7 @@ class Body extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.brightness_1,
                       size: 15,
                       color: Colors.grey,
@@ -84,7 +84,7 @@ class Body extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.brightness_1,
                       size: 15,
                       color: Colors.grey,
@@ -98,7 +98,7 @@ class Body extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.brightness_1,
                       size: 15,
                       color: Colors.grey,
@@ -112,7 +112,7 @@ class Body extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.brightness_1,
                       size: 15,
                       color: Colors.grey,

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:bloody/screens/signUp/auth_id_signup.dart';
 import 'package:bloody/screens/signUp/signup.dart';
 import 'package:bloody/widgets/buttton.dart';
@@ -19,19 +17,19 @@ class _SignUpInfoState extends State<SignUpInfo> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 71,
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 IconButton(
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
+                      MaterialPageRoute(builder: (context) => const SignUp()),
                     ),
                   },
                   icon: const Icon(
@@ -40,10 +38,10 @@ class _SignUpInfoState extends State<SignUpInfo> {
                   ),
                   color: const Color(0xFF333335),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 60,
                 ),
-                Text(
+                const Text(
                   "Thông tin cá nhân",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                 ),
@@ -59,10 +57,10 @@ class _SignUpInfoState extends State<SignUpInfo> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 110, top: 60),
+              padding: const EdgeInsets.only(left: 110, top: 60),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 15,
                     color: Colors.grey,
@@ -76,7 +74,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 15,
                     color: Colors.black,
@@ -90,7 +88,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 15,
                     color: Colors.grey,
@@ -104,7 +102,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 15,
                     color: Colors.grey,
@@ -118,7 +116,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.brightness_1,
                     size: 15,
                     color: Colors.grey,
@@ -126,7 +124,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -143,7 +141,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
@@ -160,7 +158,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             ElevatedButton(
@@ -168,7 +166,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
               onPressed: () => {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AuthIDSignUp()),
+                  MaterialPageRoute(builder: (context) => const AuthIDSignUp()),
                 ),
               },
               child: const Text(
@@ -183,10 +181,10 @@ class _SignUpInfoState extends State<SignUpInfo> {
               onPressed: () => {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AuthIDSignUp()),
+                  MaterialPageRoute(builder: (context) => const AuthIDSignUp()),
                 ),
               },
-              child: Text(
+              child: const Text(
                 "Để sau",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,

@@ -45,7 +45,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -59,7 +59,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                         },
                         child: SizedBox(
                           width: width * 0.12,
-                          child: Center(
+                          child: const Center(
                             child: Image(
                               image: AssetImage('assets/back.png'),
                               width: 20,
@@ -71,8 +71,8 @@ class _AddressBloodGr extends State<AddressBloodGr>
                       ),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(right: 23),
-                          child: Center(
+                          margin: const EdgeInsets.only(right: 23),
+                          child: const Center(
                               child: Text("Thời gian và địa điểm ",
                                   style: TextStyle(
                                       fontSize: 17,
@@ -85,8 +85,9 @@ class _AddressBloodGr extends State<AddressBloodGr>
                 ),
                 Container(
                   height: height * 0.11,
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                  child: Text(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  child: const Text(
                       "Trung Tâm Hiến Máu Nhân Đạo Tp.HCM \n106 Thiên Phước, Phường 9, Tân Bình, TP.HCM \nNgày 10/10/2022 ",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -95,14 +96,15 @@ class _AddressBloodGr extends State<AddressBloodGr>
                         color: Color.fromARGB(255, 41, 41, 41),
                       )),
                 ),
-                Divider(
+                const Divider(
                   color: Color.fromARGB(150, 232, 232, 232),
                   thickness: 10,
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
-                  child: Text(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 40),
+                  child: const Text(
                     "Nhóm máu cần hiến",
                     style: TextStyle(
                       height: 1.5,
@@ -118,14 +120,14 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     children: List.generate(
                       bloodGroup.length,
                       (index) => Container(
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 30,
                         ),
                         child: Container(
                           height: 40,
                           width: 40,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xFFB61B2D),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30.0)),
@@ -133,7 +135,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                           child: Center(
                             child: Text(
                               bloodGroup[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
@@ -145,14 +147,15 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     ),
                   ),
                 ),
-                Divider(
+                const Divider(
                   color: Color.fromARGB(150, 232, 232, 232),
                   thickness: 10,
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                  child: Text(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  child: const Text(
                     "Chọn khung giờ tham gia",
                     style: TextStyle(
                       height: 1.5,
@@ -169,7 +172,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     children: List.generate(
                       times.length,
                       (index) => Container(
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 8,
                           horizontal: 30,
                         ),
@@ -178,16 +181,16 @@ class _AddressBloodGr extends State<AddressBloodGr>
                           width: 120,
                           decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(7.0)),
+                                const BorderRadius.all(Radius.circular(7.0)),
                             border: Border.all(
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               width: 1,
                             ),
                           ),
                           child: Center(
                             child: Text(
                               times[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
                               ),
                             ),

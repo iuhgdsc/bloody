@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
-
-class Emergency_New {
+class EmergencyNew {
   final String id;
   final String name;
   final String image;
-  final String blood_group;
+  final String bloodGroup;
   final String address;
-  final String time_ago;
+  final String timeAgo;
 
-  Emergency_New({
+  EmergencyNew({
     required this.id,
     required this.name,
     required this.image,
-    required this.blood_group,
+    required this.bloodGroup,
     required this.address,
-    required this.time_ago,
+    required this.timeAgo,
   });
 }

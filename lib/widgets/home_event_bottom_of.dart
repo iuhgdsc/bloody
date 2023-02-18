@@ -14,7 +14,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
-    HE_Screen1(),
+    const HEScreen1(),
     Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -365,9 +365,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
               ),
             ),
             body: Container(
-              child: Container(
-                child: body.elementAt(_currentIndex),
-              ),
+              child: body.elementAt(_currentIndex),
             )),
       ),
     );

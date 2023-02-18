@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TinNhan {
   final String image;
   final String title;

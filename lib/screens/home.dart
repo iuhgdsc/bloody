@@ -4,7 +4,7 @@ import 'package:bloody/screens/qr_code.dart';
 import 'package:bloody/screens/searchAdvance/searchAdvance.dart';
 import 'package:flutter/material.dart';
 
-import 'home/homeEvent.dart';
+import 'home/home_event.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +17,7 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> with WidgetsBindingObserver {
   int _currentIndex = 0;
-  List<Widget> listTab = [HomeEvent(), QRCode(), History()];
+  List<Widget> listTab = [const HomeEvent(), QRCode(), const History()];
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -29,25 +29,25 @@ class _Home extends State<Home> with WidgetsBindingObserver {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       child: SafeArea(
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(80.0),
+            preferredSize: const Size.fromHeight(80.0),
             child: Container(
               height: 80,
               width: width,
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: const Color.fromARGB(255, 255, 255, 255),
               child: Container(
                 margin: const EdgeInsets.only(
                     top: 25, left: 20, right: 20, bottom: 2),
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 237, 235),
+                  color: const Color.fromARGB(255, 255, 237, 235),
                   border: Border.all(
-                    color: Color.fromARGB(255, 152, 152, 152),
+                    color: const Color.fromARGB(255, 152, 152, 152),
                   ),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
                     topLeft: Radius.circular(30),
@@ -58,7 +58,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(left: 18, right: 10),
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/search.png'),
                         width: 23,
                         height: 23,
@@ -73,13 +73,13 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SearchAdvanced(),
+                              builder: (context) => const SearchAdvanced(),
                             ),
                           );
                         },
                         child: Container(
                           margin: const EdgeInsets.only(left: 10, top: 15),
-                          child: Text(
+                          child: const Text(
                             "Tìm kiếm sự kiện tại đây",
                             style: TextStyle(
                               fontSize: 18,
@@ -152,7 +152,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                               borderRadius:
                                                   BorderRadius.circular(23),
                                               child: SizedBox.fromSize(
-                                                child: Image(
+                                                child: const Image(
                                                   width: 50,
                                                   height: 50,
                                                   fit: BoxFit.cover,
@@ -160,8 +160,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                     'assets/avatar.png',
                                                   ),
                                                   opacity:
-                                                      const AlwaysStoppedAnimation(
-                                                          1),
+                                                      AlwaysStoppedAnimation(1),
                                                 ),
                                               ),
                                             ),
@@ -192,13 +191,13 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                   ),
                                                 );
                                               },
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.arrow_forward_ios_sharp,
                                               ),
                                             )
                                           ],
                                         ),
-                                        Divider(
+                                        const Divider(
                                           color: Colors.black,
                                           thickness: 1,
                                         ),
@@ -212,7 +211,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                 children: [
                                                   Stack(
                                                     children: [
-                                                      Padding(
+                                                      const Padding(
                                                         padding: EdgeInsets
                                                             .symmetric(
                                                                 horizontal: 10),
@@ -229,7 +228,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                           width: 15,
                                                           height: 15,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             color:
                                                                 Color.fromARGB(
                                                                     255,
@@ -253,7 +252,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                       ),
                                                     ],
                                                   ),
-                                                  Expanded(
+                                                  const Expanded(
                                                     child: Text(
                                                       "Thông báo",
                                                       style: TextStyle(
@@ -271,11 +270,11 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                         context,
                                                         MaterialPageRoute(
                                                           builder: (context) =>
-                                                              History(),
+                                                              const History(),
                                                         ),
                                                       );
                                                     },
-                                                    child: Icon(
+                                                    child: const Icon(
                                                       Icons
                                                           .arrow_forward_ios_sharp,
                                                     ),
@@ -283,7 +282,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                 ],
                                               ),
                                             ),
-                                            Divider(
+                                            const Divider(
                                               color: Color(0xFF79747E),
                                               thickness: 1,
                                               height: 4,
@@ -322,7 +321,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                                 ],
                                               ),
                                             ),
-                                            Divider(
+                                            const Divider(
                                               color: Color(0xFF79747E),
                                               thickness: 1,
                                               height: 4,
@@ -373,14 +372,14 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(23),
                             child: SizedBox.fromSize(
-                              child: Image(
+                              child: const Image(
                                 width: 35,
                                 height: 35,
                                 fit: BoxFit.cover,
                                 image: AssetImage(
                                   'assets/avatar.png',
                                 ),
-                                opacity: const AlwaysStoppedAnimation(1),
+                                opacity: AlwaysStoppedAnimation(1),
                               ),
                             ),
                           ),
@@ -403,13 +402,13 @@ class _Home extends State<Home> with WidgetsBindingObserver {
 
   Widget bottomNavigationBar() {
     return Container(
-      padding: EdgeInsets.only(top: 5, bottom: 10),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(top: 5, bottom: 10),
+      decoration: const BoxDecoration(
         color: Color.fromARGB(255, 255, 237, 235),
       ),
       child: BottomNavigationBar(
         onTap: _onItemTapped,
-        backgroundColor: Color.fromARGB(255, 255, 237, 235),
+        backgroundColor: const Color.fromARGB(255, 255, 237, 235),
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
@@ -418,8 +417,8 @@ class _Home extends State<Home> with WidgetsBindingObserver {
             icon: Icon(
               Icons.bloodtype,
               color: _currentIndex == 0
-                  ? Color.fromARGB(255, 65, 0, 7)
-                  : Color.fromARGB(255, 161, 120, 122),
+                  ? const Color.fromARGB(255, 65, 0, 7)
+                  : const Color.fromARGB(255, 161, 120, 122),
             ),
             label: 'Hiến máu',
           ),
@@ -427,8 +426,8 @@ class _Home extends State<Home> with WidgetsBindingObserver {
             icon: Icon(
               Icons.qr_code_scanner,
               color: _currentIndex == 1
-                  ? Color.fromARGB(255, 65, 0, 7)
-                  : Color.fromARGB(255, 161, 120, 122),
+                  ? const Color.fromARGB(255, 65, 0, 7)
+                  : const Color.fromARGB(255, 161, 120, 122),
             ),
             label: 'Mã QR',
           ),
@@ -436,14 +435,14 @@ class _Home extends State<Home> with WidgetsBindingObserver {
             icon: Icon(
               Icons.history,
               color: _currentIndex == 2
-                  ? Color.fromARGB(255, 65, 0, 7)
-                  : Color.fromARGB(255, 161, 120, 122),
+                  ? const Color.fromARGB(255, 65, 0, 7)
+                  : const Color.fromARGB(255, 161, 120, 122),
             ),
             label: 'Lịch sử',
           ),
         ],
-        selectedItemColor: Color.fromARGB(255, 161, 120, 122),
-        unselectedItemColor: Color.fromARGB(255, 161, 120, 122),
+        selectedItemColor: const Color.fromARGB(255, 161, 120, 122),
+        unselectedItemColor: const Color.fromARGB(255, 161, 120, 122),
       ),
     );
   }
