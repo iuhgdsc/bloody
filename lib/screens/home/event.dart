@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:bloody/model/center_blood.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/address_bloodGr.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_bloodgr.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
-import 'package:bloody/widgets/HomeEvent_BottomOf.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/home_event_bottom_of.dart';
 
 class Event extends StatefulWidget {
   const Event({super.key});
@@ -71,7 +72,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CPNHomeEventHeader(),
+          const CPNHomeEventHeader(),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 5),
             height: height * 0.23,
