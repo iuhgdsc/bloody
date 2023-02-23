@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //blockai
+    //bloc Provider
     return BlocProvider<QuestionCubit>(
       create: (context) => QuestionCubit()..Quess,
       child: MaterialApp.router(
