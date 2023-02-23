@@ -15,4 +15,13 @@ class Question {
     required this.answers,
     required this.isYNQS,
   });
+
+  // factory Question.fromJson(Map<String, dynamic> json) {
+  //   return Question(
+  //       id: json["id"],
+  //       numberQuestion: json["numberQuestion"],
+  //       question: json["question"],
+  //       answers: json["answers"],
+  //       isYNQS: json["isYNQS"]);
+  // }
 }

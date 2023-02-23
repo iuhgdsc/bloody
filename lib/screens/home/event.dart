@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloody/model/Center_Blood.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_bloodGr.dart';
-import 'package:bloody/widgets/CPN_HomeEventHeader.dart';
-import 'package:bloody/widgets/HomeEvent_BottomOf.dart';
+import 'package:bloody/widgets/cnp_homeeventheader.dart';
+import 'package:bloody/widgets/homeevent_bottomof.dart';
 import 'package:flutter/material.dart';
 
 class Event extends StatefulWidget {
