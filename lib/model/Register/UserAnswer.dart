@@ -5,10 +5,10 @@ class UserAnswer {
   final String as_question2;
 
   List<Object> as_question3 = [];
-  List<String> as_question4 = [];
-  List<String> as_question5 = [];
-  List<String> as_question6 = [];
-  List<String> as_question7 = [];
+  List<Object> as_question4 = [];
+  List<Object> as_question5 = [];
+  List<Object> as_question6 = [];
+  List<Object> as_question7 = [];
 
   final String as_question8;
   final String as_question9;
