@@ -14,28 +14,28 @@ class NyAppRouter {
         name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          return MaterialPage(child: Login());
+          return const MaterialPage(child: Login());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation1RouteName,
         path: '/AddressBloodGr',
         pageBuilder: (context, state) {
-          return MaterialPage(child: AddressBloodGr());
+          return const MaterialPage(child: AddressBloodGr());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation2RouteName,
         path: '/QA',
         pageBuilder: (context, state) {
-          return MaterialPage(child: QA());
+          return const MaterialPage(child: QA());
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation3RouteName,
         path: '/SuccessRegister',
         pageBuilder: (context, state) {
-          return MaterialPage(child: SuccessRegister());
+          return const MaterialPage(child: SuccessRegister());
         },
       ),
       GoRoute(

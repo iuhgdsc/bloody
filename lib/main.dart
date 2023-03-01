@@ -13,9 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //blockai
-    //bloc Provider
-    return BlocProvider<QuestionCubit>(
-      create: (context) => QuestionCubit()..Quess,
+    //Multibloc Provider
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<QuestionCubit>(
+          create: (context) => QuestionCubit()..Quess,
+        )
+      ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

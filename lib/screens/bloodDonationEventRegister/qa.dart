@@ -1,7 +1,9 @@
+import 'package:bloody/animations/enterExitRoute.dart';
 import 'package:bloody/bloc/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/Register/Question.dart';
 import 'package:bloody/model/Register/UserAnswer.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -1395,6 +1397,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                         onTap: () {
                           GoRouter.of(context).pushNamed(
                               MyAppRouteConstants.donation3RouteName);
+
                           setState(() {
                             userAnswer = UserAnswer(
                               // ignore: unrelated_type_equality_checks
