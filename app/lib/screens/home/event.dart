@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -115,7 +116,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                 alignment: Alignment.topCenter,
                                 child: Image(
                                     image:
-                                        AssetImage(centerBloods[index].image)),
+                                        AssetImage(centerBloods[index].image!)),
                               ),
                               Container(
                                 width: width * 0.59,
@@ -130,7 +131,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                           left: width * 0.01),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        centerBloods[index].name,
+                                        centerBloods[index].name!,
                                         style: const TextStyle(
                                             color:
                                                 Color.fromARGB(255, 38, 38, 38),
@@ -160,7 +161,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                             alignment: Alignment.topLeft,
                                             width: width * 0.47,
                                             child: Text(
-                                              centerBloods[index].address,
+                                              centerBloods[index].address!,
                                               style: const TextStyle(
                                                 fontSize: 13,
                                                 color: Color.fromARGB(
@@ -192,7 +193,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                             alignment: Alignment.centerLeft,
                                             width: width * 0.47,
                                             child: Text(
-                                              "sd",
+                                              centerBloods[index].date!,
                                               style: const TextStyle(
                                                 fontSize: 13,
                                                 color: Color.fromARGB(
@@ -211,27 +212,14 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => const AddressBloodGr()),
-                            // );
-
-                            //set data to SharedPreferences
-                            SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            CenterBlood centerBlood = centerBloods[index];
-                            // prefs.setString('id', centerBlood.id);
-                            // prefs.setString('name', centerBlood.name);
-                            // prefs.setString('address', centerBlood.address);
-                            // prefs.setString('image', centerBlood.image);
-                            // prefs.setString('date', centerBlood.date.isUtc.toString());
-                            DateTime now = DateTime.now();
-                            int year = now.year;
-                            int month = now.month;
-                            int day = now.day;
-                            // print('$year-$month-$day');
-                            print(centerBlood.date);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddressBloodGr(
+                                  centerBlood: centerBloods[index],
+                                ),
+                              ),
+                            );
                           },
                           child: Container(
                             height: height * 0.08 - 3,

@@ -2,14 +2,20 @@
 // ignore_for_file: avoid_print
 
 import 'package:bloody/blocs/bloc_register/question_cubit.dart';
+import 'package:bloody/model/Register/event_regis.dart';
+import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../home.dart';
 
 List<String> selectedCheckBoxOptions = [];
 List<String> selectedCheckedOptions = [];
 
 class QA extends StatefulWidget {
-  const QA({super.key});
+  const QA({super.key, required this.centerBlood, required this.time});
+  final CenterBlood centerBlood;
+  final String time;
 
   @override
   State<StatefulWidget> createState() {
@@ -139,7 +145,8 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                       if (questions[index].isYNQS == true)
                                         MyQuestionWidget(
                                             options: questions[index].answers!,
-                                            questionId: questions[index].id!)
+                                            question:
+                                                questions[index].question!)
                                       else
                                         MyQuestionWidgetCheckBox(
                                             options: questions[index].answers!),
@@ -172,9 +179,33 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
-                              onPressed: () {
-                                print(selectedCheckBoxOptions.toString());
-                                print(selectedCheckedOptions.toString());
+                              onPressed: () async {
+                                List<String> answers = [];
+                                for (var element in selectedCheckBoxOptions) {
+                                  answers.add(element);
+                                }
+                                for (var element in selectedCheckedOptions) {
+                                  answers.add(element);
+                                }
+
+                                EventRegis eventRegis = EventRegis(
+                                    centerBlood: widget.centerBlood,
+                                    timeChoose: widget.time,
+                                    answers: answers);
+
+                                bool rs = await context
+                                    .read<QuestionCubit>()
+                                    .submitQuestions(eventRegis);
+                                if (rs == true) {
+                                  print("success");
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //       builder: (context) => const Home()),
+                                  // );
+                                } else {
+                                  print("fail");
+                                }
                               },
                               child: const Center(
                                 child: Text(
@@ -203,9 +234,9 @@ class _QA extends State<QA> with WidgetsBindingObserver {
 
 class MyQuestionWidget extends StatefulWidget {
   final List<dynamic> options;
-  final String? questionId;
+  final String? question;
 
-  const MyQuestionWidget({super.key, required this.options, this.questionId});
+  const MyQuestionWidget({super.key, required this.options, this.question});
 
   @override
   State<MyQuestionWidget> createState() => _MyQuestionWidgetState();
@@ -229,7 +260,7 @@ class _MyQuestionWidgetState extends State<MyQuestionWidget> {
                 setState(() {
                   _selectedOption = value.toString();
                 });
-                selectedCheckedOptions.add(widget.questionId!);
+                selectedCheckedOptions.add(widget.question!);
               },
             ));
       }).toList(),

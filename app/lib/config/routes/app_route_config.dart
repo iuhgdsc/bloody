@@ -1,3 +1,4 @@
+import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
@@ -22,14 +23,21 @@ class NyAppRouter {
         name: MyAppRouteConstants.donation1RouteName,
         path: '/AddressBloodGr',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: AddressBloodGr());
+          return MaterialPage(
+              child: AddressBloodGr(
+            centerBlood: context as CenterBlood,
+          ));
         },
       ),
       GoRoute(
         name: MyAppRouteConstants.donation2RouteName,
         path: '/QA',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: QA());
+          return MaterialPage(
+              child: QA(
+            centerBlood: context as CenterBlood,
+            time: context as String,
+          ));
         },
       ),
       GoRoute(

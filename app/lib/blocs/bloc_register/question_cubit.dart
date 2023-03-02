@@ -1,3 +1,4 @@
+import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/Register/question_check.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -26,11 +27,7 @@ class QuestionCubit extends Cubit<QuestionState> {
     }
   }
 
-  Future<List<String>> submitQuestions(List<String> questionData) {
-    final List<String> questionList = [];
-    for (int i = 0; i < questionData.length; i++) {
-      questionList.add(questionData[i]);
-    }
-    return Future.value(questionList);
+  Future<bool> submitQuestions(EventRegis eventRegis) async {
+    return await apiRepository.submitQuestions(eventRegis);
   }
 }

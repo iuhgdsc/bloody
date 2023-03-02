@@ -1,8 +1,17 @@
-import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:bloody/model/Register/event_regis.dart';
 import 'package:flutter/material.dart';
 
+import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+
 class AddressBloodGr extends StatefulWidget {
-  const AddressBloodGr({super.key});
+  const AddressBloodGr({
+    Key? key,
+    required this.centerBlood,
+  }) : super(key: key);
+
+  final CenterBlood centerBlood;
 
   @override
   State<StatefulWidget> createState() {
@@ -41,6 +50,8 @@ class _AddressBloodGr extends State<AddressBloodGr>
       "15:30-16:00"
     ];
     bool isCheck = false;
+
+    CenterBlood centerBlood = widget.centerBlood;
     String timeChoose = "";
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -52,7 +63,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
             child: Column(
               children: [
                 SizedBox(
-                  height: height * 0.055,
+                  height: height * 0.05,
                   child: Row(
                     children: [
                       GestureDetector(
@@ -86,13 +97,13 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   ),
                 ),
                 Container(
-                  height: height * 0.11,
+                  height: height * 0.13,
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                  child: const Text(
-                      "Trung Tâm Hiến Máu Nhân Đạo Tp.HCM \n106 Thiên Phước, Phường 9, Tân Bình, TP.HCM \nNgày 10/10/2022 ",
+                  child: Text(
+                      "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date!}",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         height: 1.1,
                         fontSize: 15,
                         color: Color.fromARGB(255, 41, 41, 41),
@@ -220,7 +231,10 @@ class _AddressBloodGr extends State<AddressBloodGr>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const QA(),
+                          builder: (context) => QA(
+                            centerBlood: centerBlood,
+                            time: timeChoose,
+                          ),
                         ),
                       );
                     },

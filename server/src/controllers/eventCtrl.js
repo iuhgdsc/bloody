@@ -7,7 +7,8 @@ const eventCtrl = {
     try {
       // address, bloodGroup, name, phone, time, contactPerson,answers
       const event = req.body
-      await db.collection('events').doc(uuidv4()).set(event)
+      console.log(event)
+      // await db.collection('events').doc(uuidv4()).set(event)
       return res.status(200).json({ msg: 'Event created successfully' })
     } catch (error) {
       return res.status(500).json({ msg: error.message })
