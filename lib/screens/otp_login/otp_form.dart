@@ -40,11 +40,10 @@ class _OtpFormState extends State<OtpForm> {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () async {
-              PhoneAuthCredential phoneAuthCredential =
-                  PhoneAuthProvider.credential(
-                      verificationId: Login.verify, smsCode: code);
-              await _auth.signInWithCredential(phoneAuthCredential);
-
+              // PhoneAuthCredential phoneAuthCredential =
+              //     PhoneAuthProvider.credential(
+              //         verificationId: Login.verify, smsCode: code);
+              // await _auth.signInWithCredential(phoneAuthCredential);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const SignUpInfo()));
             },
