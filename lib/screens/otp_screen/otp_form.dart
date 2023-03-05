@@ -34,9 +34,10 @@ class _OtpFormState extends State<OtpForm> {
           const SizedBox(height: 25),
           ElevatedButton(
             style: buttonPrimary,
-            onPressed: () => {
+            onPressed: () {
+              print("d");
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SignUpInfo())),
+                  MaterialPageRoute(builder: (context) => const SignUpInfo()));
             },
             child: const Text(
               "Tiếp tục",
