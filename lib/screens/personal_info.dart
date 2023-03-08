@@ -27,7 +27,10 @@ class _PersonState extends State<Person> {
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Home()),
+                      MaterialPageRoute(
+                          builder: (context) => const Home(
+                                isSucc: false,
+                              )),
                     ),
                   },
                   icon: const Icon(
@@ -55,9 +58,9 @@ class _PersonState extends State<Person> {
             const SizedBox(
               height: 30,
             ),
-            SizedBox(
+            const SizedBox(
               width: 210,
-              child: const Text(
+              child: Text(
                 "Nguyễn Việt Hoàng",
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
               ),
@@ -68,11 +71,11 @@ class _PersonState extends State<Person> {
             Column(
               children: [
                 Row(
-                  children: [
-                    const SizedBox(
+                  children: const [
+                    SizedBox(
                       width: 39,
                     ),
-                    const Text(
+                    Text(
                       "Họ và tên",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -87,9 +90,9 @@ class _PersonState extends State<Person> {
                     const SizedBox(
                       width: 90,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 230,
-                      child: const Text(
+                      child: Text(
                         "Nguyễn Việt Hoàng",
                         style: TextStyle(
                             color: Color(0xFF717171),
@@ -105,7 +108,7 @@ class _PersonState extends State<Person> {
                       ),
                       child: IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.edit_outlined),
+                        icon: const Icon(Icons.edit_outlined),
                         color: Colors.white,
                       ),
                     ),
@@ -125,18 +128,18 @@ class _PersonState extends State<Person> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
               child: Column(
                 children: [
                   Row(
-                    children: [
-                      const SizedBox(
+                    children: const [
+                      SizedBox(
                         width: 39,
                       ),
-                      const Text(
+                      Text(
                         "Số điện thoại",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
@@ -151,9 +154,9 @@ class _PersonState extends State<Person> {
                       const SizedBox(
                         width: 90,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 230,
-                        child: const Text(
+                        child: Text(
                           "0971812515",
                           style: TextStyle(
                               color: Color(0xFF717171),
@@ -170,7 +173,7 @@ class _PersonState extends State<Person> {
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined),
+                          icon: const Icon(Icons.edit_outlined),
                           color: Colors.white,
                         ),
                       ),
@@ -191,18 +194,18 @@ class _PersonState extends State<Person> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
               child: Column(
                 children: [
                   Row(
-                    children: [
-                      const SizedBox(
+                    children: const [
+                      SizedBox(
                         width: 39,
                       ),
-                      const Text(
+                      Text(
                         "CMND/CCCD",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
@@ -217,9 +220,9 @@ class _PersonState extends State<Person> {
                       const SizedBox(
                         width: 90,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 230,
-                        child: const Text(
+                        child: Text(
                           "Chưa xác thực",
                           style: TextStyle(
                               color: Color(0xFF717171),
@@ -236,7 +239,7 @@ class _PersonState extends State<Person> {
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined),
+                          icon: const Icon(Icons.edit_outlined),
                           color: Colors.white,
                         ),
                       ),
@@ -257,18 +260,18 @@ class _PersonState extends State<Person> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
               child: Column(
                 children: [
                   Row(
-                    children: [
-                      const SizedBox(
+                    children: const [
+                      SizedBox(
                         width: 39,
                       ),
-                      const Text(
+                      Text(
                         "Địa chỉ",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
@@ -283,9 +286,9 @@ class _PersonState extends State<Person> {
                       const SizedBox(
                         width: 90,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 230,
-                        child: const Text(
+                        child: Text(
                           "12 Nguyễn Văn Bảo, phường\n04, quận Gò Vấp, TP. HCM",
                           style: TextStyle(
                               color: Color(0xFF717171),
@@ -302,7 +305,7 @@ class _PersonState extends State<Person> {
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined),
+                          icon: const Icon(Icons.edit_outlined),
                           color: Colors.white,
                         ),
                       ),
@@ -323,18 +326,18 @@ class _PersonState extends State<Person> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
               child: Column(
                 children: [
                   Row(
-                    children: [
-                      const SizedBox(
+                    children: const [
+                      SizedBox(
                         width: 39,
                       ),
-                      const Text(
+                      Text(
                         "Xác thực khuôn mặt",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
@@ -349,9 +352,9 @@ class _PersonState extends State<Person> {
                       const SizedBox(
                         width: 90,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 230,
-                        child: const Text(
+                        child: Text(
                           "Chưa thiết lập",
                           style: TextStyle(
                               color: Color(0xFF717171),
@@ -368,7 +371,7 @@ class _PersonState extends State<Person> {
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined),
+                          icon: const Icon(Icons.edit_outlined),
                           color: Colors.white,
                         ),
                       ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:bloody/screens/signUp/auth_id_signup.dart';
 import 'package:bloody/screens/signUp/success_signup.dart';
 import 'package:bloody/widgets/buttton.dart';
@@ -18,19 +16,20 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 71,
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 24,
               ),
               IconButton(
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AuthIDSignUp()),
+                    MaterialPageRoute(
+                        builder: (context) => const AuthIDSignUp()),
                   ),
                 },
                 icon: const Icon(
@@ -39,10 +38,10 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                 ),
                 color: const Color(0xFF333335),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 55,
               ),
-              Text(
+              const Text(
                 "Xác thực khuôn mặt",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
@@ -58,10 +57,10 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 110, top: 60),
+            padding: const EdgeInsets.only(left: 110, top: 60),
             child: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -75,7 +74,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -89,7 +88,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -103,7 +102,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.black,
@@ -117,7 +116,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.brightness_1,
                   size: 15,
                   color: Colors.grey,
@@ -125,23 +124,23 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage(
               "assets/images/image 12.png",
             ),
             radius: 80,
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Text(
+          const Text(
             "Hướng dẫn",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SizedBox(
@@ -169,7 +168,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
             onPressed: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SuccessSignUp()),
+                MaterialPageRoute(builder: (context) => const SuccessSignUp()),
               ),
             },
             child: const Text(
@@ -182,7 +181,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
           ),
           TextButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Để sau",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,

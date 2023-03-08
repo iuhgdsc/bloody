@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SuccessRegister extends StatefulWidget {
   const SuccessRegister({super.key});
@@ -102,14 +103,13 @@ class _SuccessRegister extends State<SuccessRegister>
             ),
           ),
           SizedBox(
-            height: height * 0.45,
+            height: height * 0.3,
             child: Column(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: SizedBox.fromSize(
                     child: const Image(
-                      // fit: BoxFit.cover,
                       image: AssetImage(
                         'assets/map.png',
                       ),

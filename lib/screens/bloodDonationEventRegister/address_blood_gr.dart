@@ -1,5 +1,8 @@
-import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/widgets/btn.dart';
 import 'package:flutter/material.dart';
+import 'package:bloody/model/blood_banner.dart';
+import 'package:go_router/go_router.dart';
 
 class AddressBloodGr extends StatefulWidget {
   const AddressBloodGr({super.key});
@@ -40,17 +43,27 @@ class _AddressBloodGr extends State<AddressBloodGr>
       "15:00-15:30",
       "15:30-16:00"
     ];
+
+    CenterBlood centerBlood = CenterBlood(
+        id: "1",
+        name: "Trung tâm Truyền máu Chợ Rẫy",
+        image: "assets/images/choray.png",
+        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+        date:
+            "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
+        isJoined: false);
+    String timeChoose = "";
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(
-                  height: height * 0.055,
+                  height: height * 0.05,
                   child: Row(
                     children: [
                       GestureDetector(
@@ -59,7 +72,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                         },
                         child: SizedBox(
                           width: width * 0.12,
-                          child: Center(
+                          child: const Center(
                             child: Image(
                               image: AssetImage('assets/back.png'),
                               width: 20,
@@ -71,8 +84,8 @@ class _AddressBloodGr extends State<AddressBloodGr>
                       ),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(right: 23),
-                          child: Center(
+                          margin: const EdgeInsets.only(right: 23),
+                          child: const Center(
                               child: Text("Thời gian và địa điểm ",
                                   style: TextStyle(
                                       fontSize: 17,
@@ -84,25 +97,27 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   ),
                 ),
                 Container(
-                  height: height * 0.11,
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  height: height * 0.13,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: Text(
-                      "Trung Tâm Hiến Máu Nhân Đạo Tp.HCM \n106 Thiên Phước, Phường 9, Tân Bình, TP.HCM \nNgày 10/10/2022 ",
+                      "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date!}",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         height: 1.1,
                         fontSize: 15,
                         color: Color.fromARGB(255, 41, 41, 41),
                       )),
                 ),
-                Divider(
+                const Divider(
                   color: Color.fromARGB(150, 232, 232, 232),
                   thickness: 10,
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
-                  child: Text(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  child: const Text(
                     "Nhóm máu cần hiến",
                     style: TextStyle(
                       height: 1.5,
@@ -113,19 +128,19 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.17,
+                  height: height * 0.135,
                   child: Wrap(
                     children: List.generate(
                       bloodGroup.length,
                       (index) => Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 10,
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 6,
                           horizontal: 30,
                         ),
                         child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
+                          height: 35,
+                          width: 35,
+                          decoration: const BoxDecoration(
                             color: Color(0xFFB61B2D),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30.0)),
@@ -133,10 +148,10 @@ class _AddressBloodGr extends State<AddressBloodGr>
                           child: Center(
                             child: Text(
                               bloodGroup[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize: 15,
                               ),
                             ),
                           ),
@@ -145,14 +160,15 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     ),
                   ),
                 ),
-                Divider(
+                const Divider(
                   color: Color.fromARGB(150, 232, 232, 232),
                   thickness: 10,
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                  child: Text(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  child: const Text(
                     "Chọn khung giờ tham gia",
                     style: TextStyle(
                       height: 1.5,
@@ -169,26 +185,35 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     children: List.generate(
                       times.length,
                       (index) => Container(
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 8,
                           horizontal: 30,
                         ),
-                        child: Container(
-                          height: 30,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(7.0)),
-                            border: Border.all(
-                              color: Color.fromARGB(255, 0, 0, 0),
-                              width: 1,
-                            ),
+                        height: 30,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: timeChoose == times[index].toString()
+                              ? Colors.red
+                              : Colors.white,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(7.0)),
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            width: 1,
                           ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              timeChoose = times[index].toString();
+                            });
+                          },
                           child: Center(
                             child: Text(
                               times[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
+                                color: Color.fromARGB(255, 16, 16, 16),
                               ),
                             ),
                           ),
@@ -197,36 +222,13 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     ),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QA(),
-                        ),
+                GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).pushNamed(
+                        MyAppRouteConstants.donation3RouteName,
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFB61B2D),
-                      minimumSize: const Size(double.infinity, 40),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Đăng ký",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                    child: const Btn(text: "Tham gia")),
               ],
             ),
           ),

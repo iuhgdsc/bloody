@@ -1,24 +1,36 @@
-import 'package:bloody/bloc/question_cubit.dart';
+import 'package:bloody/blocs/bloc_register/question_cubit.dart';
+import 'package:bloody/repository/api_repo.dart';
+import 'package:bloody/services/api_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp(
+    apiService: ApiService(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({Key? key, required this.apiService}) : super(key: key);
+  final ApiService apiService;
   @override
   Widget build(BuildContext context) {
-    //blockai
-    //Multibloc Provider
     return MultiBlocProvider(
       providers: [
         BlocProvider<QuestionCubit>(
-          create: (context) => QuestionCubit()..Quess,
-        )
+          create: (BuildContext context) => QuestionCubit(
+              apiRepository: ApiRepository(
+            apiService: apiService,
+          )..getQuestions()),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

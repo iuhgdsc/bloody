@@ -1,9 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/signUp/signup_info.dart';
 import 'package:bloody/widgets/buttton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'constains.dart';
-import 'size_config.dart';
+import 'package:pinput/pinput.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({
@@ -11,127 +13,42 @@ class OtpForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _OtpFormState createState() => _OtpFormState();
+  State<OtpForm> createState() => _OtpFormState();
 }
 
 class _OtpFormState extends State<OtpForm> {
-  FocusNode? pin2FocusNode;
-  FocusNode? pin3FocusNode;
-  FocusNode? pin4FocusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    pin2FocusNode = FocusNode();
-    pin3FocusNode = FocusNode();
-    pin4FocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    pin2FocusNode!.dispose();
-    pin3FocusNode!.dispose();
-    pin4FocusNode!.dispose();
-  }
-
-  void nextField(String value, FocusNode? focusNode) {
-    if (value.length == 1) {
-      focusNode!.requestFocus();
-    }
-  }
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var code = '';
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           const SizedBox(height: 40),
-          Row(
-            children: [
-              const SizedBox(
-                width: 40,
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(50),
-                child: TextFormField(
-                  autofocus: true,
-                  obscureText: false,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) {
-                    nextField(value, pin2FocusNode);
-                  },
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(50),
-                child: TextFormField(
-                  focusNode: pin2FocusNode,
-                  obscureText: false,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin3FocusNode),
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(50),
-                child: TextFormField(
-                  focusNode: pin3FocusNode,
-                  obscureText: false,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin4FocusNode),
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(50),
-                child: TextFormField(
-                  focusNode: pin4FocusNode,
-                  obscureText: false,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      pin4FocusNode!.unfocus();
-                      // Then you need to check is the code is correct or not
-                    }
-                  },
-                ),
-              ),
-            ],
+          Pinput(
+            length: 4,
+            showCursor: true,
+            onChanged: (value) {
+              code = value;
+            },
           ),
-          SizedBox(height: 30),
-          Text(
+          const SizedBox(height: 30),
+          const Text(
             "Gửi lại mã OTP",
             style: TextStyle(
                 fontWeight: FontWeight.w400, fontSize: 16, color: Colors.black),
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           ElevatedButton(
             style: buttonPrimary,
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SignUpInfo()),
-              ),
+            onPressed: () {
+              // PhoneAuthCredential phoneAuthCredential =
+              //     PhoneAuthProvider.credential(
+              //         verificationId: Login.verify, smsCode: code);
+              // await _auth.signInWithCredential(phoneAuthCredential);
+
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const SignUpInfo()));
             },
             child: const Text(
               "Tiếp tục",

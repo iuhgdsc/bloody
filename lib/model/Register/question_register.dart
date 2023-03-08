@@ -1,13 +1,11 @@
-import 'package:flutter/material.dart';
-
-class Answer {
+class QuestionRegister {
   final String id;
   final String numberQuestion;
   final String question;
   final String answer1;
   final String answer2;
 
-  Answer(
+  QuestionRegister(
       {required this.id,
       required this.numberQuestion,
       required this.question,

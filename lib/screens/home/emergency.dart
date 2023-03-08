@@ -1,7 +1,7 @@
-import 'package:bloody/model/Emergency/Emergency_New.dart';
-import 'package:bloody/model/Emergency/Emergency_ToExport.dart';
-import 'package:bloody/screens/emergency/emergencyBoodDonation_Details.dart';
-import 'package:bloody/widgets/cnp_homeeventheader.dart';
+import 'package:bloody/model/Emergency/emergency_model.dart';
+import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/screens/emergency/emergency_bood_donation_details.dart';
+import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
 
 class Emergency extends StatefulWidget {
@@ -14,54 +14,54 @@ class Emergency extends StatefulWidget {
 }
 
 class _Emergency extends State<Emergency> with WidgetsBindingObserver {
-  List<Emergency_ToExport> emergency_ToExport = [
-    Emergency_ToExport(
+  List<EmergencyToExport> emergencyToExport = [
+    EmergencyToExport(
         id: "1",
         name: "Cần gấp máu cho nạn nhân LVN",
         image: "https://i.imgur.com/100Wcl6.png",
-        blood_group: "Nhóm máu O, đơn vị 5",
+        bloodGroup: "Nhóm máu O, đơn vị 5",
         address: "Bệnh viện Truyền máu Huyết học Bình Dương",
-        time_ago: "2 giờ trước",
+        timeAgo: "2 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
         avatar: "assets/avatar.png"),
-    Emergency_ToExport(
+    EmergencyToExport(
         id: "2",
         name: "Cần gấp máu cho bệnh nhân suy thận",
         image: "https://i.imgur.com/86gCaQu.png",
-        blood_group: "Nhóm máu A, đơn vị 8",
+        bloodGroup: "Nhóm máu A, đơn vị 8",
         address: "Trung tâm truyền máu Chợ Rẫy",
-        time_ago: "2 giờ trước",
+        timeAgo: "2 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
         avatar: "assets/avatar.png"),
-    Emergency_ToExport(
+    EmergencyToExport(
         id: "3",
         name: "Cần gấp máu cho bệnh nhân viêm phổi",
         image: "https://i.imgur.com/cXaAIrq.png",
-        blood_group: "Nhóm máu O, đơn vị 4",
+        bloodGroup: "Nhóm máu O, đơn vị 4",
         address: "Trung Tâm Hiến Máu Nhân Đạo Bình Dương",
-        time_ago: "3 giờ trước",
+        timeAgo: "3 giờ trước",
         isSuitable: true,
         description: "Phù hợp với hồ sơ hiến máu của bạn",
         avatar: "assets/avatar.png"),
   ];
-  List<Emergency_New> emergency_News = [
-    Emergency_New(
+  List<EmergencyModel> emergencyNews = [
+    EmergencyModel(
       id: "1",
       name: "Cần gấp máu cho bệnh nhân viêm phổi",
       image: "https://i.imgur.com/gZejUZc.png",
-      blood_group: "Nhóm máu B, 4 đơn vị",
+      bloodGroup: "Nhóm máu B, 4 đơn vị",
       address: "Nhóm máu B, 4 đơn vị",
-      time_ago: "23 phút trước",
+      timeAgo: "23 phút trước",
     ),
-    Emergency_New(
+    EmergencyModel(
       id: "2",
       name: "Cần gấp máu cho nạn nhân LVNN",
       image: "https://i.imgur.com/g585Iv9.png",
-      blood_group: "Nhóm máu O, 10 đơn vị",
+      bloodGroup: "Nhóm máu O, 10 đơn vị",
       address: "Bệnh viện nhân dân Gia Định ...",
-      time_ago: "1 giờ trước",
+      timeAgo: "1 giờ trước",
     ),
   ];
 
@@ -72,9 +72,9 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CPN_HomeEventHeader(),
+          const CPNHomeEventHeader(),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 15),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
             height: height * 0.09,
             child: Container(
               alignment: Alignment.center,
@@ -83,7 +83,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                   Container(
                     height: height * 0.035,
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: const Text(
                       "Đề xuất cho bạn",
                       style: TextStyle(
                           fontSize: 16,
@@ -94,7 +94,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                   Container(
                     height: height * 0.025,
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       "Dựa trên thông tin hồ sơ của bạn",
                       style: TextStyle(
                           fontSize: 15,
@@ -106,13 +106,12 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
               ),
             ),
           ),
-          Container(
-              child: Column(children: [
+          Column(children: [
             ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: emergency_ToExport.length,
+              itemCount: emergencyToExport.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
@@ -124,8 +123,8 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                             Container(
                               height: height * 0.2,
                             ),
-                            Expanded(
-                              child: EmergencyBoodDonation_Details(),
+                            const Expanded(
+                              child: EmergencyBoodDonationDetails(),
                             )
                           ],
                         );
@@ -134,7 +133,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                   },
                   child: SizedBox(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
                             width: 0.1,
@@ -142,24 +141,24 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                           ),
                         ),
                       ),
-                      child: Container(
+                      child: SizedBox(
                         height: height * 0.15,
                         child: Row(
                           children: [
                             Container(
                               width: width * 0.25,
                               height: height * 0.17,
-                              padding: EdgeInsets.symmetric(vertical: 11),
+                              padding: const EdgeInsets.symmetric(vertical: 11),
                               alignment: Alignment.topCenter,
                               child: Column(
                                 children: [
                                   Image.network(
                                     height: 75,
-                                    "${emergency_ToExport[index].image}",
+                                    emergencyToExport[index].image,
                                   ),
                                   Text(
-                                    emergency_ToExport[index].time_ago,
-                                    style: TextStyle(
+                                    emergencyToExport[index].timeAgo,
+                                    style: const TextStyle(
                                       fontSize: 13,
                                       color: Color.fromARGB(255, 59, 59, 59),
                                     ),
@@ -180,8 +179,8 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                     ),
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      emergency_ToExport[index].name,
-                                      style: TextStyle(
+                                      emergencyToExport[index].name,
+                                      style: const TextStyle(
                                           color:
                                               Color.fromARGB(255, 38, 38, 38),
                                           fontSize: 15,
@@ -190,11 +189,11 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                   ),
                                   Container(
                                     height: height * 0.03,
-                                    padding: EdgeInsets.only(top: 3),
+                                    padding: const EdgeInsets.only(top: 3),
                                     alignment: Alignment.topLeft,
                                     child: Text(
-                                      emergency_ToExport[index].blood_group,
-                                      style: TextStyle(
+                                      emergencyToExport[index].bloodGroup,
+                                      style: const TextStyle(
                                         fontSize: 14,
                                         color: Color.fromARGB(255, 69, 69, 69),
                                       ),
@@ -202,11 +201,11 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                   ),
                                   Container(
                                     height: height * 0.03,
-                                    padding: EdgeInsets.only(top: 3),
+                                    padding: const EdgeInsets.only(top: 3),
                                     alignment: Alignment.topLeft,
                                     child: Text(
-                                      emergency_ToExport[index].address,
-                                      style: TextStyle(
+                                      emergencyToExport[index].address,
+                                      style: const TextStyle(
                                         fontSize: 13,
                                         color: Color.fromARGB(255, 69, 69, 69),
                                       ),
@@ -231,8 +230,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                                       height: 31,
                                                       fit: BoxFit.cover,
                                                       image: AssetImage(
-                                                        emergency_ToExport[
-                                                                index]
+                                                        emergencyToExport[index]
                                                             .avatar,
                                                       ),
                                                       opacity:
@@ -243,7 +241,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                                 ),
                                               ),
                                             ),
-                                            Positioned(
+                                            const Positioned(
                                               bottom: 5,
                                               right: 0,
                                               child: Icon(
@@ -255,7 +253,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                             )
                                           ],
                                         ),
-                                        Center(
+                                        const Center(
                                           child: Text(
                                             "Phù hợp với hồ sơ hiến máu của bạn",
                                             style: TextStyle(
@@ -279,18 +277,18 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                 );
               },
             ),
-          ])),
+          ]),
           GestureDetector(
             onTap: () {},
             child: Container(
-              margin: EdgeInsets.only(top: 5, bottom: 5),
+              margin: const EdgeInsets.only(top: 5, bottom: 5),
               height: height * 0.054,
               width: width * 0.86,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 182, 27, 45),
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Xem tất cả",
                   style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
@@ -299,12 +297,12 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 15),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
             height: height * 0.05,
             alignment: Alignment.center,
             child: Container(
               alignment: Alignment.centerLeft,
-              child: Text("Trường hợp khẩn cấp mới nhất",
+              child: const Text("Trường hợp khẩn cấp mới nhất",
                   style: TextStyle(
                       fontSize: 16,
                       color: Color.fromARGB(255, 37, 37, 37),
@@ -312,10 +310,10 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
             ),
           ),
           ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: emergency_News.length,
+              itemCount: emergencyNews.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
@@ -327,7 +325,8 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                             Container(
                               height: height * 0.18,
                             ),
-                            Expanded(child: EmergencyBoodDonation_Details())
+                            const Expanded(
+                                child: EmergencyBoodDonationDetails())
                           ],
                         );
                       },
@@ -335,7 +334,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                   },
                   child: SizedBox(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           border: Border(
                         bottom: BorderSide(
                           width: 0.01,
@@ -348,16 +347,16 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                           Container(
                               width: width * 0.25,
                               height: height * 0.17,
-                              padding: EdgeInsets.symmetric(vertical: 11),
+                              padding: const EdgeInsets.symmetric(vertical: 11),
                               alignment: Alignment.topCenter,
                               child: Column(children: [
                                 Image.network(
                                   height: 75,
-                                  "${emergency_News[index].image}",
+                                  emergencyNews[index].image,
                                 ),
                                 Text(
-                                  emergency_News[index].time_ago,
-                                  style: TextStyle(
+                                  emergencyNews[index].timeAgo,
+                                  style: const TextStyle(
                                     fontSize: 13,
                                     color: Color.fromARGB(255, 59, 59, 59),
                                   ),
@@ -375,30 +374,30 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                                   ),
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    emergency_News[index].name,
-                                    style: TextStyle(
+                                    emergencyNews[index].name,
+                                    style: const TextStyle(
                                         color: Color.fromARGB(255, 38, 38, 38),
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500),
                                   )),
                               Container(
                                 height: height * 0.03,
-                                padding: EdgeInsets.only(top: 3),
+                                padding: const EdgeInsets.only(top: 3),
                                 alignment: Alignment.topLeft,
                                 child: Text(
-                                  emergency_News[index].blood_group,
-                                  style: TextStyle(
+                                  emergencyNews[index].bloodGroup,
+                                  style: const TextStyle(
                                       fontSize: 14,
                                       color: Color.fromARGB(255, 69, 69, 69)),
                                 ),
                               ),
                               Container(
                                 height: height * 0.03,
-                                padding: EdgeInsets.only(top: 3),
+                                padding: const EdgeInsets.only(top: 3),
                                 alignment: Alignment.topLeft,
                                 child: Text(
-                                  emergency_News[index].address,
-                                  style: TextStyle(
+                                  emergencyNews[index].address,
+                                  style: const TextStyle(
                                       fontSize: 13,
                                       color: Color.fromARGB(255, 69, 69, 69)),
                                 ),
@@ -414,14 +413,14 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
           GestureDetector(
             onTap: () {},
             child: Container(
-              margin: EdgeInsets.only(top: 5, bottom: 5),
+              margin: const EdgeInsets.only(top: 5, bottom: 5),
               height: height * 0.054,
               width: width * 0.86,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 182, 27, 45),
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Xem tất cả",
                   style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),

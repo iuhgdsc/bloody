@@ -45,7 +45,7 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
     double height = MediaQuery.of(context).size.height;
     return Container(
       height: height,
-      color: Color.fromARGB(255, 255, 186, 186),
+      color: const Color.fromARGB(255, 255, 186, 186),
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -55,9 +55,9 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
               margin: const EdgeInsets.only(top: 6),
               child: TabBar(
                 onTap: _onItemTapped,
-                indicatorColor: Color.fromARGB(255, 182, 27, 45),
-                unselectedLabelColor: Color.fromARGB(255, 111, 107, 107),
-                labelColor: Color.fromARGB(255, 182, 27, 45),
+                indicatorColor: const Color.fromARGB(255, 182, 27, 45),
+                unselectedLabelColor: const Color.fromARGB(255, 111, 107, 107),
+                labelColor: const Color.fromARGB(255, 182, 27, 45),
                 tabs: const [
                   Tab(
                     text: 'Sự kiện',

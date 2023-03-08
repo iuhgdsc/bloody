@@ -1,21 +1,55 @@
+import 'package:bloody/model/Register/question_check.dart';
 import 'package:bloody/screens/otp_login.dart';
 import 'package:bloody/widgets/buttton.dart';
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
+  static String verify = '';
 
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+  final Dio _dio = Dio();
+
+  final List<QuestionRegisterCheck> ques = [];
   final urlImages = [
     'assets/images/Frame 2608145.png',
     'assets/images/Frame 2608146.png',
     'assets/images/Frame 2608147.png'
   ];
+  String countryCode = '+84';
+
+  fetchQues() async {
+    String apiURL = "http://192.168.56.1:5000/api/getQuestions";
+
+    Response res = await _dio.get(apiURL);
+
+    var data = res.data["questions"] as List;
+    for (final question in data) {
+      final questionCheck = QuestionRegisterCheck.fromMap(question);
+      // ques.add(questionCheck);
+      QuestionRegisterCheck quesCheck = QuestionRegisterCheck(
+          id: questionCheck.id,
+          question: questionCheck.question,
+          answers: questionCheck.answers);
+      ques.add(quesCheck);
+    }
+    print(ques.length);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // fetchQues();
+  }
+
+  var phone = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +63,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Positioned(
                     child: Container(
-                      margin: EdgeInsets.only(top: 67),
+                      margin: const EdgeInsets.only(top: 67),
                       width: double.maxFinite,
                       child: CarouselSlider.builder(
                         itemCount: urlImages.length,
@@ -47,7 +81,7 @@ class _LoginState extends State<Login> {
                           reverse: false,
                           autoPlay: true,
                           autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
+                              const Duration(milliseconds: 800),
                           autoPlayCurve: Curves.decelerate,
                           enlargeCenterPage: true,
                           scrollDirection: Axis.horizontal,
@@ -74,6 +108,10 @@ class _LoginState extends State<Login> {
               Container(
                 padding: const EdgeInsets.only(left: 18, right: 18),
                 child: TextFormField(
+                  keyboardType: TextInputType.phone,
+                  // onChanged: (value) {
+                  //   phone = value;
+                  // },
                   obscureText: false,
                   decoration: const InputDecoration(
                     labelText: "Nhập số điện thoại của bạn ở đây",
@@ -90,11 +128,31 @@ class _LoginState extends State<Login> {
               ),
               ElevatedButton(
                 style: buttonPrimary,
-                onPressed: () => {
+                // onPressed: () async {
+                //   await FirebaseAuth.instance.verifyPhoneNumber(
+                //     phoneNumber: '$countryCode $phone',
+                //     verificationCompleted: (PhoneAuthCredential credential) {},
+                //     verificationFailed: (FirebaseAuthException e) {},
+                //     codeSent: (String verificationId, int? resendToken) {
+                //       Login.verify = verificationId;
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => const OtpLogin(),
+                //         ),
+                //       );
+                //     },
+                //     codeAutoRetrievalTimeout: (String verificationId) {},
+                //   );
+                // },
+                onPressed: () {
+                  print("sd");
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => OtpLogin()),
-                  ),
+                    MaterialPageRoute(
+                      builder: (context) => const OtpLogin(),
+                    ),
+                  );
                 },
                 child: const Text(
                   "Tiếp tục",
