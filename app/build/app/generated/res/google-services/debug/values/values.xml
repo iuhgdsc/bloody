@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">483892049258-adn06jj3fmupkv93in57njot92jdrqgr.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">483892049258</string>
-    <string name="google_api_key" translatable="false">AIzaSyD-HKOuiXRKHd9pmtgQtmw-RwifgyHzi-Y</string>
-    <string name="google_app_id" translatable="false">1:483892049258:android:2ff8048b7ea92111d8a113</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD-HKOuiXRKHd9pmtgQtmw-RwifgyHzi-Y</string>
-    <string name="google_storage_bucket" translatable="false">bloody-b7a4e.appspot.com</string>
-    <string name="project_id" translatable="false">bloody-b7a4e</string>
+    <string name="default_web_client_id" translatable="false">1079206980247-qqqu7d8gpo1a7fpmc2jv69hnp2n3lgqk.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1079206980247</string>
+    <string name="google_api_key" translatable="false">AIzaSyARtKNpJW-4oIqZdX56zf6k8Fpzd_Tf1yo</string>
+    <string name="google_app_id" translatable="false">1:1079206980247:android:2da6520a2437a3f7e6d7d2</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyARtKNpJW-4oIqZdX56zf6k8Fpzd_Tf1yo</string>
+    <string name="google_storage_bucket" translatable="false">bloody-gdsc.appspot.com</string>
+    <string name="project_id" translatable="false">bloody-gdsc</string>
 </resources>

@@ -1,10 +1,10 @@
 import 'dart:async';
-
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/blood_banner.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
+import 'package:bloody/widgets/btn.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../widgets/home_event_bottom_of.dart';
 
@@ -113,7 +113,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                 height: height * 0.17,
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 11),
-                                alignment: Alignment.topCenter,
+                                alignment: Alignment.center,
                                 child: Image(
                                     image:
                                         AssetImage(centerBloods[index].image!)),
@@ -211,39 +211,22 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () async {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AddressBloodGr(
-                                  centerBlood: centerBloods[index],
-                                ),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            height: height * 0.08 - 3,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: width * 0.035, vertical: 9),
-                            child: Container(
-                              height: 50,
-                              width: width * 1,
-                              decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 182, 27, 45),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0)),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  "Tham gia",
-                                  style: TextStyle(
-                                      color:
-                                          Color.fromARGB(252, 225, 225, 225)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                            // onTap: () async {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => AddressBloodGr(
+                            //         centerBlood: centerBloods[index],
+                            //       ),
+                            //     ),
+                            //   );
+                            // },
+                            onTap: () {
+                              GoRouter.of(context).pushNamed(
+                                MyAppRouteConstants.donation1RouteName,
+                              );
+                            },
+                            child: const Btn(text: "Tham gia")),
                       ],
                     ),
                   ));

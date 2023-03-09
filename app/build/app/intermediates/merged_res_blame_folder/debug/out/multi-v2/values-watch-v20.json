@@ -4,7 +4,7 @@
             "outputFile": "F:\\bloody\\app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LONG\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\LONG\\.gradle\\caches\\transforms-3\\d31ade428e7e27477330765c57de69ee\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

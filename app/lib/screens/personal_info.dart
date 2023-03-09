@@ -27,7 +27,10 @@ class _PersonState extends State<Person> {
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Home()),
+                      MaterialPageRoute(
+                          builder: (context) => const Home(
+                                isSucc: false,
+                              )),
                     ),
                   },
                   icon: const Icon(

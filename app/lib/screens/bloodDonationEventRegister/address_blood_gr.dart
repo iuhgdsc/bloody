@@ -1,17 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:bloody/model/Register/event_regis.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/widgets/btn.dart';
 import 'package:flutter/material.dart';
-
 import 'package:bloody/model/blood_banner.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+import 'package:go_router/go_router.dart';
 
 class AddressBloodGr extends StatefulWidget {
-  const AddressBloodGr({
-    Key? key,
-    required this.centerBlood,
-  }) : super(key: key);
-
-  final CenterBlood centerBlood;
+  const AddressBloodGr({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -49,9 +43,15 @@ class _AddressBloodGr extends State<AddressBloodGr>
       "15:00-15:30",
       "15:30-16:00"
     ];
-    bool isCheck = false;
 
-    CenterBlood centerBlood = widget.centerBlood;
+    CenterBlood centerBlood = CenterBlood(
+        id: "1",
+        name: "Trung tâm Truyền máu Chợ Rẫy",
+        image: "assets/images/choray.png",
+        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+        date:
+            "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
+        isJoined: false);
     String timeChoose = "";
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -116,7 +116,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                 Container(
                   alignment: Alignment.centerLeft,
                   padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 40),
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
                   child: const Text(
                     "Nhóm máu cần hiến",
                     style: TextStyle(
@@ -128,18 +128,18 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.17,
+                  height: height * 0.135,
                   child: Wrap(
                     children: List.generate(
                       bloodGroup.length,
                       (index) => Container(
                         margin: const EdgeInsets.symmetric(
-                          vertical: 10,
+                          vertical: 6,
                           horizontal: 30,
                         ),
                         child: Container(
-                          height: 40,
-                          width: 40,
+                          height: 35,
+                          width: 35,
                           decoration: const BoxDecoration(
                             color: Color(0xFFB61B2D),
                             borderRadius:
@@ -151,7 +151,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize: 15,
                               ),
                             ),
                           ),
@@ -222,39 +222,13 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     ),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QA(
-                            centerBlood: centerBlood,
-                            time: timeChoose,
-                          ),
-                        ),
+                GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).pushNamed(
+                        MyAppRouteConstants.donation3RouteName,
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFB61B2D),
-                      minimumSize: const Size(double.infinity, 40),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Đăng ký",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                    child: const Btn(text: "Tham gia")),
               ],
             ),
           ),

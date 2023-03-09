@@ -66,7 +66,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 237, 235),
                 border: Border.all(
@@ -78,7 +78,82 @@ class _SearchAdvanced extends State<SearchAdvanced>
               child: Column(children: const [
                 Center(
                   child: Icon(Icons.date_range_outlined,
-                      size: 25, color: Color.fromARGB(255, 182, 27, 45)),
+                      size: 30, color: Color.fromARGB(255, 182, 27, 45)),
+                ),
+                Center(
+                  child: Text("Thời gian",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 182, 27, 45),
+                          fontWeight: FontWeight.w500)),
+                )
+              ]),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 237, 235),
+                border: Border.all(
+                  width: 0.8,
+                  color: const Color.fromARGB(255, 61, 61, 61),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              ),
+              child: Column(children: const [
+                Center(
+                  child: Icon(Icons.group_work_outlined,
+                      size: 30, color: Color.fromARGB(255, 182, 27, 45)),
+                ),
+                Center(
+                  child: Text("Nhóm máu",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 182, 27, 45),
+                          fontWeight: FontWeight.w500)),
+                )
+              ]),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 237, 235),
+                border: Border.all(
+                  width: 0.8,
+                  color: const Color.fromARGB(255, 61, 61, 61),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              ),
+              child: Column(children: const [
+                Center(
+                  child: Icon(Icons.horizontal_split,
+                      size: 30, color: Color.fromARGB(255, 182, 27, 45)),
+                ),
+                Center(
+                  child: Text("Bệnh viện",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 182, 27, 45),
+                          fontWeight: FontWeight.w500)),
+                )
+              ]),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 237, 235),
+                border: Border.all(
+                  width: 0.8,
+                  color: const Color.fromARGB(255, 61, 61, 61),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              ),
+              child: Column(children: const [
+                Center(
+                  child: Icon(Icons.date_range_outlined,
+                      size: 30, color: Color.fromARGB(255, 182, 27, 45)),
                 ),
                 Center(
                   child: Text("Thời gian",

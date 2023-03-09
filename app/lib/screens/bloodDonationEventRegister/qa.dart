@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: avoid_print
 
-import 'package:bloody/blocs/bloc_register/question_cubit.dart';
+import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';

@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,42 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCWP2YrV-8atcKid_siasVdZ3VDXXH1tJM',
+    appId: '1:1079206980247:web:d477604f5871f085e6d7d2',
+    messagingSenderId: '1079206980247',
+    projectId: 'bloody-gdsc',
+    authDomain: 'bloody-gdsc.firebaseapp.com',
+    storageBucket: 'bloody-gdsc.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD-HKOuiXRKHd9pmtgQtmw-RwifgyHzi-Y',
-    appId: '1:483892049258:android:2ff8048b7ea92111d8a113',
-    messagingSenderId: '483892049258',
-    projectId: 'bloody-b7a4e',
-    storageBucket: 'bloody-b7a4e.appspot.com',
+    apiKey: 'AIzaSyARtKNpJW-4oIqZdX56zf6k8Fpzd_Tf1yo',
+    appId: '1:1079206980247:android:2da6520a2437a3f7e6d7d2',
+    messagingSenderId: '1079206980247',
+    projectId: 'bloody-gdsc',
+    storageBucket: 'bloody-gdsc.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCqQ1lsFRP2QM_p3PvrV8RXZXHRGke6ThU',
+    appId: '1:1079206980247:ios:9e01884c80eba1ede6d7d2',
+    messagingSenderId: '1079206980247',
+    projectId: 'bloody-gdsc',
+    storageBucket: 'bloody-gdsc.appspot.com',
+    androidClientId: '1079206980247-8akoioe4rhmi8eskgi9su0vdt0muo2fq.apps.googleusercontent.com',
+    iosClientId: '1079206980247-j1cfm2nl573de8p267i3tmm65n0ut5e6.apps.googleusercontent.com',
+    iosBundleId: 'com.example.bloody',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCqQ1lsFRP2QM_p3PvrV8RXZXHRGke6ThU',
+    appId: '1:1079206980247:ios:3630e6cfd019ab3fe6d7d2',
+    messagingSenderId: '1079206980247',
+    projectId: 'bloody-gdsc',
+    storageBucket: 'bloody-gdsc.appspot.com',
+    androidClientId: '1079206980247-8akoioe4rhmi8eskgi9su0vdt0muo2fq.apps.googleusercontent.com',
+    iosClientId: '1079206980247-th6nj8163c41oc14lthas34gfd6mdass.apps.googleusercontent.com',
+    iosBundleId: 'com.example.bloodyChallenge',
   );
 }

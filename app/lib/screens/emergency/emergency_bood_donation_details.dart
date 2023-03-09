@@ -2,6 +2,7 @@ import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:go_router/go_router.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 
 class EmergencyBoodDonationDetails extends StatefulWidget {
   const EmergencyBoodDonationDetails({super.key});
@@ -182,8 +183,17 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               ),
               GestureDetector(
                 onTap: () {
-                  GoRouter.of(context)
-                      .pushNamed(MyAppRouteConstants.donation1RouteName);
+                  // GoRouter.of(context)
+                  //     .pushNamed(MyAppRouteConstants.donation1RouteName);
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => AddressBloodGr(
+                  //       centerBlood: null,
+                  //     ),
+                  //   ),
+                  // );
                 },
                 child: Container(
                     margin: const EdgeInsets.only(top: 5, bottom: 15),
