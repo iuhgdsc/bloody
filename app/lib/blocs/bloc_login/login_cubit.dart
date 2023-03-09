@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:bloody/model/user.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'login_state.dart';
 

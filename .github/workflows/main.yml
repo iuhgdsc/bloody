@@ -1,0 +1,64 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  flutter_test:
+    name: Run flutter test and analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+      - name: Get dependencies
+        run: |
+          cd app
+          flutter pub get
+      - name: Analyze code
+        run: |
+          cd app
+          flutter analyze
+      - name: Run tests
+        run: |
+          cd app
+          flutter test
+
+  build_appbundle:
+    name: Build Flutter (Android)
+    needs: [flutter_test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+      - name: Get dependencies
+        run: |
+          cd app
+          flutter pub get
+      - name: Clean up
+        run: flutter clean
+      - name: Build app bundle
+        run: flutter build appbundle
+      - name: Build APK
+        run: flutter build apk
+      - name: Upload release APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: app/build/app/outputs/apk/release/app-release.apk

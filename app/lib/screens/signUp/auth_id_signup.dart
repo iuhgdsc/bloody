@@ -18,9 +18,6 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
     return Scaffold(
       body: BlocBuilder<LoginCubit, LoginState>(
         builder: (context, state) {
-          if (state is LoginLoaded) {
-            print(state.user);
-          }
           return Column(
             children: [
               const SizedBox(
