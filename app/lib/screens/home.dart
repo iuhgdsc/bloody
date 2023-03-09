@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> with WidgetsBindingObserver {
   int _currentIndex = 0;
-  List<Widget> listTab = [const HomeEvent(), QRCode(), const History()];
+  List<Widget> listTab = [const HomeEvent(), const QRCode(), const History()];
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -47,7 +47,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                 : widget.isSucc;
     List<Widget> listTab = [
       isC == true ? const SuccessRegister() : const HomeEvent(),
-      QRCode(),
+      const QRCode(),
       const History()
     ];
     _change(isC);

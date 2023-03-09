@@ -7,8 +7,6 @@ import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../home.dart';
-
 List<String> selectedCheckBoxOptions = [];
 List<String> selectedCheckedOptions = [];
 
