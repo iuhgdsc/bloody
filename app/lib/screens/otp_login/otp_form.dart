@@ -56,7 +56,7 @@ class _OtpFormState extends State<OtpForm> {
                 if (kDebugMode) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text("Mã OTP không đúng"),
+                      content: Text("Mã OTP không đúng !"),
                     ),
                   );
                 }
