@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class QRCode extends StatelessWidget {
-  QRCode({Key? key}) : super(key: key);
+  const QRCode({Key? key}) : super(key: key);
   static String routeName = "/success";
 
   @override

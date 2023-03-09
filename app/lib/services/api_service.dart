@@ -1,5 +1,6 @@
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class ApiService {
   final Dio _dio = Dio();
@@ -10,7 +11,9 @@ class ApiService {
       final response = await _dio.get(url);
       return response;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print("Error :$e");
+      }
     }
     return null;
   }
@@ -21,7 +24,9 @@ class ApiService {
       final response = await _dio.post(url, data: eventRegis.toJson());
       return response;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print("Error :$e");
+      }
     }
     return null;
   }

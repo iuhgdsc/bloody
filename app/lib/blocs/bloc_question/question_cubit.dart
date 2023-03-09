@@ -2,7 +2,7 @@ import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/Register/question_check.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'question_state.dart';
@@ -23,7 +23,9 @@ class QuestionCubit extends Cubit<QuestionState> {
         emit(const QuestionError(message: "Error"));
       }
     } catch (err) {
-      print("Error :$err");
+      if (kDebugMode) {
+        print("Error :$err");
+      }
     }
   }
 
