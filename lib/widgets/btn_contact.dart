@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Btn_Contact extends StatefulWidget {
-  const Btn_Contact({super.key, required this.text});
+class BtnContact extends StatefulWidget {
+  const BtnContact({super.key, required this.text});
   final String text;
 
   @override
   State<StatefulWidget> createState() {
-    return _Btn_Contact();
+    return _BtnContact();
   }
 }
 
-class _Btn_Contact extends State<Btn_Contact> with WidgetsBindingObserver {
+class _BtnContact extends State<BtnContact> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

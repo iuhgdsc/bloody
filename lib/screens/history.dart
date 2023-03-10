@@ -8,7 +8,6 @@ class History extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -214,8 +213,8 @@ class History extends StatelessWidget {
                                   const SizedBox(
                                     height: 50,
                                   ),
-                                  const Btn_Contact(text: "Liên hệ hỗ trợ"),
-                                  const Btn_Contact(text: "Hủy đăng kí"),
+                                  const BtnContact(text: "Liên hệ hỗ trợ"),
+                                  const BtnContact(text: "Hủy đăng kí"),
                                   const SizedBox(
                                     height: 10,
                                   ),

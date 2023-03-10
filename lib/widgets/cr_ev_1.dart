@@ -9,16 +9,16 @@ List<String> notes = [
   "Uống nhiều nước."
 ];
 
-class Cr_Ev1 extends StatefulWidget {
-  const Cr_Ev1({super.key});
+class CrEv1 extends StatefulWidget {
+  const CrEv1({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _Cr_Ev1();
+    return _CrEv1();
   }
 }
 
-class _Cr_Ev1 extends State<Cr_Ev1> with WidgetsBindingObserver {
+class _CrEv1 extends State<CrEv1> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

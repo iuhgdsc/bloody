@@ -1,13 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// ignore_for_file: avoid_print
-
-import 'package:bloody/blocs/bloc_register/question_cubit.dart';
+import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../home.dart';
 
 List<String> selectedCheckBoxOptions = [];
 List<String> selectedCheckedOptions = [];
@@ -193,19 +188,9 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     timeChoose: widget.time,
                                     answers: answers);
 
-                                bool rs = await context
+                                await context
                                     .read<QuestionCubit>()
                                     .submitQuestions(eventRegis);
-                                if (rs == true) {
-                                  print("success");
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) => const Home()),
-                                  // );
-                                } else {
-                                  print("fail");
-                                }
                               },
                               child: const Center(
                                 child: Text(

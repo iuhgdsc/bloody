@@ -1,18 +1,15 @@
-import 'package:bloody/blocs/bloc_register/question_cubit.dart';
+import 'package:bloody/blocs/bloc_login/login_cubit.dart';
+import 'package:bloody/blocs/bloc_question/question_cubit.dart';
+import 'package:bloody/config/routes/app_route_config.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:bloody/services/api_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:bloody/config/routes/app_route_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
   runApp(MyApp(
     apiService: ApiService(),
   ));
@@ -25,12 +22,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<LoginCubit>(
+          create: (BuildContext context) => LoginCubit(),
+        ),
         BlocProvider<QuestionCubit>(
           create: (BuildContext context) => QuestionCubit(
               apiRepository: ApiRepository(
             apiService: apiService,
-          )..getQuestions()),
+          )),
         ),
+        // add more blocs as needed
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

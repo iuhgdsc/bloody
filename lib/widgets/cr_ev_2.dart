@@ -11,16 +11,16 @@ List<String> notes = [
   "Ngồi xuống ghế và thông báo cho nhân viên y tế để được hỗ trợ.",
 ];
 
-class Cr_Ev2 extends StatefulWidget {
-  const Cr_Ev2({super.key});
+class CrEv2 extends StatefulWidget {
+  const CrEv2({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _Cr_Ev2();
+    return _CrEv2();
   }
 }
 
-class _Cr_Ev2 extends State<Cr_Ev2> with WidgetsBindingObserver {
+class _CrEv2 extends State<CrEv2> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

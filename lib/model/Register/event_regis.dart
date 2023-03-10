@@ -1,14 +1,17 @@
 import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/model/user.dart';
 
 class EventRegis {
   CenterBlood? centerBlood;
   String? timeChoose;
   List<String>? answers = [];
+  User? user;
 
   EventRegis(
       {required this.centerBlood,
       required this.timeChoose,
-      required this.answers});
+      required this.answers,
+      User? user});
 
   Map<String, dynamic> toJson() {
     return {
@@ -17,6 +20,7 @@ class EventRegis {
       'timeChoose': timeChoose,
       'time': centerBlood!.date,
       'answers': answers,
+      'user': user!.toJson(),
     };
   }
 
@@ -29,6 +33,12 @@ class EventRegis {
       ),
       timeChoose: json['timeChoose'],
       answers: json['answers'],
+      user: User(
+        userName: json['user']['userName'],
+        cccd: json['user']['cccd'],
+        phone: json['user']['phone'],
+        address: json['user']['address'],
+      ),
     );
   }
 }

@@ -66,7 +66,14 @@ class _Event extends State<Event> with WidgetsBindingObserver {
         _currentPage--;
       }
 
-      if (_pageController.hasClients) {}
+      if (_pageController.hasClients) {
+        //kaiwin
+        var animateToPage = _pageController.animateToPage(
+          _currentPage,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
+      }
     });
   }
 

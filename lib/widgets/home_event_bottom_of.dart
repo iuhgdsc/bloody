@@ -25,9 +25,9 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
-    const Cr_Ev1(),
-    const Cr_Ev2(),
-    const Cr_Ev3(),
+    const CrEv1(),
+    const CrEv2(),
+    const CrEv3(),
   ];
   void _onItemTapped(int index) {
     setState(() {

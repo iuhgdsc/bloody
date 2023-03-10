@@ -6,16 +6,16 @@ List<String> notes = [
   "Tổng cộng, có 30 hệ thống nhóm máu chính. Điều này có nghĩa là một người có thể có A RhD dương tính, đồng thời Kell (hệ thống Kell) dương tính, M và N (hệ thống MNS) dương tính và Lea và Leb (hệ thống Lewis) dương tính.",
 ];
 
-class Cr_Ev3 extends StatefulWidget {
-  const Cr_Ev3({super.key});
+class CrEv3 extends StatefulWidget {
+  const CrEv3({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _Cr_Ev3();
+    return _CrEv3();
   }
 }
 
-class _Cr_Ev3 extends State<Cr_Ev3> with WidgetsBindingObserver {
+class _CrEv3 extends State<CrEv3> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

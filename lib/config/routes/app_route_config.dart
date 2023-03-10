@@ -1,7 +1,6 @@
 import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:bloody/screens/home.dart';
 import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/searchAdvance/search_advance.dart';
@@ -17,8 +16,13 @@ class NyAppRouter {
         name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          //kaikai
-          // change login to home
+          return const MaterialPage(child: Login());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.homeRouteName,
+        path: '/home',
+        pageBuilder: (context, state) {
           return const MaterialPage(
               child: Home(
             isSucc: false,
@@ -28,12 +32,6 @@ class NyAppRouter {
       GoRoute(
         name: MyAppRouteConstants.donation1RouteName,
         path: '/AddressBloodGr',
-        // pageBuilder: (context, state) {
-        //   return MaterialPage(
-        //       child: AddressBloodGr(
-        //     centerBlood: context as CenterBlood,
-        //   ));
-        // },
         pageBuilder: (context, state) => NoTransitionPage<void>(
           key: state.pageKey,
           child: const AddressBloodGr(),
@@ -42,13 +40,6 @@ class NyAppRouter {
       GoRoute(
           name: MyAppRouteConstants.donation2RouteName,
           path: '/QA',
-          // pageBuilder: (context, state) {
-          //   return MaterialPage(
-          //       child: QA(
-          //     centerBlood: context as CenterBlood,
-          //     time: context as String,
-          //   ));
-          // },
           pageBuilder: (context, state) => NoTransitionPage<void>(
               key: state.pageKey,
               child: QA(
@@ -58,12 +49,9 @@ class NyAppRouter {
       GoRoute(
         name: MyAppRouteConstants.donation3RouteName,
         path: '/SuccessRegister',
-        // pageBuilder: (context, state) {
-        //   return const MaterialPage(child: SuccessRegister());
-        // },
         pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
-            child: Home(
+            child: const Home(
               isSucc: true,
             )),
       ),
