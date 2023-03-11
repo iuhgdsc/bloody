@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'package:bloody/blocs/bloc_event/event_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:bloody/widgets/btn.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../widgets/home_event_bottom_of.dart';
@@ -18,38 +20,10 @@ class Event extends StatefulWidget {
 }
 
 class _Event extends State<Event> with WidgetsBindingObserver {
-  List<CenterBlood> centerBloods = [
-    CenterBlood(
-        id: "1",
-        name: "Trung tâm Truyền máu Chợ Rẫy",
-        image: "assets/images/choray.png",
-        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
-        date:
-            "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
-        isJoined: false),
-    CenterBlood(
-        id: "2",
-        name: "Trung tâm Truyền máu 2",
-        image: "assets/images/175.png",
-        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
-        date:
-            "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}",
-        isJoined: false),
-    CenterBlood(
-        id: "3",
-        name: "Trung tâm Truyền máu 3",
-        image: "assets/images/huyethoc.png",
-        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
-        date:
-            "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}",
-        isJoined: false),
-  ];
-
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
   bool end = false;
-
   @override
   void initState() {
     super.initState();
@@ -66,7 +40,13 @@ class _Event extends State<Event> with WidgetsBindingObserver {
         _currentPage--;
       }
 
-      if (_pageController.hasClients) {}
+      if (_pageController.hasClients) {
+        _pageController.animateToPage(
+          _currentPage,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
+      }
     });
   }
 
@@ -78,127 +58,151 @@ class _Event extends State<Event> with WidgetsBindingObserver {
       child: Column(
         children: [
           const CPNHomeEventHeader(),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 5),
-            height: height * 0.23,
-            child: PageView.builder(
-                controller: _pageController,
-                itemCount: centerBloods.length,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                      child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 0.8,
-                        color: const Color.fromARGB(255, 52, 50, 50),
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10.0),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: width * 0.01,
+          BlocBuilder<EventCubit, EventState>(
+            builder: (context, state) {
+              if (state is EventInitial) {
+                context.read<EventCubit>().getEvents();
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is EventLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is EventError) {
+                return Text(state.message.toString());
+              } else if (state is EventLoaded) {
+                final List<CenterBlood> centerBloods = state.events;
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  height: height * 0.23,
+                  child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: centerBloods.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                            child: Container(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 20,
                           ),
-                          height: height * 0.15,
-                          child: Row(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 0.8,
+                              color: const Color.fromARGB(255, 52, 50, 50),
+                            ),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                          child: Column(
                             children: [
                               Container(
-                                width: width * 0.25,
-                                height: height * 0.17,
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 11),
-                                alignment: Alignment.center,
-                                child: Image(
-                                    image:
-                                        AssetImage(centerBloods[index].image!)),
-                              ),
-                              Container(
-                                width: width * 0.59,
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: width * 0.008),
-                                child: Column(
+                                  horizontal: width * 0.01,
+                                ),
+                                height: height * 0.15,
+                                child: Row(
                                   children: [
                                     Container(
-                                      height: height * 0.04,
-                                      padding: EdgeInsets.only(
-                                          top: height * 0.014,
-                                          left: width * 0.01),
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        centerBloods[index].name!,
-                                        style: const TextStyle(
-                                            color:
-                                                Color.fromARGB(255, 38, 38, 38),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500),
+                                      width: width * 0.25,
+                                      height: height * 0.17,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 11),
+                                      alignment: Alignment.center,
+                                      child: Image.network(
+                                        centerBloods[index].image!,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Container(
-                                      height: height * 0.06,
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Row(
+                                      width: width * 0.59,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: width * 0.008),
+                                      child: Column(
                                         children: [
                                           Container(
-                                            width: width * 0.09,
-                                            height: height * 0.06,
-                                            alignment: Alignment.topLeft,
-                                            padding:
-                                                const EdgeInsets.only(top: 5),
-                                            child: const Icon(
-                                              Icons.bloodtype_outlined,
-                                              size: 30,
-                                              color: Color.fromARGB(
-                                                  255, 109, 109, 109),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.topLeft,
-                                            width: width * 0.47,
-                                            child: Text(
-                                              centerBloods[index].address!,
-                                              style: const TextStyle(
-                                                fontSize: 13,
-                                                color: Color.fromARGB(
-                                                    255, 109, 109, 109),
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: height * 0.05,
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: width * 0.09,
-                                            height: height * 0.05,
-                                            alignment: Alignment.topLeft,
-                                            padding:
-                                                const EdgeInsets.only(top: 5),
-                                            child: const Icon(
-                                              Icons.date_range,
-                                              size: 30,
-                                              color: Color.fromARGB(
-                                                  255, 109, 109, 109),
-                                            ),
-                                          ),
-                                          Container(
+                                            height: height * 0.04,
+                                            padding: EdgeInsets.only(
+                                                top: height * 0.014,
+                                                left: width * 0.01),
                                             alignment: Alignment.centerLeft,
-                                            width: width * 0.47,
                                             child: Text(
-                                              centerBloods[index].date!,
+                                              centerBloods[index].name!,
                                               style: const TextStyle(
-                                                fontSize: 13,
-                                                color: Color.fromARGB(
-                                                    255, 109, 109, 109),
-                                              ),
+                                                  color: Color.fromARGB(
+                                                      255, 38, 38, 38),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                          Container(
+                                            height: height * 0.06,
+                                            padding:
+                                                const EdgeInsets.only(top: 3),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  width: width * 0.09,
+                                                  height: height * 0.06,
+                                                  alignment: Alignment.topLeft,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 5),
+                                                  child: const Icon(
+                                                    Icons.bloodtype_outlined,
+                                                    size: 30,
+                                                    color: Color.fromARGB(
+                                                        255, 109, 109, 109),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  alignment: Alignment.topLeft,
+                                                  width: width * 0.47,
+                                                  child: Text(
+                                                    centerBloods[index]
+                                                        .address!,
+                                                    style: const TextStyle(
+                                                      fontSize: 13,
+                                                      color: Color.fromARGB(
+                                                          255, 109, 109, 109),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: height * 0.05,
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  width: width * 0.09,
+                                                  height: height * 0.05,
+                                                  alignment: Alignment.topLeft,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 5),
+                                                  child: const Icon(
+                                                    Icons.date_range,
+                                                    size: 30,
+                                                    color: Color.fromARGB(
+                                                        255, 109, 109, 109),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  width: width * 0.47,
+                                                  child: Text(
+                                                    centerBloods[index].date!,
+                                                    style: const TextStyle(
+                                                      fontSize: 13,
+                                                      color: Color.fromARGB(
+                                                          255, 109, 109, 109),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
                                             ),
                                           )
                                         ],
@@ -206,31 +210,25 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                     )
                                   ],
                                 ),
-                              )
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    GoRouter.of(context).pushNamed(
+                                      MyAppRouteConstants.addressBloodGr,
+                                    );
+                                  },
+                                  child: const Btn(text: "Tham gia")),
                             ],
                           ),
-                        ),
-                        GestureDetector(
-                            // onTap: () async {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => AddressBloodGr(
-                            //         centerBlood: centerBloods[index],
-                            //       ),
-                            //     ),
-                            //   );
-                            // },
-                            onTap: () {
-                              GoRouter.of(context).pushNamed(
-                                MyAppRouteConstants.donation1RouteName,
-                              );
-                            },
-                            child: const Btn(text: "Tham gia")),
-                      ],
-                    ),
-                  ));
-                }),
+                        ));
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
           Container(
             margin: const EdgeInsets.only(top: 10),

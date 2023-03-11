@@ -26,6 +26,7 @@ const userCtrl = {
   addUser: async (req, res) => {
     try {
       const user = req.body
+      console.log(user)
       const userRef = db.collection('users')
       const snapshot = await userRef.where('phone', '==', user.phone).get()
       if (snapshot.empty) {
@@ -33,6 +34,23 @@ const userCtrl = {
         return res.status(200).json({ msg: 'User added successfully' })
       }
       return res.status(401).json({ msg: 'User already exists' })
+    } catch (error) {
+      return res.status(500).json({ msg: error.message })
+    }
+  },
+  getUser: async (req, res) => {
+    try {
+      const userRef = db.collection('users')
+      const snapshot = await userRef.where('phone', '==', req.query.phone).get()
+      if (snapshot.empty) {
+        return res.status(404).json({ msg: 'User not found' })
+      }
+      let user = {}
+      snapshot.forEach((doc) => {
+        user = doc.data()
+      })
+      console.log(user)
+      return res.status(200).json({ user })
     } catch (error) {
       return res.status(500).json({ msg: error.message })
     }

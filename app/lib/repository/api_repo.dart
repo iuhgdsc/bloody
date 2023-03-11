@@ -1,5 +1,8 @@
+import 'package:bloody/model/Emergency/emergency_to_export.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/Register/question_check.dart';
+import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/model/user.dart';
 import 'package:bloody/services/api_service.dart';
 
 class ApiRepository {
@@ -23,5 +26,39 @@ class ApiRepository {
       return true;
     }
     return false;
+  }
+
+  Future<User?> getUser(String phone) async {
+    final response = await apiService.getUser(phone);
+    if (response != null) {
+      User user = User.fromMap(response.data['user']);
+      return user;
+    }
+    return null;
+  }
+
+  Future<void> addUser(User user) async {
+    final response = await apiService.addUser(user);
+    if (response?.statusCode == 200) {
+      return;
+    }
+  }
+
+  Future<List<CenterBlood>?> getEventRegis() async {
+    final response = await apiService.getEventRegis();
+    if (response != null) {
+      final data = response.data['events'] as List<dynamic>;
+      return data.map((event) => CenterBlood.fromMap(event)).toList();
+    }
+    return null;
+  }
+
+  Future<List<EmergencyToExport>?> getEmergencies() async {
+    final response = await apiService.getEmergencies();
+    if (response != null) {
+      final data = response.data['emergencies'] as List<dynamic>;
+      return data.map((emer) => EmergencyToExport.fromMap(emer)).toList();
+    }
+    return null;
   }
 }

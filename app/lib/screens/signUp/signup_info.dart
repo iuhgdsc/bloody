@@ -1,10 +1,11 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/user.dart';
-import 'package:bloody/screens/signUp/auth_id_signup.dart';
 import 'package:bloody/screens/signUp/signup.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpInfo extends StatefulWidget {
   const SignUpInfo({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class SignUpInfo extends StatefulWidget {
 }
 
 class _SignUpInfoState extends State<SignUpInfo> {
-  String userName = "";
+  String name = "";
   String cccd = "";
   String phone = "";
 
@@ -142,7 +143,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                   padding: const EdgeInsets.only(left: 18, right: 18),
                   child: TextFormField(
                     onChanged: (value) {
-                      userName = value;
+                      name = value;
                     },
                     obscureText: false,
                     decoration: const InputDecoration(
@@ -182,16 +183,12 @@ class _SignUpInfoState extends State<SignUpInfo> {
                   style: buttonPrimary,
                   onPressed: () {
                     if (state is LoginLoaded) {
-                      phone = state.user.phone!;
+                      phone = "0$state.user.phone!";
                     }
-                    User user =
-                        User(phone: phone, cccd: cccd, userName: userName);
+                    User user = User(phone: phone, cccd: cccd, name: name);
                     context.read<LoginCubit>().setUser(user);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AuthIDSignUp()),
-                    );
+                    GoRouter.of(context)
+                        .pushNamed(MyAppRouteConstants.authIDRouteName);
                   },
                   child: const Text(
                     "Tiếp tục",
@@ -203,11 +200,8 @@ class _SignUpInfoState extends State<SignUpInfo> {
                 ),
                 TextButton(
                   onPressed: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AuthIDSignUp()),
-                    ),
+                    GoRouter.of(context)
+                        .pushNamed(MyAppRouteConstants.authIDRouteName)
                   },
                   child: const Text(
                     "Để sau",

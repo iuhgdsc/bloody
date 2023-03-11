@@ -1,8 +1,10 @@
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 List<String> selectedCheckBoxOptions = [];
 List<String> selectedCheckedOptions = [];
@@ -191,6 +193,10 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                 await context
                                     .read<QuestionCubit>()
                                     .submitQuestions(eventRegis);
+                                // ignore: use_build_context_synchronously
+                                GoRouter.of(context).pushNamed(
+                                  MyAppRouteConstants.successRoute,
+                                );
                               },
                               child: const Center(
                                 child: Text(

@@ -1,8 +1,12 @@
+import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/model/Emergency/emergency_to_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:go_router/go_router.dart';
 
 class EmergencyBoodDonationDetails extends StatefulWidget {
-  const EmergencyBoodDonationDetails({super.key});
+  const EmergencyBoodDonationDetails({super.key, this.emergency});
+  final EmergencyToExport? emergency;
 
   @override
   State<StatefulWidget> createState() {
@@ -21,6 +25,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
     final markDownData = textData.map((x) => "- $x\n").reduce((x, y) => "$x$y");
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    EmergencyToExport emergency = widget.emergency!;
     return Container(
         color: const Color.fromARGB(255, 255, 255, 255),
         child: SingleChildScrollView(
@@ -71,68 +76,77 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        child: const Text("Nhóm máu AB, 3 đơn vị",
-                            style: TextStyle(
-                                height: 1.5,
-                                color: Color.fromARGB(255, 23, 23, 23),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400)),
+                        child: Text(
+                          emergency.bloodGroup!,
+                          style: const TextStyle(
+                              height: 1.5,
+                              color: Color.fromARGB(255, 23, 23, 23),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400),
+                        ),
                       )
                     ],
                   )),
               Container(
-                  margin: EdgeInsets.only(left: width * 0.075),
-                  height: height * 0.06,
-                  child: Row(
-                    children: [
-                      Container(
+                margin: EdgeInsets.only(left: width * 0.075),
+                height: height * 0.06,
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      width: width * 0.21,
+                      child: const Text("Địa điểm: ",
+                          style: TextStyle(
+                              height: 1.5,
+                              color: Color.fromARGB(255, 16, 16, 16),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    SizedBox(
+                      width: width * 0.6,
+                      child: Container(
                         alignment: Alignment.topLeft,
-                        width: width * 0.21,
-                        child: const Text("Địa điểm: ",
-                            style: TextStyle(
-                                height: 1.5,
-                                color: Color.fromARGB(255, 16, 16, 16),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500)),
+                        child: Text(
+                          emergency.address!,
+                          style: const TextStyle(
+                            height: 1.5,
+                            color: Color.fromARGB(255, 23, 23, 23),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: const Text(
-                            "Trung Tâm Hiến Máu Nhân Đạo Tp.HCM\n 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp ",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 23, 23, 23),
-                                fontSize: 15,
-                                height: 1.5,
-                                fontWeight: FontWeight.w400)),
-                      )
-                    ],
-                  )),
+                    )
+                  ],
+                ),
+              ),
               SizedBox(
-                  height: height * 0.03,
-                  width: width * 0.85,
-                  child: Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.topLeft,
-                        width: width * 0.21,
-                        child: const Text("Liên hệ:",
-                            style: TextStyle(
-                                height: 1.5,
-                                color: Color.fromARGB(255, 16, 16, 16),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500)),
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: const Text("0982 001 737 (Mai Hoàng)",
-                            style: TextStyle(
-                                height: 1.5,
-                                color: Color.fromARGB(255, 23, 23, 23),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400)),
-                      )
-                    ],
-                  )),
+                height: height * 0.03,
+                width: width * 0.85,
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      width: width * 0.21,
+                      child: const Text("Liên hệ:",
+                          style: TextStyle(
+                              height: 1.5,
+                              color: Color.fromARGB(255, 16, 16, 16),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: const Text("0982 001 737 (Mai Hoàng)",
+                          style: TextStyle(
+                              height: 1.5,
+                              color: Color.fromARGB(255, 23, 23, 23),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400)),
+                    )
+                  ],
+                ),
+              ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
                   height: height * 0.03,
@@ -180,17 +194,8 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               ),
               GestureDetector(
                 onTap: () {
-                  // GoRouter.of(context)
-                  //     .pushNamed(MyAppRouteConstants.donation1RouteName);
-
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => AddressBloodGr(
-                  //       centerBlood: null,
-                  //     ),
-                  //   ),
-                  // );
+                  GoRouter.of(context)
+                      .pushNamed(MyAppRouteConstants.addressBloodGr);
                 },
                 child: Container(
                     margin: const EdgeInsets.only(top: 5, bottom: 15),

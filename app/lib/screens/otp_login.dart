@@ -1,13 +1,16 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
-import 'package:bloody/screens/login.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/model/user.dart';
 import 'package:bloody/screens/otp_login/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'otp_login/otp_form.dart';
 
 class OtpLogin extends StatefulWidget {
-  const OtpLogin({super.key});
+  const OtpLogin({super.key, required this.phone});
+  final String phone;
 
   @override
   State<OtpLogin> createState() => _OtpLoginState();
@@ -16,6 +19,7 @@ class OtpLogin extends StatefulWidget {
 class _OtpLoginState extends State<OtpLogin> {
   @override
   Widget build(BuildContext context) {
+    String phone = widget.phone;
     SizeConfig().init(context);
     return Scaffold(
       body: SizedBox(
@@ -32,11 +36,8 @@ class _OtpLoginState extends State<OtpLogin> {
                   children: [
                     IconButton(
                       onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Login()),
-                        ),
+                        GoRouter.of(context)
+                            .pushNamed(MyAppRouteConstants.loginRouteName)
                       },
                       icon: const Icon(
                         Icons.keyboard_arrow_left_outlined,
@@ -55,32 +56,24 @@ class _OtpLoginState extends State<OtpLogin> {
                   ],
                 ),
                 const SizedBox(height: 25),
-                BlocBuilder<LoginCubit, LoginState>(
-                  builder: (context, state) {
-                    if (state is LoginLoaded) {
-                      String? phone = state.user.phone!.startsWith("0")
-                          ? state.user.phone
-                          : "0${state.user.phone}";
-                      return Text(
-                        "Mã xác thực đã được gửi đến số $phone ",
-                        style: const TextStyle(
-                            height: 1,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
-                      );
-                    } else {
-                      return const Text(
-                        "Mã xác thực đã được gửi đến số 0123456789",
-                        style: TextStyle(
-                            height: 1,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
-                      );
-                    }
-                  },
+                Text(
+                  "Mã xác thực đã được gửi đến số $phone ",
+                  style: const TextStyle(
+                      height: 1, fontSize: 13, fontWeight: FontWeight.w400),
                 ),
                 buildTimer(),
-                const OtpForm(),
+                BlocBuilder<LoginCubit, LoginState>(
+                  builder: (context, state) {
+                    User userExistting = User();
+                    if (state is LoginInitial) {
+                      context.read<LoginCubit>().loadUser(phone);
+                    }
+                    if (state is LoginLoaded) {
+                      userExistting = state.user;
+                    }
+                    return OtpForm(name: userExistting.name);
+                  },
+                ),
               ],
             ),
           ),

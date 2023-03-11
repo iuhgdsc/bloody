@@ -1,11 +1,13 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/model/Register/question_check.dart';
-import 'package:bloody/screens/otp_login.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../config/routes/app_route_constants.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -109,27 +111,31 @@ class _LoginState extends State<Login> {
                   ElevatedButton(
                     style: buttonPrimary,
                     onPressed: () async {
-                      await _firebaseAuth.verifyPhoneNumber(
-                          phoneNumber: countryCode + phone,
-                          verificationCompleted:
-                              (PhoneAuthCredential phoneAuthCredential) async {
-                            await _firebaseAuth
-                                .signInWithCredential(phoneAuthCredential);
-                          },
-                          verificationFailed: (error) {
-                            throw Exception(error.message);
-                          },
-                          codeSent: (verificationId, forceResendingToken) {
-                            context.read<LoginCubit>().setPhone(phone);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const OtpLogin(),
-                              ),
-                            );
-                            Login.verify = verificationId;
-                          },
-                          codeAutoRetrievalTimeout: (verificationId) {});
+                      // await _firebaseAuth.verifyPhoneNumber(
+                      //     phoneNumber: countryCode + phone,
+                      //     verificationCompleted:
+                      //         (PhoneAuthCredential phoneAuthCredential) async {
+                      //       await _firebaseAuth
+                      //           .signInWithCredential(phoneAuthCredential);
+                      //     },
+                      //     verificationFailed: (error) {
+                      //       throw Exception(error.message);
+                      //     },
+                      //     codeSent: (verificationId, forceResendingToken) {
+                      //       context.read<LoginCubit>().setPhone(phone);
+                      //       GoRouter.of(context).pushNamed(
+                      //           MyAppRouteConstants.otpLoginRouteName,
+                      //           queryParams: {
+                      //             'phone': "0$phone",
+                      //           });
+                      //       Login.verify = verificationId;
+                      //     },
+                      //     codeAutoRetrievalTimeout: (verificationId) {});
+                      GoRouter.of(context).pushNamed(
+                          MyAppRouteConstants.otpLoginRouteName,
+                          queryParams: {
+                            'phone': "0$phone",
+                          });
                     },
                     child: const Text(
                       "Tiếp tục",

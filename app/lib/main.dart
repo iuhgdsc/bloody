@@ -1,3 +1,5 @@
+import 'package:bloody/blocs/bloc_emergency/emergency_cubit.dart';
+import 'package:bloody/blocs/bloc_event/event_cubit.dart';
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
@@ -23,10 +25,25 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LoginCubit>(
-          create: (BuildContext context) => LoginCubit(),
+          create: (BuildContext context) => LoginCubit(
+              apiRepository: ApiRepository(
+            apiService: apiService,
+          )),
         ),
         BlocProvider<QuestionCubit>(
           create: (BuildContext context) => QuestionCubit(
+              apiRepository: ApiRepository(
+            apiService: apiService,
+          )),
+        ),
+        BlocProvider<EventCubit>(
+          create: (BuildContext context) => EventCubit(
+              apiRepository: ApiRepository(
+            apiService: apiService,
+          )),
+        ),
+        BlocProvider<EmergencyCubit>(
+          create: (BuildContext context) => EmergencyCubit(
               apiRepository: ApiRepository(
             apiService: apiService,
           )),

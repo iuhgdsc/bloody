@@ -1,25 +1,25 @@
 import 'dart:convert';
 
 class User {
-  String? userName;
+  String? name;
   String? phone;
   String? cccd;
   String? address;
   User({
-    this.userName,
+    this.name,
     this.phone,
     this.cccd,
     this.address,
   });
 
   User copyWith({
-    String? userName,
+    String? name,
     String? phone,
     String? cccd,
     String? address,
   }) {
     return User(
-      userName: userName ?? this.userName,
+      name: name ?? this.name,
       phone: phone ?? this.phone,
       cccd: cccd ?? this.cccd,
       address: address ?? this.address,
@@ -28,7 +28,7 @@ class User {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'userName': userName,
+      'name': name,
       'phone': phone,
       'cccd': cccd,
       'address': address,
@@ -37,7 +37,7 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      userName: map['userName'] != null ? map['userName'] as String : null,
+      name: map['name'] != null ? map['name'] as String : null,
       phone: map['phone'] != null ? map['phone'] as String : null,
       cccd: map['cccd'] != null ? map['cccd'] as String : null,
       address: map['address'] != null ? map['address'] as String : null,
@@ -51,14 +51,14 @@ class User {
 
   @override
   String toString() {
-    return 'User(userName: $userName, phone: $phone, cccd: $cccd, address: $address)';
+    return 'User(name: $name, phone: $phone, cccd: $cccd, address: $address)';
   }
 
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
 
-    return other.userName == userName &&
+    return other.name == name &&
         other.phone == phone &&
         other.cccd == cccd &&
         other.address == address;
@@ -66,9 +66,6 @@ class User {
 
   @override
   int get hashCode {
-    return userName.hashCode ^
-        phone.hashCode ^
-        cccd.hashCode ^
-        address.hashCode;
+    return name.hashCode ^ phone.hashCode ^ cccd.hashCode ^ address.hashCode;
   }
 }

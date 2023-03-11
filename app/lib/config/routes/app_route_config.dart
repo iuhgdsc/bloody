@@ -3,7 +3,13 @@ import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart'
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:bloody/screens/home.dart';
 import 'package:bloody/screens/login.dart';
+import 'package:bloody/screens/otp_login.dart';
+import 'package:bloody/screens/personal_info.dart';
 import 'package:bloody/screens/searchAdvance/search_advance.dart';
+import 'package:bloody/screens/signUp/auth_face_signup.dart';
+import 'package:bloody/screens/signUp/auth_id_signup.dart';
+import 'package:bloody/screens/signUp/signup_info.dart';
+import 'package:bloody/screens/signUp/success_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,7 +36,7 @@ class NyAppRouter {
         },
       ),
       GoRoute(
-        name: MyAppRouteConstants.donation1RouteName,
+        name: MyAppRouteConstants.addressBloodGr,
         path: '/AddressBloodGr',
         pageBuilder: (context, state) => NoTransitionPage<void>(
           key: state.pageKey,
@@ -38,7 +44,7 @@ class NyAppRouter {
         ),
       ),
       GoRoute(
-          name: MyAppRouteConstants.donation2RouteName,
+          name: MyAppRouteConstants.qaRoute,
           path: '/QA',
           pageBuilder: (context, state) => NoTransitionPage<void>(
               key: state.pageKey,
@@ -47,7 +53,7 @@ class NyAppRouter {
                 time: context as String,
               ))),
       GoRoute(
-        name: MyAppRouteConstants.donation3RouteName,
+        name: MyAppRouteConstants.successRoute,
         path: '/SuccessRegister',
         pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
@@ -60,6 +66,52 @@ class NyAppRouter {
         path: '/SearchAdvanced',
         pageBuilder: (context, state) {
           return const MaterialPage(child: SearchAdvanced());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.otpLoginRouteName,
+        path: '/optLogin',
+        pageBuilder: (context, state) {
+          String phone = state.queryParams['phone'] ?? '';
+          return MaterialPage(
+              child: OtpLogin(
+            phone: phone,
+          ));
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.signUpRouteName,
+        path: '/signUp',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SignUpInfo());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.authIDRouteName,
+        path: '/authID',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AuthIDSignUp());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.authFaceRouteName,
+        path: '/authFace',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AuthFaceSignUp());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.signUpSuccessRouteName,
+        path: '/signUpSuccess',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SuccessSignUp());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.personRouteName,
+        path: '/person',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Person());
         },
       ),
     ],

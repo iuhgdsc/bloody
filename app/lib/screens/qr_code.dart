@@ -103,7 +103,7 @@ class QRCode extends StatelessWidget {
                                           height: 5,
                                         ),
                                         Text(
-                                          state.user.userName!,
+                                          state.user.name!,
                                           style: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,

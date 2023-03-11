@@ -1,9 +1,9 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
-import 'package:bloody/screens/signUp/auth_face_signup.dart';
-import 'package:bloody/screens/signUp/signup_info.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthIDSignUp extends StatefulWidget {
   const AuthIDSignUp({Key? key}) : super(key: key);
@@ -30,11 +30,8 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                   ),
                   IconButton(
                     onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpInfo()),
-                      ),
+                      GoRouter.of(context)
+                          .pushNamed(MyAppRouteConstants.signUpRouteName)
                     },
                     icon: const Icon(
                       Icons.keyboard_arrow_left_outlined,
@@ -185,11 +182,8 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
               ElevatedButton(
                 style: buttonPrimary,
                 onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AuthFaceSignUp()),
-                  ),
+                  GoRouter.of(context)
+                      .pushNamed(MyAppRouteConstants.authFaceRouteName)
                 },
                 child: const Text(
                   "Tiếp tục",
@@ -201,11 +195,8 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
               ),
               TextButton(
                 onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AuthFaceSignUp()),
-                  ),
+                  GoRouter.of(context)
+                      .pushNamed(MyAppRouteConstants.authFaceRouteName)
                 },
                 child: const Text(
                   "Để sau",

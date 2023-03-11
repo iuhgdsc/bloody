@@ -1,17 +1,16 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'package:bloody/screens/login.dart';
-import 'package:bloody/screens/signUp/signup_info.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({
     Key? key,
+    this.name,
   }) : super(key: key);
+  final String? name;
 
   @override
   State<OtpForm> createState() => _OtpFormState();
@@ -42,24 +41,29 @@ class _OtpFormState extends State<OtpForm> {
           const SizedBox(height: 25),
           ElevatedButton(
             style: buttonPrimary,
-            onPressed: () async {
-              try {
-                PhoneAuthCredential phoneAuthCredential =
-                    PhoneAuthProvider.credential(
-                        verificationId: Login.verify, smsCode: code);
-                await _auth.signInWithCredential(phoneAuthCredential);
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignUpInfo()));
-              } catch (e) {
-                if (kDebugMode) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Mã OTP không đúng !"),
-                    ),
-                  );
-                }
+            // onPressed: () async {
+            //   try {
+            //     PhoneAuthCredential phoneAuthCredential =
+            //         PhoneAuthProvider.credential(
+            //             verificationId: Login.verify, smsCode: code);
+            //     await _auth.signInWithCredential(phoneAuthCredential);
+            //   } catch (e) {
+            //     if (kDebugMode) {
+            //       ScaffoldMessenger.of(context).showSnackBar(
+            //         const SnackBar(
+            //           content: Text("Mã OTP không đúng !"),
+            //         ),
+            //       );
+            //     }
+            //   }
+            // },
+            onPressed: () {
+              if (widget.name != null) {
+                GoRouter.of(context)
+                    .pushNamed(MyAppRouteConstants.homeRouteName);
+              } else {
+                GoRouter.of(context)
+                    .pushNamed(MyAppRouteConstants.signUpRouteName);
               }
             },
             child: const Text(

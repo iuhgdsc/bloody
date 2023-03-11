@@ -1,7 +1,7 @@
-import 'package:bloody/screens/signUp/auth_face_signup.dart';
-import 'package:bloody/screens/home.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SuccessSignUp extends StatefulWidget {
   const SuccessSignUp({Key? key}) : super(key: key);
@@ -26,11 +26,8 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
               ),
               IconButton(
                 onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AuthFaceSignUp()),
-                  ),
+                  GoRouter.of(context)
+                      .pushNamed(MyAppRouteConstants.authFaceRouteName)
                 },
                 icon: const Icon(
                   Icons.keyboard_arrow_left_outlined,
@@ -158,13 +155,7 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Home(
-                          isSucc: false,
-                        )),
-              ),
+              GoRouter.of(context).pushNamed(MyAppRouteConstants.homeRouteName)
             },
             child: const Text(
               "Hoàn thành",

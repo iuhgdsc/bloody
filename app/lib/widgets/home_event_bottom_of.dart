@@ -40,7 +40,7 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
     double height = MediaQuery.of(context).size.height;
     return Container(
       margin: const EdgeInsets.only(top: 15),
-      height: height * 0.6,
+      height: height * 0.61,
       child: DefaultTabController(
         length: 3,
         child: Scaffold(

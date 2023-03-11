@@ -1,4 +1,3 @@
-import 'package:bloody/screens/otp_login/otp_form.dart';
 import 'package:bloody/screens/otp_login/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -120,7 +119,6 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
-              const OtpForm(),
             ],
           ),
         ),

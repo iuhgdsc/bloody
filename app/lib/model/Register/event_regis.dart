@@ -34,7 +34,7 @@ class EventRegis {
       timeChoose: json['timeChoose'],
       answers: json['answers'],
       user: User(
-        userName: json['user']['userName'],
+        name: json['user']['name'],
         cccd: json['user']['cccd'],
         phone: json['user']['phone'],
         address: json['user']['address'],

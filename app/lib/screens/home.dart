@@ -1,12 +1,13 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/user.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:bloody/screens/history.dart';
-import 'package:bloody/screens/personal_info.dart';
 import 'package:bloody/screens/qr_code.dart';
-import 'package:bloody/screens/searchAdvance/search_advance.dart';
+import 'package:bloody/widgets/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'home/home_event.dart';
 
@@ -34,7 +35,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
     });
   }
 
-  late User user;
+  late User user2;
 
   @override
   Widget build(BuildContext context) {
@@ -59,14 +60,10 @@ class _Home extends State<Home> with WidgetsBindingObserver {
       child: SafeArea(
         child: BlocBuilder<LoginCubit, LoginState>(builder: (context, state) {
           if (state is LoginInitial) {
-            context.read<LoginCubit>().setUser(User(
-                userName: "Nguyen Van A",
-                phone: "0123456789",
-                cccd: "123456789",
-                address: "Ha Noi"));
+            context.read<LoginCubit>().loadUser("0366231860");
           }
           if (state is LoginLoaded) {
-            user = state.user;
+            user2 = state.user;
             return Scaffold(
               appBar: PreferredSize(
                 preferredSize: const Size.fromHeight(80.0),
@@ -106,12 +103,8 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                           width: width - 140,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const SearchAdvanced(),
-                                ),
-                              );
+                              GoRouter.of(context).pushNamed(
+                                  MyAppRouteConstants.searchAdvancedRouteName);
                             },
                             child: Container(
                               margin: const EdgeInsets.only(left: 10, top: 15),
@@ -141,276 +134,10 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30),
                                   ),
-                                  actions: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: SizedBox(
-                                        width: 380,
-                                        height: 240,
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: const Icon(
-                                                    Icons.close,
-                                                    size: 20,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 140,
-                                                ),
-                                                const Center(
-                                                  child: Text(
-                                                    "Tài khoản",
-                                                    style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                const SizedBox(
-                                                  width: 20,
-                                                ),
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(23),
-                                                  child: SizedBox.fromSize(
-                                                    child: const Image(
-                                                      width: 50,
-                                                      height: 50,
-                                                      fit: BoxFit.cover,
-                                                      image: AssetImage(
-                                                        'assets/avatar.png',
-                                                      ),
-                                                      opacity:
-                                                          AlwaysStoppedAnimation(
-                                                              1),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        user.userName!,
-                                                        style: const TextStyle(
-                                                          fontSize: 20,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                      const Text("Đã xác thực"),
-                                                    ],
-                                                  ),
-                                                ),
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            const Person(),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: const Icon(
-                                                    Icons
-                                                        .arrow_forward_ios_sharp,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            const Divider(
-                                              color: Colors.black,
-                                              thickness: 1,
-                                            ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(vertical: 9),
-                                                  child: Row(
-                                                    children: [
-                                                      Stack(
-                                                        children: [
-                                                          const Padding(
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        10),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .notifications,
-                                                              color: Color(
-                                                                  0xFF79747E),
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            top: 0,
-                                                            right: 8,
-                                                            child: Container(
-                                                              width: 15,
-                                                              height: 15,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                color: Color
-                                                                    .fromARGB(
-                                                                        255,
-                                                                        255,
-                                                                        0,
-                                                                        0),
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child:
-                                                                  const Center(
-                                                                child: Text(
-                                                                  "3",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        11,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      const Expanded(
-                                                        child: Text(
-                                                          "Thông báo",
-                                                          style: TextStyle(
-                                                            fontSize: 14,
-                                                            color: Color(
-                                                                0xFF333335),
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      GestureDetector(
-                                                        onTap: () {
-                                                          Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  const History(),
-                                                            ),
-                                                          );
-                                                        },
-                                                        child: const Icon(
-                                                          Icons
-                                                              .arrow_forward_ios_sharp,
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                const Divider(
-                                                  color: Color(0xFF79747E),
-                                                  thickness: 1,
-                                                  height: 4,
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(vertical: 9),
-                                                  child: Row(
-                                                    children: const [
-                                                      Padding(
-                                                        padding: EdgeInsets
-                                                            .symmetric(
-                                                                horizontal: 10),
-                                                        child: Icon(
-                                                          Icons
-                                                              .settings_outlined,
-                                                          color:
-                                                              Color(0xFF79747E),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          "Thiết lập",
-                                                          style: TextStyle(
-                                                            fontSize: 14,
-                                                            color: Color(
-                                                                0xFF333335),
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        Icons
-                                                            .arrow_forward_ios_sharp,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                const Divider(
-                                                  color: Color(0xFF79747E),
-                                                  thickness: 1,
-                                                  height: 4,
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(vertical: 9),
-                                                  child: Row(
-                                                    children: const [
-                                                      Padding(
-                                                        padding: EdgeInsets
-                                                            .symmetric(
-                                                                horizontal: 10),
-                                                        child: Icon(
-                                                          Icons.logout,
-                                                          color:
-                                                              Color(0xFF79747E),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          "Đăng xuất",
-                                                          style: TextStyle(
-                                                            fontSize: 14,
-                                                            color: Color(
-                                                                0xFF333335),
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        Icons
-                                                            .arrow_forward_ios_sharp,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
+                                  actions: [
+                                    Profile(
+                                      user: user2,
+                                    ),
                                   ],
                                 ),
                               ),

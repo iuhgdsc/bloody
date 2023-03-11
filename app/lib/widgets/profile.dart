@@ -1,9 +1,12 @@
+import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/model/user.dart';
 import 'package:bloody/screens/history.dart';
-import 'package:bloody/screens/personal_info.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  const Profile({super.key, required this.user});
+  final User user;
 
   @override
   State<StatefulWidget> createState() {
@@ -14,6 +17,7 @@ class Profile extends StatefulWidget {
 class _Profile extends State<Profile> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
+    User user = widget.user;
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -37,16 +41,15 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                         size: 20,
                       ),
                     ),
-                    const SizedBox(
-                      width: 140,
-                    ),
-                    const Center(
-                      child: Text(
-                        "Tài khoản",
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                    const Expanded(
+                      child: Center(
+                        child: Text(
+                          "Tài khoản",
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
@@ -78,26 +81,22 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
-                            "Nguyễn Việt Hoàng",
-                            style: TextStyle(
+                            user.name!,
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          Text("Đã xác thực"),
+                          const Text("Đã xác thực"),
                         ],
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Person(),
-                          ),
-                        );
+                        GoRouter.of(context)
+                            .pushNamed(MyAppRouteConstants.personRouteName);
                       },
                       child: const Icon(
                         Icons.arrow_forward_ios_sharp,

@@ -1,8 +1,10 @@
+import 'package:bloody/blocs/bloc_emergency/emergency_cubit.dart';
 import 'package:bloody/model/Emergency/emergency_model.dart';
 import 'package:bloody/model/Emergency/emergency_to_export.dart';
 import 'package:bloody/screens/emergency/emergency_bood_donation_details.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Emergency extends StatefulWidget {
   const Emergency({super.key});
@@ -14,56 +16,8 @@ class Emergency extends StatefulWidget {
 }
 
 class _Emergency extends State<Emergency> with WidgetsBindingObserver {
-  List<EmergencyToExport> emergencyToExport = [
-    EmergencyToExport(
-        id: "1",
-        name: "Cần gấp máu cho nạn nhân LVN",
-        image: "https://i.imgur.com/100Wcl6.png",
-        bloodGroup: "Nhóm máu O, đơn vị 5",
-        address: "Bệnh viện Truyền máu Huyết học Bình Dương",
-        timeAgo: "2 giờ trước",
-        isSuitable: true,
-        description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/avatar.png"),
-    EmergencyToExport(
-        id: "2",
-        name: "Cần gấp máu cho bệnh nhân suy thận",
-        image: "https://i.imgur.com/86gCaQu.png",
-        bloodGroup: "Nhóm máu A, đơn vị 8",
-        address: "Trung tâm truyền máu Chợ Rẫy",
-        timeAgo: "2 giờ trước",
-        isSuitable: true,
-        description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/avatar.png"),
-    EmergencyToExport(
-        id: "3",
-        name: "Cần gấp máu cho bệnh nhân viêm phổi",
-        image: "https://i.imgur.com/cXaAIrq.png",
-        bloodGroup: "Nhóm máu O, đơn vị 4",
-        address: "Trung Tâm Hiến Máu Nhân Đạo Bình Dương",
-        timeAgo: "3 giờ trước",
-        isSuitable: true,
-        description: "Phù hợp với hồ sơ hiến máu của bạn",
-        avatar: "assets/avatar.png"),
-  ];
-  List<EmergencyModel> emergencyNews = [
-    EmergencyModel(
-      id: "1",
-      name: "Cần gấp máu cho bệnh nhân viêm phổi",
-      image: "https://i.imgur.com/gZejUZc.png",
-      bloodGroup: "Nhóm máu B, 4 đơn vị",
-      address: "Nhóm máu B, 4 đơn vị",
-      timeAgo: "23 phút trước",
-    ),
-    EmergencyModel(
-      id: "2",
-      name: "Cần gấp máu cho nạn nhân LVNN",
-      image: "https://i.imgur.com/g585Iv9.png",
-      bloodGroup: "Nhóm máu O, 10 đơn vị",
-      address: "Bệnh viện nhân dân Gia Định ...",
-      timeAgo: "1 giờ trước",
-    ),
-  ];
+  List<EmergencyModel> emergencyNews = [];
+  List<EmergencyToExport> emergencyEvents = [];
 
   @override
   Widget build(BuildContext context) {
@@ -106,178 +60,225 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
               ),
             ),
           ),
-          Column(children: [
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: emergencyToExport.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return Column(
-                          children: [
-                            Container(
-                              height: height * 0.2,
-                            ),
-                            const Expanded(
-                              child: EmergencyBoodDonationDetails(),
-                            )
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: SizedBox(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            width: 0.1,
-                            color: Color.fromARGB(255, 68, 68, 68),
-                          ),
-                        ),
-                      ),
-                      child: SizedBox(
-                        height: height * 0.15,
-                        child: Row(
-                          children: [
-                            Container(
-                              width: width * 0.25,
-                              height: height * 0.17,
-                              padding: const EdgeInsets.symmetric(vertical: 11),
-                              alignment: Alignment.topCenter,
-                              child: Column(
+          BlocBuilder<EmergencyCubit, EmergencyState>(
+            builder: (context, state) {
+              if (state is EmergencyInitial) {
+                context.read<EmergencyCubit>().getEmergencys();
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is EmergencyLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is EmergencyError) {
+                return Text(state.message.toString());
+              } else if (state is EmergencyLoaded) {
+                final List<EmergencyToExport> list = state.emergencies;
+
+                for (var element in list) {
+                  if (element.avatar != null) {
+                    emergencyEvents.add(EmergencyToExport(
+                      avatar: element.avatar,
+                      name: element.name,
+                      address: element.address,
+                      bloodGroup: element.bloodGroup,
+                      description: element.description,
+                      id: element.id,
+                      image: element.image,
+                      isSuitable: element.isSuitable,
+                      timeAgo: element.timeAgo,
+                    ));
+                  }
+                }
+                return Column(children: [
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: emergencyEvents.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Column(
                                 children: [
-                                  Image.network(
-                                    height: 75,
-                                    emergencyToExport[index].image,
+                                  Container(
+                                    height: height * 0.2,
                                   ),
-                                  Text(
-                                    emergencyToExport[index].timeAgo,
-                                    style: const TextStyle(
-                                      fontSize: 13,
-                                      color: Color.fromARGB(255, 59, 59, 59),
-                                    ),
-                                  ),
+                                  Expanded(
+                                    child: EmergencyBoodDonationDetails(
+                                        emergency: emergencyEvents[index]),
+                                  )
                                 ],
+                              );
+                            },
+                          );
+                        },
+                        child: SizedBox(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 0.1,
+                                  color: Color.fromARGB(255, 68, 68, 68),
+                                ),
                               ),
                             ),
-                            Container(
-                              width: width * 0.7,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: width * 0.009),
-                              child: Column(
+                            child: SizedBox(
+                              height: height * 0.15,
+                              child: Row(
                                 children: [
                                   Container(
-                                    height: height * 0.04,
-                                    padding: EdgeInsets.only(
-                                      top: height * 0.014,
-                                    ),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      emergencyToExport[index].name,
-                                      style: const TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 38, 38, 38),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: height * 0.03,
-                                    padding: const EdgeInsets.only(top: 3),
-                                    alignment: Alignment.topLeft,
-                                    child: Text(
-                                      emergencyToExport[index].bloodGroup,
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Color.fromARGB(255, 69, 69, 69),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: height * 0.03,
-                                    padding: const EdgeInsets.only(top: 3),
-                                    alignment: Alignment.topLeft,
-                                    child: Text(
-                                      emergencyToExport[index].address,
-                                      style: const TextStyle(
-                                        fontSize: 13,
-                                        color: Color.fromARGB(255, 69, 69, 69),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: height * 0.05,
-                                    alignment: Alignment.centerLeft,
-                                    child: Row(
+                                    width: width * 0.25,
+                                    height: height * 0.17,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 11),
+                                    alignment: Alignment.topCenter,
+                                    child: Column(
                                       children: [
-                                        Stack(
-                                          children: <Widget>[
-                                            SizedBox(
-                                              width: width * 0.1,
-                                              child: Center(
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(23),
-                                                  child: SizedBox.fromSize(
-                                                    child: Image(
-                                                      width: 31,
-                                                      height: 31,
-                                                      fit: BoxFit.cover,
-                                                      image: AssetImage(
-                                                        emergencyToExport[index]
-                                                            .avatar,
-                                                      ),
-                                                      opacity:
-                                                          const AlwaysStoppedAnimation(
-                                                              1),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            const Positioned(
-                                              bottom: 5,
-                                              right: 0,
-                                              child: Icon(
-                                                Icons.check_circle,
-                                                size: 15,
-                                                color: Color.fromARGB(
-                                                    255, 14, 104, 42),
-                                              ),
-                                            )
-                                          ],
+                                        Image.network(
+                                          height: 75,
+                                          emergencyEvents[index].image!,
                                         ),
-                                        const Center(
+                                        Text(
+                                          emergencyEvents[index].timeAgo!,
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            color:
+                                                Color.fromARGB(255, 59, 59, 59),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: width * 0.7,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.009),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: height * 0.04,
+                                          padding: EdgeInsets.only(
+                                            top: height * 0.014,
+                                          ),
+                                          alignment: Alignment.centerLeft,
                                           child: Text(
-                                            "Phù hợp với hồ sơ hiến máu của bạn",
-                                            style: TextStyle(
-                                              fontSize: 13,
+                                            emergencyEvents[index].name!,
+                                            style: const TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 38, 38, 38),
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: height * 0.03,
+                                          padding:
+                                              const EdgeInsets.only(top: 3),
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            emergencyEvents[index].bloodGroup!,
+                                            style: const TextStyle(
+                                              fontSize: 14,
                                               color: Color.fromARGB(
-                                                  255, 92, 92, 92),
+                                                  255, 69, 69, 69),
                                             ),
                                           ),
                                         ),
+                                        Container(
+                                          height: height * 0.03,
+                                          padding:
+                                              const EdgeInsets.only(top: 3),
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            emergencyEvents[index].address!,
+                                            style: const TextStyle(
+                                              fontSize: 13,
+                                              color: Color.fromARGB(
+                                                  255, 69, 69, 69),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: height * 0.05,
+                                          alignment: Alignment.centerLeft,
+                                          child: Row(
+                                            children: [
+                                              Stack(
+                                                children: <Widget>[
+                                                  SizedBox(
+                                                    width: width * 0.1,
+                                                    child: Center(
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(23),
+                                                        child:
+                                                            SizedBox.fromSize(
+                                                          child: Image(
+                                                            width: 31,
+                                                            height: 31,
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(
+                                                                emergencyEvents[
+                                                                        index]
+                                                                    .avatar!),
+                                                            opacity:
+                                                                const AlwaysStoppedAnimation(
+                                                                    1),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const Positioned(
+                                                    bottom: 5,
+                                                    right: 0,
+                                                    child: Icon(
+                                                      Icons.check_circle,
+                                                      size: 15,
+                                                      color: Color.fromARGB(
+                                                          255, 14, 104, 42),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              const Center(
+                                                child: Text(
+                                                  "Phù hợp với hồ sơ hiến máu của bạn",
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                    color: Color.fromARGB(
+                                                        255, 92, 92, 92),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
                                       ],
                                     ),
                                   )
                                 ],
                               ),
-                            )
-                          ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   ),
+                ]);
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
-              },
-            ),
-          ]),
+              }
+            },
+          ),
           GestureDetector(
             onTap: () {},
             child: Container(
@@ -309,107 +310,156 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                       fontWeight: FontWeight.w500)),
             ),
           ),
-          ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: emergencyNews.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return Column(
-                          children: [
-                            Container(
-                              height: height * 0.18,
-                            ),
-                            const Expanded(
-                                child: EmergencyBoodDonationDetails())
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: SizedBox(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                          border: Border(
-                        bottom: BorderSide(
-                          width: 0.01,
-                          color: Color.fromARGB(255, 68, 68, 68),
-                        ),
-                      )),
-                      child: SizedBox(
-                        height: height * 0.15,
-                        child: Row(children: [
-                          Container(
-                              width: width * 0.25,
-                              height: height * 0.17,
-                              padding: const EdgeInsets.symmetric(vertical: 11),
-                              alignment: Alignment.topCenter,
-                              child: Column(children: [
-                                Image.network(
-                                  height: 75,
-                                  emergencyNews[index].image,
-                                ),
-                                Text(
-                                  emergencyNews[index].timeAgo,
-                                  style: const TextStyle(
-                                    fontSize: 13,
-                                    color: Color.fromARGB(255, 59, 59, 59),
-                                  ),
-                                ),
-                              ])),
-                          Container(
-                            width: width * 0.7,
-                            padding:
-                                EdgeInsets.symmetric(horizontal: width * 0.009),
-                            child: Column(children: [
-                              Container(
-                                  height: height * 0.04,
-                                  padding: EdgeInsets.only(
-                                    top: height * 0.014,
-                                  ),
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    emergencyNews[index].name,
-                                    style: const TextStyle(
-                                        color: Color.fromARGB(255, 38, 38, 38),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500),
-                                  )),
-                              Container(
-                                height: height * 0.03,
-                                padding: const EdgeInsets.only(top: 3),
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  emergencyNews[index].bloodGroup,
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Color.fromARGB(255, 69, 69, 69)),
-                                ),
-                              ),
-                              Container(
-                                height: height * 0.03,
-                                padding: const EdgeInsets.only(top: 3),
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  emergencyNews[index].address,
-                                  style: const TextStyle(
-                                      fontSize: 13,
-                                      color: Color.fromARGB(255, 69, 69, 69)),
-                                ),
-                              ),
-                            ]),
-                          )
-                        ]),
-                      ),
-                    ),
-                  ),
+          BlocBuilder<EmergencyCubit, EmergencyState>(
+            builder: (context, state) {
+              if (state is EmergencyInitial) {
+                context.read<EmergencyCubit>().getEmergencys();
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
-              }),
+              } else if (state is EmergencyLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is EmergencyError) {
+                return Text(state.message.toString());
+              } else if (state is EmergencyLoaded) {
+                final List<EmergencyToExport> list = state.emergencies;
+                for (var element in list) {
+                  if (element.avatar == null) {
+                    emergencyNews.add(EmergencyModel(
+                      name: element.name,
+                      address: element.address,
+                      bloodGroup: element.bloodGroup,
+                      id: element.id,
+                      image: element.image,
+                      timeAgo: element.timeAgo,
+                    ));
+                  }
+                }
+                return ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: emergencyNews.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              EmergencyToExport emergency = EmergencyToExport(
+                                id: emergencyNews[index].id,
+                                name: emergencyNews[index].name,
+                                address: emergencyNews[index].address,
+                                bloodGroup: emergencyNews[index].bloodGroup,
+                                image: emergencyNews[index].image,
+                                timeAgo: emergencyNews[index].timeAgo,
+                              );
+                              return Column(
+                                children: [
+                                  Container(
+                                    height: height * 0.18,
+                                  ),
+                                  Expanded(
+                                      child: EmergencyBoodDonationDetails(
+                                    emergency: emergency,
+                                  ))
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        child: SizedBox(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                border: Border(
+                              bottom: BorderSide(
+                                width: 0.01,
+                                color: Color.fromARGB(255, 68, 68, 68),
+                              ),
+                            )),
+                            child: SizedBox(
+                              height: height * 0.15,
+                              child: Row(children: [
+                                Container(
+                                    width: width * 0.25,
+                                    height: height * 0.17,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 11),
+                                    alignment: Alignment.topCenter,
+                                    child: Column(children: [
+                                      Image.network(
+                                        height: 75,
+                                        emergencyNews[index].image!,
+                                      ),
+                                      Text(
+                                        emergencyNews[index].timeAgo!,
+                                        style: const TextStyle(
+                                          fontSize: 13,
+                                          color:
+                                              Color.fromARGB(255, 59, 59, 59),
+                                        ),
+                                      ),
+                                    ])),
+                                Container(
+                                  width: width * 0.7,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: width * 0.009),
+                                  child: Column(children: [
+                                    Container(
+                                        height: height * 0.04,
+                                        padding: EdgeInsets.only(
+                                          top: height * 0.014,
+                                        ),
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          emergencyNews[index].name!,
+                                          style: const TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 38, 38, 38),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500),
+                                        )),
+                                    Container(
+                                      height: height * 0.03,
+                                      padding: const EdgeInsets.only(top: 3),
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        emergencyNews[index].bloodGroup!,
+                                        style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Color.fromARGB(
+                                                255, 69, 69, 69)),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: height * 0.03,
+                                      padding: const EdgeInsets.only(top: 3),
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        emergencyNews[index].address!,
+                                        style: const TextStyle(
+                                            fontSize: 13,
+                                            color: Color.fromARGB(
+                                                255, 69, 69, 69)),
+                                      ),
+                                    ),
+                                  ]),
+                                )
+                              ]),
+                            ),
+                          ),
+                        ),
+                      );
+                    });
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
           GestureDetector(
             onTap: () {},
             child: Container(

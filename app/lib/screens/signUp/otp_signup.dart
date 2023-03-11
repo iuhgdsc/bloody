@@ -1,6 +1,7 @@
-import 'package:bloody/screens/signUp/signup_info.dart';
+import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpForm extends StatefulWidget {
@@ -28,13 +29,11 @@ class _OtpFormState extends State<OtpForm> {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SignUpInfo()),
-              ),
+              GoRouter.of(context)
+                  .pushNamed(MyAppRouteConstants.signUpRouteName)
             },
             child: const Text(
-              "Tiếp tục",
+              "Tiếp thep",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
