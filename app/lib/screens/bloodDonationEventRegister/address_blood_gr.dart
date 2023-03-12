@@ -5,8 +5,8 @@ import 'package:bloody/model/blood_banner.dart';
 import 'package:go_router/go_router.dart';
 
 class AddressBloodGr extends StatefulWidget {
-  const AddressBloodGr({super.key});
-
+  const AddressBloodGr({super.key, required this.centerBlood});
+  final CenterBlood centerBlood;
   @override
   State<StatefulWidget> createState() {
     return _AddressBloodGr();
@@ -33,17 +33,10 @@ class _AddressBloodGr extends State<AddressBloodGr>
     "15:30-16:00"
   ];
 
-  CenterBlood centerBlood = CenterBlood(
-      id: "1",
-      name: "Trung tâm Truyền máu Chợ Rẫy",
-      image: "assets/images/choray.png",
-      address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
-      date:
-          "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
-      isJoined: false);
   String timeChoose = "";
   @override
   Widget build(BuildContext context) {
+    CenterBlood centerBlood = widget.centerBlood;
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
@@ -77,11 +70,14 @@ class _AddressBloodGr extends State<AddressBloodGr>
                         child: Container(
                           margin: const EdgeInsets.only(right: 23),
                           child: const Center(
-                              child: Text("Thời gian và địa điểm ",
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color.fromARGB(255, 41, 41, 41),
-                                      fontWeight: FontWeight.w600))),
+                            child: Text(
+                              "Thời gian và địa điểm ",
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: Color.fromARGB(255, 41, 41, 41),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
                         ),
                       )
                     ],
@@ -92,13 +88,14 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: Text(
-                      "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date!}",
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.1,
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 41, 41, 41),
-                      )),
+                    "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date!}",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      height: 1.1,
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 41, 41, 41),
+                    ),
+                  ),
                 ),
                 const Divider(
                   color: Color.fromARGB(150, 232, 232, 232),
@@ -169,42 +166,43 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: height * 0.41,
-                  child: Wrap(
-                    alignment: WrapAlignment.center,
-                    children: List.generate(
-                      times.length,
-                      (index) => Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 30,
-                        ),
-                        height: 30,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: timeChoose == times[index].toString()
-                              ? Colors.red
-                              : Colors.white,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(7.0)),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            width: 1,
+                IntrinsicHeight(
+                  child: SizedBox(
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
+                      children: List.generate(
+                        times.length,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 30,
                           ),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              timeChoose = times[index].toString();
-                            });
-                          },
-                          child: Center(
-                            child: Text(
-                              times[index],
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Color.fromARGB(255, 16, 16, 16),
+                          height: 30,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: timeChoose == times[index].toString()
+                                ? Colors.red
+                                : Colors.white,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(7.0)),
+                            border: Border.all(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              width: 1,
+                            ),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                timeChoose = times[index].toString();
+                              });
+                            },
+                            child: Center(
+                              child: Text(
+                                times[index],
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromARGB(255, 16, 16, 16),
+                                ),
                               ),
                             ),
                           ),
@@ -214,12 +212,12 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   ),
                 ),
                 GestureDetector(
-                    onTap: () {
-                      GoRouter.of(context).pushNamed(
-                        MyAppRouteConstants.successRoute,
-                      );
-                    },
-                    child: const Btn(text: "Tham gia")),
+                  onTap: () {
+                    GoRouter.of(context).pushNamed(MyAppRouteConstants.qaRoute,
+                        extra: centerBlood, queryParams: {"time": timeChoose});
+                  },
+                  child: const Btn(text: "Tham gia"),
+                ),
               ],
             ),
           ),

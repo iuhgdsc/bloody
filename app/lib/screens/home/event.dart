@@ -215,6 +215,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                   onTap: () {
                                     GoRouter.of(context).pushNamed(
                                       MyAppRouteConstants.addressBloodGr,
+                                      extra: centerBloods[index],
                                     );
                                   },
                                   child: const Btn(text: "Tham gia")),

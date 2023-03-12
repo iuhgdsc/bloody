@@ -22,7 +22,11 @@ class NyAppRouter {
         name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Login());
+          return MaterialPage(
+              child: QA(
+            centerBlood: context as CenterBlood,
+            time: "",
+          ));
         },
       ),
       GoRoute(
@@ -36,30 +40,40 @@ class NyAppRouter {
         },
       ),
       GoRoute(
-        name: MyAppRouteConstants.addressBloodGr,
-        path: '/AddressBloodGr',
-        pageBuilder: (context, state) => NoTransitionPage<void>(
-          key: state.pageKey,
-          child: const AddressBloodGr(),
-        ),
-      ),
+          name: MyAppRouteConstants.addressBloodGr,
+          path: '/AddressBloodGr',
+          pageBuilder: (context, state) {
+            CenterBlood centerBlood = state.extra as CenterBlood;
+            return NoTransitionPage<void>(
+              key: state.pageKey,
+              child: AddressBloodGr(
+                centerBlood: centerBlood,
+              ),
+            );
+          }),
       GoRoute(
           name: MyAppRouteConstants.qaRoute,
           path: '/QA',
-          pageBuilder: (context, state) => NoTransitionPage<void>(
+          pageBuilder: (context, state) {
+            CenterBlood centerBlood = state.extra as CenterBlood;
+            String timeChoose = state.queryParams['time'] ?? '';
+            return NoTransitionPage<void>(
               key: state.pageKey,
               child: QA(
-                centerBlood: context as CenterBlood,
-                time: context as String,
-              ))),
+                centerBlood: centerBlood,
+                time: timeChoose,
+              ),
+            );
+          }),
       GoRoute(
         name: MyAppRouteConstants.successRoute,
         path: '/SuccessRegister',
         pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: const Home(
-              isSucc: true,
-            )),
+          key: state.pageKey,
+          child: const Home(
+            isSucc: true,
+          ),
+        ),
       ),
       GoRoute(
         name: MyAppRouteConstants.searchAdvancedRouteName,

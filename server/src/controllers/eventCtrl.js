@@ -59,6 +59,20 @@ const eventCtrl = {
     } catch (error) {
       return res.status(500).json({ msg: error.message })
     }
+  },
+  regisEvent: async (req, res) => {
+    try {
+      // address, bloodGroup, name, phone, time, contactPerson,answers
+      const event = req.body
+      console.log(event)
+      await db
+        .collection('events')
+        .doc(uuidv4())
+        .set({ id: uuidv4(), ...event })
+      return res.status(200).json({ msg: 'Event created successfully' })
+    } catch (error) {
+      return res.status(500).json({ msg: error.message })
+    }
   }
 }
 module.exports = eventCtrl

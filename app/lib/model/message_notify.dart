@@ -1,23 +1,23 @@
-class TinNhan {
+class NotifyMessage {
   final String image;
   final String title;
   final String description;
 
-  TinNhan({
+  NotifyMessage({
     required this.image,
     required this.title,
     required this.description,
   });
 }
 
-List<TinNhan> listMessage = [
-  TinNhan(
+List<NotifyMessage> listMessage = [
+  NotifyMessage(
     image: "assets/images/huyethoc.png",
     title: "Bệnh viện Chợ Rẫy",
     description:
         "Bạn đã đăng ký tham gia hiến máu tình nguyện ngày 01/10/2022 tại Điểm hiến bệnh viện Chợ ...",
   ),
-  TinNhan(
+  NotifyMessage(
     image: "assets/images/huyethoc.png",
     title: "Bệnh viện Huyết Học Truyền Máu Trung Ương",
     description:

@@ -1,5 +1,4 @@
 import 'package:bloody/blocs/bloc_emergency/emergency_cubit.dart';
-import 'package:bloody/model/Emergency/emergency_model.dart';
 import 'package:bloody/model/Emergency/emergency_to_export.dart';
 import 'package:bloody/screens/emergency/emergency_bood_donation_details.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
@@ -16,9 +15,6 @@ class Emergency extends StatefulWidget {
 }
 
 class _Emergency extends State<Emergency> with WidgetsBindingObserver {
-  List<EmergencyModel> emergencyNews = [];
-  List<EmergencyToExport> emergencyEvents = [];
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -75,9 +71,9 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                 return Text(state.message.toString());
               } else if (state is EmergencyLoaded) {
                 final List<EmergencyToExport> list = state.emergencies;
-
+                List<EmergencyToExport> emergencyEvents = [];
                 for (var element in list) {
-                  if (element.avatar != null) {
+                  if (element.isNew == false) {
                     emergencyEvents.add(EmergencyToExport(
                       avatar: element.avatar,
                       name: element.name,
@@ -88,6 +84,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                       image: element.image,
                       isSuitable: element.isSuitable,
                       timeAgo: element.timeAgo,
+                      isNew: element.isNew,
                     ));
                   }
                 }
@@ -325,15 +322,20 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                 return Text(state.message.toString());
               } else if (state is EmergencyLoaded) {
                 final List<EmergencyToExport> list = state.emergencies;
+                List<EmergencyToExport> emergencyNews = [];
                 for (var element in list) {
-                  if (element.avatar == null) {
-                    emergencyNews.add(EmergencyModel(
+                  if (element.isNew == true) {
+                    emergencyNews.add(EmergencyToExport(
+                      avatar: element.avatar,
                       name: element.name,
                       address: element.address,
                       bloodGroup: element.bloodGroup,
+                      description: element.description,
                       id: element.id,
                       image: element.image,
+                      isSuitable: element.isSuitable,
                       timeAgo: element.timeAgo,
+                      isNew: element.isNew,
                     ));
                   }
                 }

@@ -10,6 +10,7 @@ class EmergencyToExport {
   bool? isSuitable = true;
   String? description;
   String? avatar;
+  bool? isNew = false;
   EmergencyToExport({
     this.id,
     this.name,
@@ -20,6 +21,7 @@ class EmergencyToExport {
     this.isSuitable,
     this.description,
     this.avatar,
+    this.isNew,
   });
 
   EmergencyToExport copyWith({
@@ -32,6 +34,7 @@ class EmergencyToExport {
     bool? isSuitable,
     String? description,
     String? avatar,
+    bool? isNew,
   }) {
     return EmergencyToExport(
       id: id ?? this.id,
@@ -43,6 +46,7 @@ class EmergencyToExport {
       isSuitable: isSuitable ?? this.isSuitable,
       description: description ?? this.description,
       avatar: avatar ?? this.avatar,
+      isNew: isNew ?? this.isNew,
     );
   }
 
@@ -57,6 +61,7 @@ class EmergencyToExport {
       'isSuitable': isSuitable,
       'description': description,
       'avatar': avatar,
+      'isNew': isNew,
     };
   }
 
@@ -73,6 +78,7 @@ class EmergencyToExport {
       description:
           map['description'] != null ? map['description'] as String : null,
       avatar: map['avatar'] != null ? map['avatar'] as String : null,
+      isNew: map['isNew'] != null ? map['isNew'] as bool : null,
     );
   }
 
@@ -83,7 +89,7 @@ class EmergencyToExport {
 
   @override
   String toString() {
-    return 'EmergencyToExport(id: $id, name: $name, image: $image, bloodGroup: $bloodGroup, address: $address, timeAgo: $timeAgo, isSuitable: $isSuitable, description: $description, avatar: $avatar)';
+    return 'EmergencyToExport(id: $id, name: $name, image: $image, bloodGroup: $bloodGroup, address: $address, timeAgo: $timeAgo, isSuitable: $isSuitable, description: $description, avatar: $avatar, isNew: $isNew)';
   }
 
   @override
@@ -98,7 +104,8 @@ class EmergencyToExport {
         other.timeAgo == timeAgo &&
         other.isSuitable == isSuitable &&
         other.description == description &&
-        other.avatar == avatar;
+        other.avatar == avatar &&
+        other.isNew == isNew;
   }
 
   @override
@@ -111,6 +118,7 @@ class EmergencyToExport {
         timeAgo.hashCode ^
         isSuitable.hashCode ^
         description.hashCode ^
-        avatar.hashCode;
+        avatar.hashCode ^
+        isNew.hashCode;
   }
 }

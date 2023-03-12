@@ -1,5 +1,6 @@
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:go_router/go_router.dart';
@@ -194,8 +195,14 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               ),
               GestureDetector(
                 onTap: () {
-                  GoRouter.of(context)
-                      .pushNamed(MyAppRouteConstants.addressBloodGr);
+                  // CenterBlood centerBlood = CenterBlood(
+                  //     bloodGroup: emergency.bloodGroup,
+                  //     address: emergency.address,
+                  //     phone: emergency.phone,
+                  //     description: emergency.description);
+                  GoRouter.of(context).pushNamed(
+                    MyAppRouteConstants.addressBloodGr,
+                  );
                 },
                 child: Container(
                     margin: const EdgeInsets.only(top: 5, bottom: 15),

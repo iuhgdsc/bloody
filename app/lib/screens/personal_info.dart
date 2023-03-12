@@ -65,10 +65,12 @@ class _PersonState extends State<Person> {
                 ),
                 SizedBox(
                   width: 210,
-                  child: Text(
-                    userExisting.name ?? "Nguyễn Việt Hoàng",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 20),
+                  child: Center(
+                    child: Text(
+                      userExisting.name ?? "Nguyễn Việt Hoàng",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
                   ),
                 ),
                 const SizedBox(

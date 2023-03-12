@@ -26,4 +26,15 @@ class EventCubit extends Cubit<EventState> {
       }
     }
   }
+
+  void addEvent(CenterBlood e) {
+    try {
+      CenterBlood event = e;
+      emit(EventLoaded(events: [event]));
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error :$e");
+      }
+    }
+  }
 }

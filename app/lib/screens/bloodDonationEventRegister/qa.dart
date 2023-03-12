@@ -1,7 +1,9 @@
+import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/blood_banner.dart';
+import 'package:bloody/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -23,7 +25,7 @@ class QA extends StatefulWidget {
 class _QA extends State<QA> with WidgetsBindingObserver {
   bool isChecked = false;
   TextEditingController controller = TextEditingController();
-
+  late User user;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -159,54 +161,68 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                           const SizedBox(
                             height: 10,
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 5, bottom: 5),
-                            height: height * 0.054,
-                            width: width * 0.86,
-                            decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 228, 0, 27),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                            ),
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromARGB(255, 228, 0, 27),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
+                          BlocBuilder<LoginCubit, LoginState>(
+                            builder: (context, state) {
+                              if (state is LoginLoaded) {
+                                user = state.user;
+                              }
+                              return Container(
+                                margin:
+                                    const EdgeInsets.only(top: 5, bottom: 5),
+                                height: height * 0.054,
+                                width: width * 0.86,
+                                decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 228, 0, 27),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
                                 ),
-                              ),
-                              onPressed: () async {
-                                List<String> answers = [];
-                                for (var element in selectedCheckBoxOptions) {
-                                  answers.add(element);
-                                }
-                                for (var element in selectedCheckedOptions) {
-                                  answers.add(element);
-                                }
-
-                                EventRegis eventRegis = EventRegis(
-                                    centerBlood: widget.centerBlood,
-                                    timeChoose: widget.time,
-                                    answers: answers);
-
-                                await context
-                                    .read<QuestionCubit>()
-                                    .submitQuestions(eventRegis);
-                                // ignore: use_build_context_synchronously
-                                GoRouter.of(context).pushNamed(
-                                  MyAppRouteConstants.successRoute,
-                                );
-                              },
-                              child: const Center(
-                                child: Text(
-                                  "Đăng kí",
-                                  style: TextStyle(
-                                      color:
-                                          Color.fromARGB(250, 211, 211, 211)),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 228, 0, 27),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
+                                  ),
+                                  onPressed: () async {
+                                    List<String> answers = [];
+                                    for (var element
+                                        in selectedCheckBoxOptions) {
+                                      answers.add(element);
+                                    }
+                                    for (var element
+                                        in selectedCheckedOptions) {
+                                      answers.add(element);
+                                    }
+                                    CenterBlood centerBlood =
+                                        widget.centerBlood;
+                                    if (centerBlood.isJoined == false) {
+                                      centerBlood.isJoined = true;
+                                    }
+                                    EventRegis eventRegis = EventRegis(
+                                        centerBlood: centerBlood,
+                                        timeChoose: widget.time,
+                                        answers: answers,
+                                        user: user);
+                                    await context
+                                        .read<QuestionCubit>()
+                                        .submitQuestions(eventRegis);
+                                    // ignore: use_build_context_synchronously
+                                    GoRouter.of(context).pushNamed(
+                                      MyAppRouteConstants.successRoute,
+                                    );
+                                  },
+                                  child: const Center(
+                                    child: Text(
+                                      "Đăng kí",
+                                      style: TextStyle(
+                                          color: Color.fromARGB(
+                                              250, 211, 211, 211)),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
+                              );
+                            },
                           ),
                         ],
                       ),

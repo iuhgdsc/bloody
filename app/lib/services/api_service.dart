@@ -82,4 +82,17 @@ class ApiService {
       }
     }
   }
+
+  Future<Response?> getEvent() async {
+    String url = "http://192.168.56.1:5000/api/getEventFromUser";
+    try {
+      final response = await _dio.get(url);
+      return response;
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error :$e");
+      }
+    }
+    return null;
+  }
 }
