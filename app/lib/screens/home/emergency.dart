@@ -1,12 +1,12 @@
 import 'package:bloody/blocs/bloc_emergency/emergency_cubit.dart';
-import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/model/emergency.dart';
 import 'package:bloody/screens/emergency/emergency_bood_donation_details.dart';
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Emergency extends StatefulWidget {
-  const Emergency({super.key});
+class EmergencyHome extends StatefulWidget {
+  const EmergencyHome({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -14,7 +14,7 @@ class Emergency extends StatefulWidget {
   }
 }
 
-class _Emergency extends State<Emergency> with WidgetsBindingObserver {
+class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -70,11 +70,11 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
               } else if (state is EmergencyError) {
                 return Text(state.message.toString());
               } else if (state is EmergencyLoaded) {
-                final List<EmergencyToExport> list = state.emergencies;
-                List<EmergencyToExport> emergencyEvents = [];
+                final List<Emergency> list = state.emergencies;
+                List<Emergency> emergencyEvents = [];
                 for (var element in list) {
                   if (element.isNew == false) {
-                    emergencyEvents.add(EmergencyToExport(
+                    emergencyEvents.add(Emergency(
                       avatar: element.avatar,
                       name: element.name,
                       address: element.address,
@@ -321,11 +321,11 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
               } else if (state is EmergencyError) {
                 return Text(state.message.toString());
               } else if (state is EmergencyLoaded) {
-                final List<EmergencyToExport> list = state.emergencies;
-                List<EmergencyToExport> emergencyNews = [];
+                final List<Emergency> list = state.emergencies;
+                List<Emergency> emergencyNews = [];
                 for (var element in list) {
                   if (element.isNew == true) {
-                    emergencyNews.add(EmergencyToExport(
+                    emergencyNews.add(Emergency(
                       avatar: element.avatar,
                       name: element.name,
                       address: element.address,
@@ -350,7 +350,7 @@ class _Emergency extends State<Emergency> with WidgetsBindingObserver {
                           showDialog(
                             context: context,
                             builder: (context) {
-                              EmergencyToExport emergency = EmergencyToExport(
+                              Emergency emergency = Emergency(
                                 id: emergencyNews[index].id,
                                 name: emergencyNews[index].name,
                                 address: emergencyNews[index].address,

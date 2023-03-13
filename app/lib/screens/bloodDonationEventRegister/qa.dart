@@ -199,11 +199,16 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     if (centerBlood.isJoined == false) {
                                       centerBlood.isJoined = true;
                                     }
+                                    String time =
+                                        "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}";
+                                    String description =
+                                        "Bạn đã đăng ký tham gia hiến máu tình nguyện ngày $time tại địa điểm ${centerBlood.name}";
                                     EventRegis eventRegis = EventRegis(
                                         centerBlood: centerBlood,
                                         timeChoose: widget.time,
                                         answers: answers,
-                                        user: user);
+                                        user: user,
+                                        description: description);
                                     await context
                                         .read<QuestionCubit>()
                                         .submitQuestions(eventRegis);

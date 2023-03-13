@@ -1,5 +1,6 @@
 import 'package:bloody/blocs/bloc_emergency/emergency_cubit.dart';
 import 'package:bloody/blocs/bloc_event/event_cubit.dart';
+import 'package:bloody/blocs/bloc_event_of_user/event_of_user_cubit.dart';
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
@@ -44,6 +45,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<EmergencyCubit>(
           create: (BuildContext context) => EmergencyCubit(
+              apiRepository: ApiRepository(
+            apiService: apiService,
+          )),
+        ),
+        BlocProvider<EventOfUserCubit>(
+          create: (BuildContext context) => EventOfUserCubit(
               apiRepository: ApiRepository(
             apiService: apiService,
           )),

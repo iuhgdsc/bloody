@@ -1,5 +1,5 @@
 import 'package:bloody/config/routes/app_route_constants.dart';
-import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/model/emergency.dart';
 import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class EmergencyBoodDonationDetails extends StatefulWidget {
   const EmergencyBoodDonationDetails({super.key, this.emergency});
-  final EmergencyToExport? emergency;
+  final Emergency? emergency;
 
   @override
   State<StatefulWidget> createState() {
@@ -26,7 +26,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
     final markDownData = textData.map((x) => "- $x\n").reduce((x, y) => "$x$y");
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    EmergencyToExport emergency = widget.emergency!;
+    Emergency emergency = widget.emergency!;
     return Container(
         color: const Color.fromARGB(255, 255, 255, 255),
         child: SingleChildScrollView(
@@ -195,13 +195,16 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               ),
               GestureDetector(
                 onTap: () {
-                  // CenterBlood centerBlood = CenterBlood(
-                  //     bloodGroup: emergency.bloodGroup,
-                  //     address: emergency.address,
-                  //     phone: emergency.phone,
-                  //     description: emergency.description);
+                  CenterBlood centerBlood = CenterBlood(
+                    address: emergency.address!,
+                    id: emergency.id!,
+                    image: emergency.image!,
+                    isJoined: false,
+                    name: emergency.name!,
+                  );
                   GoRouter.of(context).pushNamed(
                     MyAppRouteConstants.addressBloodGr,
+                    extra: centerBlood,
                   );
                 },
                 child: Container(

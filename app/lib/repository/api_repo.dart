@@ -1,4 +1,4 @@
-import 'package:bloody/model/Emergency/emergency_to_export.dart';
+import 'package:bloody/model/emergency.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/model/Register/question_check.dart';
 import 'package:bloody/model/blood_banner.dart';
@@ -53,11 +53,20 @@ class ApiRepository {
     return null;
   }
 
-  Future<List<EmergencyToExport>?> getEmergencies() async {
+  Future<List<Emergency>?> getEmergencies() async {
     final response = await apiService.getEmergencies();
     if (response != null) {
       final data = response.data['emergencies'] as List<dynamic>;
-      return data.map((emer) => EmergencyToExport.fromMap(emer)).toList();
+      return data.map((emer) => Emergency.fromMap(emer)).toList();
+    }
+    return null;
+  }
+
+  Future<List<EventRegis>?> getEventRegisByUser(String phone) async {
+    final response = await apiService.getEventRegisByUser(phone);
+    if (response != null) {
+      final data = response.data['events'] as List<dynamic>;
+      return data.map((event) => EventRegis.fromMap(event)).toList();
     }
     return null;
   }

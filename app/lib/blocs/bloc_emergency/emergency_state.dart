@@ -12,7 +12,7 @@ class EmergencyInitial extends EmergencyState {}
 class EmergencyLoading extends EmergencyState {}
 
 class EmergencyLoaded extends EmergencyState {
-  final List<EmergencyToExport> emergencies;
+  final List<Emergency> emergencies;
   const EmergencyLoaded({required this.emergencies});
   @override
   List<Object> get props => [emergencies];

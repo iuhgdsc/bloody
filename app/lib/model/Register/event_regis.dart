@@ -3,18 +3,19 @@ import 'dart:convert';
 
 import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/model/user.dart';
-import 'package:collection/collection.dart';
 
 class EventRegis {
   CenterBlood? centerBlood;
   String? timeChoose;
   List<String>? answers = [];
   User? user;
+  String? description;
   EventRegis({
     this.centerBlood,
     this.timeChoose,
     this.answers,
     this.user,
+    this.description,
   });
 
   EventRegis copyWith({
@@ -22,12 +23,14 @@ class EventRegis {
     String? timeChoose,
     List<String>? answers,
     User? user,
+    String? description,
   }) {
     return EventRegis(
       centerBlood: centerBlood ?? this.centerBlood,
       timeChoose: timeChoose ?? this.timeChoose,
       answers: answers ?? this.answers,
       user: user ?? this.user,
+      description: description ?? this.description,
     );
   }
 
@@ -37,6 +40,7 @@ class EventRegis {
       'timeChoose': timeChoose,
       'answers': answers,
       'user': user?.toMap(),
+      'description': description,
     };
   }
 
@@ -48,11 +52,15 @@ class EventRegis {
       timeChoose:
           map['timeChoose'] != null ? map['timeChoose'] as String : null,
       answers: map['answers'] != null
-          ? List<String>.from((map['answers'] as List<String>))
+          ? (map['answers'] as List<dynamic>)
+              .map((answer) => answer.toString())
+              .toList()
           : null,
       user: map['user'] != null
           ? User.fromMap(map['user'] as Map<String, dynamic>)
           : null,
+      description:
+          map['description'] != null ? map['description'] as String : null,
     );
   }
 
@@ -63,25 +71,6 @@ class EventRegis {
 
   @override
   String toString() {
-    return 'EventRegis(centerBlood: $centerBlood, timeChoose: $timeChoose, answers: $answers, user: $user)';
-  }
-
-  @override
-  bool operator ==(covariant EventRegis other) {
-    if (identical(this, other)) return true;
-    final listEquals = const DeepCollectionEquality().equals;
-
-    return other.centerBlood == centerBlood &&
-        other.timeChoose == timeChoose &&
-        listEquals(other.answers, answers) &&
-        other.user == user;
-  }
-
-  @override
-  int get hashCode {
-    return centerBlood.hashCode ^
-        timeChoose.hashCode ^
-        answers.hashCode ^
-        user.hashCode;
+    return 'EventRegis(centerBlood: $centerBlood, timeChoose: $timeChoose, answers: $answers, user: $user, description: $description)';
   }
 }

@@ -32,7 +32,7 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
   int _currentIndex = 0;
   List<Widget> body = [
     const Event(),
-    const Emergency(),
+    const EmergencyHome(),
   ];
   void _onItemTapped(int index) {
     setState(() {

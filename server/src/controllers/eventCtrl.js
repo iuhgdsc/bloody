@@ -18,7 +18,6 @@ const eventCtrl = {
   getEventsFromUser: async (req, res) => {
     try {
       const { phone } = req.body
-      //get all event of user
       const userRef = db.collection('users')
       const snapshot = await userRef.where('phone', '==', phone).get()
       if (snapshot.empty) {
@@ -26,7 +25,7 @@ const eventCtrl = {
       }
       snapshot.forEach(async (doc) => {
         if (doc.data().phone === phone) {
-          const events = await db.collection('regis_events').get()
+          const events = await db.collection('events').get()
           if (events.empty) {
             return res.status(404).json({ msg: 'Events not found' })
           }
@@ -64,7 +63,6 @@ const eventCtrl = {
     try {
       // address, bloodGroup, name, phone, time, contactPerson,answers
       const event = req.body
-      console.log(event)
       await db
         .collection('events')
         .doc(uuidv4())

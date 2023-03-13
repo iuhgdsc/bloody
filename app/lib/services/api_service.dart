@@ -83,10 +83,10 @@ class ApiService {
     }
   }
 
-  Future<Response?> getEvent() async {
+  Future<Response?> getEventRegisByUser(String phone) async {
     String url = "http://192.168.56.1:5000/api/getEventFromUser";
     try {
-      final response = await _dio.get(url);
+      final response = await _dio.get(url, data: {"phone": phone});
       return response;
     } catch (e) {
       if (kDebugMode) {

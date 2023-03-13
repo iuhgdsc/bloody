@@ -70,8 +70,10 @@ class _OtpLoginState extends State<OtpLogin> {
                     }
                     if (state is LoginLoaded) {
                       userExistting = state.user;
+                      return OtpForm(name: userExistting.name);
+                    } else {
+                      return const Text('Loading');
                     }
-                    return OtpForm(name: userExistting.name);
                   },
                 ),
               ],

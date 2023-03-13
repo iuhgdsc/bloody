@@ -16,7 +16,8 @@ class AddressBloodGr extends StatefulWidget {
 class _AddressBloodGr extends State<AddressBloodGr>
     with WidgetsBindingObserver {
   List<String> bloodGroup = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
-
+  String time =
+      "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}";
   List<String> times = [
     "7:00-7:30",
     "7:30-8:00",
@@ -88,7 +89,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: Text(
-                    "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date!}",
+                    "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date ?? time}",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       height: 1.1,

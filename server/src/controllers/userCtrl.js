@@ -26,7 +26,6 @@ const userCtrl = {
   addUser: async (req, res) => {
     try {
       const user = req.body
-      console.log(user)
       const userRef = db.collection('users')
       const snapshot = await userRef.where('phone', '==', user.phone).get()
       if (snapshot.empty) {

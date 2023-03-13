@@ -22,11 +22,7 @@ class NyAppRouter {
         name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          return MaterialPage(
-              child: QA(
-            centerBlood: context as CenterBlood,
-            time: "",
-          ));
+          return const MaterialPage(child: Login());
         },
       ),
       GoRoute(
@@ -44,6 +40,7 @@ class NyAppRouter {
           path: '/AddressBloodGr',
           pageBuilder: (context, state) {
             CenterBlood centerBlood = state.extra as CenterBlood;
+
             return NoTransitionPage<void>(
               key: state.pageKey,
               child: AddressBloodGr(
