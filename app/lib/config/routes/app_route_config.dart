@@ -49,19 +49,20 @@ class NyAppRouter {
             );
           }),
       GoRoute(
-          name: MyAppRouteConstants.qaRoute,
-          path: '/QA',
-          pageBuilder: (context, state) {
-            CenterBlood centerBlood = state.extra as CenterBlood;
-            String timeChoose = state.queryParams['time'] ?? '';
-            return NoTransitionPage<void>(
-              key: state.pageKey,
-              child: QA(
-                centerBlood: centerBlood,
-                time: timeChoose,
-              ),
-            );
-          }),
+        name: MyAppRouteConstants.qaRoute,
+        path: '/QA',
+        pageBuilder: (context, state) {
+          CenterBlood centerBlood = state.extra as CenterBlood;
+          String timeChoose = state.queryParams['time'] ?? '';
+          return NoTransitionPage<void>(
+            key: state.pageKey,
+            child: QA(
+              centerBlood: centerBlood,
+              time: timeChoose,
+            ),
+          );
+        },
+      ),
       GoRoute(
         name: MyAppRouteConstants.successRoute,
         path: '/SuccessRegister',
@@ -85,9 +86,10 @@ class NyAppRouter {
         pageBuilder: (context, state) {
           String phone = state.queryParams['phone'] ?? '';
           return MaterialPage(
-              child: OtpLogin(
-            phone: phone,
-          ));
+            child: OtpLogin(
+              phone: phone,
+            ),
+          );
         },
       ),
       GoRoute(
