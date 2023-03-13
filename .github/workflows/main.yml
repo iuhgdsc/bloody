@@ -1,6 +1,6 @@
 name: CI
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -32,13 +32,13 @@ jobs:
           cd app
           flutter test
 
-  build_appbundle:
+  build:
     name: Build Flutter (Android)
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
@@ -46,17 +46,23 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'stable'
+          channel: 'beta'
       - name: Get dependencies
         run: |
           cd app
           flutter pub get
       - name: Clean up
-        run: flutter clean
+        run: |
+          cd app
+          flutter clean
       - name: Build app bundle
-        run: flutter build appbundle
+        run: |
+          cd app
+          flutter build appbundle
       - name: Build APK
-        run: flutter build apk
+        run: |
+          cd app
+          flutter build apk
       - name: Upload release APK
         uses: actions/upload-artifact@v1
         with:
