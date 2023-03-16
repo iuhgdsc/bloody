@@ -1,16 +1,19 @@
 class QuestionRegisterCheck {
-  String? id;
-  String? question;
+  String id;
+  String question;
 
-  bool? isYNQS = false;
+  String numberQuestion;
 
-  List<dynamic>? answers = [];
+  bool isYNQS = false;
+
+  List<String> answers = [];
 
   QuestionRegisterCheck({
-    this.id,
-    this.question,
-    this.isYNQS,
-    this.answers,
+    required this.id,
+    required this.question,
+    required this.numberQuestion,
+    required this.isYNQS,
+    required this.answers,
   });
   factory QuestionRegisterCheck.fromMap(Map<String, dynamic> json) {
     return QuestionRegisterCheck(
@@ -18,6 +21,7 @@ class QuestionRegisterCheck {
       question: json['question'],
       isYNQS: json['isYNQS'],
       answers: json['answers'],
+      numberQuestion: '',
     );
   }
 
@@ -27,6 +31,7 @@ class QuestionRegisterCheck {
       question: question,
       isYNQS: isYNQS,
       answers: answers,
+      numberQuestion: '',
     );
   }
 }

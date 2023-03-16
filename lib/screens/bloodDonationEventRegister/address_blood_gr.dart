@@ -15,44 +15,36 @@ class AddressBloodGr extends StatefulWidget {
 
 class _AddressBloodGr extends State<AddressBloodGr>
     with WidgetsBindingObserver {
+  List<String> bloodGroup = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+
+  List<String> times = [
+    "7:00-7:30",
+    "7:30-8:00",
+    "8:00-8:30",
+    "8:30-9:00",
+    "9:00-9:30",
+    "9:30-10:00",
+    "10:00-10:30",
+    "10:30-11:00",
+    "13:30-14:00",
+    "14:00-14:30",
+    "14:30-15:00",
+    "15:00-15:30",
+    "15:30-16:00"
+  ];
+
+  CenterBlood centerBlood = CenterBlood(
+      id: "1",
+      name: "Trung tâm Truyền máu Chợ Rẫy",
+      image: "assets/images/choray.png",
+      address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+      date:
+          "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
+      isJoined: false);
+  String timeChoose = "";
   @override
   Widget build(BuildContext context) {
-    List<String> bloodGroup = [
-      "A+",
-      "A-",
-      "B+",
-      "B-",
-      "AB+",
-      "AB-",
-      "O+",
-      "O-"
-    ];
-
-    List<String> times = [
-      "7:00-7:30",
-      "7:30-8:00",
-      "8:00-8:30",
-      "8:30-9:00",
-      "9:00-9:30",
-      "9:30-10:00",
-      "10:00-10:30",
-      "10:30-11:00",
-      "13:30-14:00",
-      "14:00-14:30",
-      "14:30-15:00",
-      "15:00-15:30",
-      "15:30-16:00"
-    ];
-
-    CenterBlood centerBlood = CenterBlood(
-        id: "1",
-        name: "Trung tâm Truyền máu Chợ Rẫy",
-        image: "assets/images/choray.png",
-        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
-        date:
-            "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
-        isJoined: false);
-    String timeChoose = "";
+    String kai = "kaiwinABC";
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
@@ -224,9 +216,8 @@ class _AddressBloodGr extends State<AddressBloodGr>
                 ),
                 GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).pushNamed(
-                        MyAppRouteConstants.donation3RouteName,
-                      );
+                      GoRouter.of(context)
+                          .pushNamed(MyAppRouteConstants.donation2RouteName);
                     },
                     child: const Btn(text: "Tham gia")),
               ],

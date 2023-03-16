@@ -11,8 +11,11 @@ class ApiRepository {
   Future<List<QuestionRegisterCheck>?> getQuestions() async {
     final response = await apiService.getQuestion();
     if (response != null) {
-      final data = response.data['questions'] as List<dynamic>;
-      return data.map((ques) => QuestionRegisterCheck.fromMap(ques)).toList();
+      final data = response;
+      return data
+          .map((ques) =>
+              QuestionRegisterCheck.fromMap(ques as Map<String, dynamic>))
+          .toList();
     }
     return null;
   }

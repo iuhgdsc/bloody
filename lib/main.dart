@@ -26,12 +26,8 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => LoginCubit(),
         ),
         BlocProvider<QuestionCubit>(
-          create: (BuildContext context) => QuestionCubit(
-              apiRepository: ApiRepository(
-            apiService: apiService,
-          )),
+          create: (BuildContext context) => QuestionCubit(),
         ),
-        // add more blocs as needed
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

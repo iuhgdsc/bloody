@@ -1,8 +1,6 @@
-import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:bloody/screens/home.dart';
-import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/searchAdvance/search_advance.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +14,10 @@ class NyAppRouter {
         name: MyAppRouteConstants.loginRouteName,
         path: '/',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Login());
+          return const MaterialPage(
+              child: Home(
+            isSucc: false,
+          ));
         },
       ),
       GoRoute(
@@ -40,12 +41,8 @@ class NyAppRouter {
       GoRoute(
           name: MyAppRouteConstants.donation2RouteName,
           path: '/QA',
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-              key: state.pageKey,
-              child: QA(
-                centerBlood: context as CenterBlood,
-                time: context as String,
-              ))),
+          pageBuilder: (context, state) =>
+              NoTransitionPage<void>(key: state.pageKey, child: QA())),
       GoRoute(
         name: MyAppRouteConstants.donation3RouteName,
         path: '/SuccessRegister',
