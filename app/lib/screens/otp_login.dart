@@ -66,6 +66,7 @@ class _OtpLoginState extends State<OtpLogin> {
                   builder: (context, state) {
                     User userExistting = User();
                     if (state is LoginInitial) {
+                      print(phone);
                       context.read<LoginCubit>().loadUser(phone);
                     }
                     if (state is LoginLoaded) {

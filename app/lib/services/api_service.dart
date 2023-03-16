@@ -36,6 +36,7 @@ class ApiService {
     String url = "http://192.168.56.1:5000/api/getUser";
     try {
       final response = await _dio.get(url, queryParameters: {"phone": phone});
+      print(response.data);
       return response;
     } catch (e) {
       if (kDebugMode) {

@@ -40,6 +40,7 @@ const userCtrl = {
   getUser: async (req, res) => {
     try {
       const userRef = db.collection('users')
+      console.log(req.query.phone)
       const snapshot = await userRef.where('phone', '==', req.query.phone).get()
       if (snapshot.empty) {
         return res.status(404).json({ msg: 'User not found' })
@@ -48,7 +49,6 @@ const userCtrl = {
       snapshot.forEach((doc) => {
         user = doc.data()
       })
-      console.log(user)
       return res.status(200).json({ user })
     } catch (error) {
       return res.status(500).json({ msg: error.message })

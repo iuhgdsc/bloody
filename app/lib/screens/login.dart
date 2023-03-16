@@ -2,6 +2,7 @@ import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/model/Register/question_check.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +27,7 @@ class _LoginState extends State<Login> {
   String countryCode = '+84';
   var phone = '';
   TextEditingController phoneController = TextEditingController();
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +92,7 @@ class _LoginState extends State<Login> {
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       onChanged: (value) {
-                        phone = value.substring(1);
+                        phone = value;
                       },
                       decoration: const InputDecoration(
                         labelText: "Nhập số điện thoại của bạn ở đây",
@@ -109,31 +111,26 @@ class _LoginState extends State<Login> {
                   ElevatedButton(
                     style: buttonPrimary,
                     onPressed: () async {
-                      // await _firebaseAuth.verifyPhoneNumber(
-                      //     phoneNumber: countryCode + phone,
-                      //     verificationCompleted:
-                      //         (PhoneAuthCredential phoneAuthCredential) async {
-                      //       await _firebaseAuth
-                      //           .signInWithCredential(phoneAuthCredential);
-                      //     },
-                      //     verificationFailed: (error) {
-                      //       throw Exception(error.message);
-                      //     },
-                      //     codeSent: (verificationId, forceResendingToken) {
-                      //       context.read<LoginCubit>().setPhone(phone);
-                      //       GoRouter.of(context).pushNamed(
-                      //           MyAppRouteConstants.otpLoginRouteName,
-                      //           queryParams: {
-                      //             'phone': "0$phone",
-                      //           });
-                      //       Login.verify = verificationId;
-                      //     },
-                      //     codeAutoRetrievalTimeout: (verificationId) {});
-                      GoRouter.of(context).pushNamed(
-                          MyAppRouteConstants.otpLoginRouteName,
-                          queryParams: {
-                            'phone': "0$phone",
-                          });
+                      await _firebaseAuth.verifyPhoneNumber(
+                          phoneNumber: countryCode + phone.substring(1),
+                          verificationCompleted:
+                              (PhoneAuthCredential phoneAuthCredential) async {
+                            await _firebaseAuth
+                                .signInWithCredential(phoneAuthCredential);
+                          },
+                          verificationFailed: (error) {
+                            throw Exception(error.message);
+                          },
+                          codeSent: (verificationId, forceResendingToken) {
+                            context.read<LoginCubit>().setPhone(phone);
+                            GoRouter.of(context).pushNamed(
+                                MyAppRouteConstants.otpLoginRouteName,
+                                queryParams: {
+                                  'phone': phone,
+                                });
+                            Login.verify = verificationId;
+                          },
+                          codeAutoRetrievalTimeout: (verificationId) {});
                     },
                     child: const Text(
                       "Tiếp tục",

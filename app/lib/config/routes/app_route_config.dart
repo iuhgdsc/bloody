@@ -85,6 +85,7 @@ class NyAppRouter {
         path: '/optLogin',
         pageBuilder: (context, state) {
           String phone = state.queryParams['phone'] ?? '';
+          print(phone);
           return MaterialPage(
             child: OtpLogin(
               phone: phone,

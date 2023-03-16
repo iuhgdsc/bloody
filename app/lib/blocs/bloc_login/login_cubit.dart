@@ -14,7 +14,10 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     try {
       final User? user = await apiRepository.getUser(phone);
-      emit(LoginLoaded(user: user!));
+      if (user != null) {
+        emit(LoginLoaded(user: user));
+      }
+      return;
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
