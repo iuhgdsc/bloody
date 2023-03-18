@@ -5,9 +5,11 @@ import 'package:flutter/foundation.dart';
 
 class ApiService {
   final Dio _dio = Dio();
+  final String baseUrl = "https://9712-171-252-155-225.ap.ngrok.io";
 
   Future<Response?> getQuestion() async {
-    String url = "http://192.168.56.1:5000/api/getQuestions";
+    String url = "$baseUrl/api/getQuestions";
+
     try {
       final response = await _dio.get(url);
       return response;
@@ -20,7 +22,7 @@ class ApiService {
   }
 
   Future<Response?> submitQuestions(EventRegis eventRegis) async {
-    String url = "http://192.168.56.1:5000/api/registerEvent";
+    String url = "$baseUrl/api/registerEvent";
     try {
       final response = await _dio.post(url, data: eventRegis.toJson());
       return response;
@@ -33,10 +35,10 @@ class ApiService {
   }
 
   Future<Response?> getUser(String phone) async {
-    String url = "http://192.168.56.1:5000/api/getUser";
+    String url = "$baseUrl/api/getUser";
     try {
       final response = await _dio.get(url, queryParameters: {"phone": phone});
-      print(response.data);
+      print(url);
       return response;
     } catch (e) {
       if (kDebugMode) {
@@ -47,7 +49,7 @@ class ApiService {
   }
 
   Future<Response?> getEventRegis() async {
-    String url = "http://192.168.56.1:5000/api/getEvent";
+    String url = "$baseUrl/api/getEvent";
     try {
       final response = await _dio.get(url);
       return response;
@@ -60,7 +62,7 @@ class ApiService {
   }
 
   Future<Response?> getEmergencies() async {
-    String url = "http://192.168.56.1:5000/api/getEmergencies";
+    String url = "$baseUrl/api/getEmergencies";
     try {
       final response = await _dio.get(url);
       return response;
@@ -73,7 +75,7 @@ class ApiService {
   }
 
   addUser(User user) async {
-    String url = "http://192.168.56.1:5000/api/addUser";
+    String url = "$baseUrl/api/addUser";
     try {
       final response = await _dio.post(url, data: user.toJson());
       return response;
@@ -85,7 +87,7 @@ class ApiService {
   }
 
   Future<Response?> getEventRegisByUser(String phone) async {
-    String url = "http://192.168.56.1:5000/api/getEventFromUser";
+    String url = "$baseUrl/api/getEventFromUser";
     try {
       final response = await _dio.get(url, data: {"phone": phone});
       return response;

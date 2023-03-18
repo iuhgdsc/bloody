@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-List<String> selectedCheckBoxOptions = [];
+List<dynamic> selectedCheckBoxOptions = [];
 List<String> selectedCheckedOptions = [];
 
 class QA extends StatefulWidget {
@@ -26,6 +26,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
   bool isChecked = false;
   TextEditingController controller = TextEditingController();
   late User user;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -148,7 +149,9 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                                 questions[index].question!)
                                       else
                                         MyQuestionWidgetCheckBox(
-                                            options: questions[index].answers!),
+                                          options: questions[index].answers!,
+                                          id: questions[index].id!,
+                                        ),
                                     ],
                                   ),
                                 ),
@@ -185,7 +188,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     ),
                                   ),
                                   onPressed: () async {
-                                    List<String> answers = [];
+                                    List<dynamic> answers = [];
                                     for (var element
                                         in selectedCheckBoxOptions) {
                                       answers.add(element);
@@ -199,6 +202,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     if (centerBlood.isJoined == false) {
                                       centerBlood.isJoined = true;
                                     }
+
                                     String time =
                                         "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}";
                                     String description =
@@ -209,20 +213,26 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                         answers: answers,
                                         user: user,
                                         description: description);
-                                    await context
+
+                                    bool rs = await context
                                         .read<QuestionCubit>()
                                         .submitQuestions(eventRegis);
-                                    // ignore: use_build_context_synchronously
-                                    GoRouter.of(context).pushNamed(
-                                      MyAppRouteConstants.successRoute,
-                                    );
+                                    if (rs == true) {
+                                      // ignore: use_build_context_synchronously
+                                      GoRouter.of(context).pushNamed(
+                                        MyAppRouteConstants.successRoute,
+                                      );
+                                      selectedCheckBoxOptions.clear();
+                                      selectedCheckedOptions.clear();
+                                    }
                                   },
                                   child: const Center(
                                     child: Text(
                                       "Đăng kí",
                                       style: TextStyle(
-                                          color: Color.fromARGB(
-                                              250, 211, 211, 211)),
+                                        color:
+                                            Color.fromARGB(250, 211, 211, 211),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -258,23 +268,30 @@ class _MyQuestionWidgetState extends State<MyQuestionWidget> {
   String? _selectedOption;
 
   @override
+  void initState() {
+    super.initState();
+    _selectedOption = widget.options[1];
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: widget.options.map((option) {
         return ListTile(
-            title: Text(option),
-            dense: true,
-            leading: Radio(
-              fillColor: MaterialStateProperty.resolveWith(getColor),
-              value: option,
-              groupValue: _selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  _selectedOption = value.toString();
-                });
-                selectedCheckedOptions.add(widget.question!);
-              },
-            ));
+          title: Text(option),
+          dense: true,
+          leading: Radio(
+            fillColor: MaterialStateProperty.resolveWith(getColor),
+            value: option,
+            groupValue: _selectedOption,
+            onChanged: (value) {
+              setState(() {
+                _selectedOption = value.toString();
+              });
+              selectedCheckedOptions.add(widget.question!);
+            },
+          ),
+        );
       }).toList(),
     );
   }
@@ -282,7 +299,8 @@ class _MyQuestionWidgetState extends State<MyQuestionWidget> {
 
 class MyQuestionWidgetCheckBox extends StatefulWidget {
   final List<dynamic> options;
-  const MyQuestionWidgetCheckBox({Key? key, required this.options})
+  final String? id;
+  const MyQuestionWidgetCheckBox({Key? key, required this.options, this.id})
       : super(key: key);
 
   @override
@@ -291,23 +309,43 @@ class MyQuestionWidgetCheckBox extends StatefulWidget {
 }
 
 class _MyQuestionWidgetCheckBoxState extends State<MyQuestionWidgetCheckBox> {
+  late List<String> values = ["Không"];
+  @override
+  void initState() {
+    super.initState();
+    Object defaultOption = {"id": widget.id, "values": values};
+    selectedCheckBoxOptions.add(defaultOption);
+  }
+
   @override
   Widget build(BuildContext context) {
+    String id = widget.id!;
     return Column(
       children: widget.options.map((option) {
         return Row(
           children: [
             Checkbox(
               fillColor: MaterialStateProperty.resolveWith(getColor),
-              value: selectedCheckBoxOptions.contains(option),
+              value: values.contains(option),
               onChanged: (value) {
                 setState(() {
-                  if (value == true) {
-                    selectedCheckBoxOptions.add(option);
+                  if (option == "Không") {
+                    values.clear();
+                    values.add(option);
+                  } else if (value == true) {
+                    if (values.contains("Không")) {
+                      values.remove("Không");
+                    }
+                    values.add(option);
                   } else {
-                    selectedCheckBoxOptions.remove(option);
+                    values.remove(option);
                   }
                 });
+
+                selectedCheckBoxOptions
+                    .removeWhere((element) => element["id"] == id);
+
+                selectedCheckBoxOptions.add({"id": id, "values": values});
               },
             ),
             Flexible(

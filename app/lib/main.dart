@@ -4,7 +4,9 @@ import 'package:bloody/blocs/bloc_event_of_user/event_of_user_cubit.dart';
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
+import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/repository/api_repo.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:bloody/services/api_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +59,7 @@ class MyApp extends StatelessWidget {
         ),
         // add more blocs as needed
       ],
-      child: MaterialApp.router(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: const ColorScheme(
@@ -74,8 +76,13 @@ class MyApp extends StatelessWidget {
             onError: Colors.grey,
           ),
         ),
-        routeInformationParser: NyAppRouter().router.routeInformationParser,
-        routerDelegate: NyAppRouter().router.routerDelegate,
+        // routeInformationParser: NyAppRouter().router.routeInformationParser,
+        // routerDelegate: NyAppRouter().router.routerDelegate,
+        home: QA(
+          centerBlood: CenterBlood(),
+          time: "12:00",
+        ),
+        // home: const Login()
       ),
     );
   }

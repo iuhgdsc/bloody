@@ -111,26 +111,31 @@ class _LoginState extends State<Login> {
                   ElevatedButton(
                     style: buttonPrimary,
                     onPressed: () async {
-                      await _firebaseAuth.verifyPhoneNumber(
-                          phoneNumber: countryCode + phone.substring(1),
-                          verificationCompleted:
-                              (PhoneAuthCredential phoneAuthCredential) async {
-                            await _firebaseAuth
-                                .signInWithCredential(phoneAuthCredential);
-                          },
-                          verificationFailed: (error) {
-                            throw Exception(error.message);
-                          },
-                          codeSent: (verificationId, forceResendingToken) {
-                            context.read<LoginCubit>().setPhone(phone);
-                            GoRouter.of(context).pushNamed(
-                                MyAppRouteConstants.otpLoginRouteName,
-                                queryParams: {
-                                  'phone': phone,
-                                });
-                            Login.verify = verificationId;
-                          },
-                          codeAutoRetrievalTimeout: (verificationId) {});
+                      // await _firebaseAuth.verifyPhoneNumber(
+                      //     phoneNumber: countryCode + phone.substring(1),
+                      //     verificationCompleted:
+                      //         (PhoneAuthCredential phoneAuthCredential) async {
+                      //       await _firebaseAuth
+                      //           .signInWithCredential(phoneAuthCredential);
+                      //     },
+                      //     verificationFailed: (error) {
+                      //       throw Exception(error.message);
+                      //     },
+                      //     codeSent: (verificationId, forceResendingToken) {
+                      //       context.read<LoginCubit>().setPhone(phone);
+                      //       GoRouter.of(context).pushNamed(
+                      //           MyAppRouteConstants.otpLoginRouteName,
+                      //           queryParams: {
+                      //             'phone': phone,
+                      //           });
+                      //       Login.verify = verificationId;
+                      //     },
+                      //     codeAutoRetrievalTimeout: (verificationId) {});
+                      GoRouter.of(context).pushNamed(
+                          MyAppRouteConstants.otpLoginRouteName,
+                          queryParams: {
+                            'phone': phone,
+                          });
                     },
                     child: const Text(
                       "Tiếp tục",

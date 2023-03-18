@@ -64,7 +64,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
             user2 = state.user;
           }
           return Scaffold(
-            appBar: _currentIndex == 0 && widget.isSucc == true
+            appBar: _currentIndex == 0 && isC == true
                 ? null
                 : PreferredSize(
                     preferredSize: const Size.fromHeight(80.0),

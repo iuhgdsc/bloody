@@ -7,7 +7,7 @@ import 'package:bloody/model/user.dart';
 class EventRegis {
   CenterBlood? centerBlood;
   String? timeChoose;
-  List<String>? answers = [];
+  List<dynamic>? answers = [];
   User? user;
   String? description;
   EventRegis({
