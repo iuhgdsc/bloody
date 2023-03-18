@@ -214,17 +214,20 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                         user: user,
                                         description: description);
 
-                                    bool rs = await context
-                                        .read<QuestionCubit>()
-                                        .submitQuestions(eventRegis);
-                                    if (rs == true) {
-                                      // ignore: use_build_context_synchronously
-                                      GoRouter.of(context).pushNamed(
-                                        MyAppRouteConstants.successRoute,
-                                      );
-                                      selectedCheckBoxOptions.clear();
-                                      selectedCheckedOptions.clear();
-                                    }
+                                    GoRouter.of(context).pushNamed(
+                                      MyAppRouteConstants.successRoute,
+                                    );
+                                    // bool rs = await context
+                                    //     .read<QuestionCubit>()
+                                    //     .submitQuestions(eventRegis);
+                                    // if (rs == true) {
+                                    //   // ignore: use_build_context_synchronously
+                                    //   GoRouter.of(context).pushNamed(
+                                    //     MyAppRouteConstants.successRoute,
+                                    //   );
+                                    //   selectedCheckBoxOptions.clear();
+                                    //   selectedCheckedOptions.clear();
+                                    // }
                                   },
                                   child: const Center(
                                     child: Text(

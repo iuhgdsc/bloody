@@ -3,6 +3,7 @@ import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart'
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
 import 'package:bloody/screens/home.dart';
 import 'package:bloody/screens/login.dart';
+import 'package:bloody/screens/notify.dart';
 import 'package:bloody/screens/otp_login.dart';
 import 'package:bloody/screens/personal_info.dart';
 import 'package:bloody/screens/searchAdvance/search_advance.dart';
@@ -126,6 +127,13 @@ class NyAppRouter {
         path: '/person',
         pageBuilder: (context, state) {
           return const MaterialPage(child: Person());
+        },
+      ),
+      GoRoute(
+        name: MyAppRouteConstants.notifyRouteName,
+        path: '/notify',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Notify());
         },
       ),
     ],

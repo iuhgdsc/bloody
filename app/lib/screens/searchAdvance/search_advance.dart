@@ -42,18 +42,19 @@ class _SearchAdvanced extends State<SearchAdvanced>
                   ),
                 ),
                 SizedBox(
-                    width: width - 100,
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: "Tìm kiếm sự kiện tại đây",
-                        hintStyle: TextStyle(
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 19, 19, 19),
-                        ),
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
+                  width: width - 100,
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: "Tìm kiếm sự kiện tại đây",
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromARGB(255, 19, 19, 19),
                       ),
-                    )),
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
+                  ),
+                ),
               ],
             )),
         Container(
@@ -100,20 +101,22 @@ class _SearchAdvanced extends State<SearchAdvanced>
                 ),
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),
               ),
-              child: Column(children: const [
-                Center(
-                  child: Icon(Icons.group_work_outlined,
-                      size: 30, color: Color.fromARGB(255, 182, 27, 45)),
-                ),
-                Center(
-                  child: Text("Nhóm máu",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Color.fromARGB(255, 182, 27, 45),
-                          fontWeight: FontWeight.w500)),
-                )
-              ]),
+              child: Column(
+                children: const [
+                  Center(
+                    child: Icon(Icons.group_work_outlined,
+                        size: 30, color: Color.fromARGB(255, 182, 27, 45)),
+                  ),
+                  Center(
+                    child: Text("Nhóm máu",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Color.fromARGB(255, 182, 27, 45),
+                            fontWeight: FontWeight.w500)),
+                  )
+                ],
+              ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),

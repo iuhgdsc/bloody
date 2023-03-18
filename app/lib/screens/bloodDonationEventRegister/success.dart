@@ -19,11 +19,11 @@ class _SuccessRegister extends State<SuccessRegister>
       body: Column(
         children: [
           SizedBox(
-            height: height * 0.45,
+            height: height * 0.4,
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: height * 0.15),
+                  margin: EdgeInsets.only(top: height * 0.13),
                   child: const Center(
                     child: Icon(
                       Icons.check_circle_sharp,

@@ -10,5 +10,6 @@ class MyAppRouteConstants {
   static const String authIDRouteName = 'authID';
   static const String authFaceRouteName = 'authFace';
   static const String signUpSuccessRouteName = 'signUpSuccess';
+  static const String notifyRouteName = 'notify';
   static const String personRouteName = 'person';
 }
