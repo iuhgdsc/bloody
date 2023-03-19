@@ -1,11 +1,8 @@
 class QuestionRegisterCheck {
   String id;
   String question;
-
   String numberQuestion;
-
   bool isYNQS = false;
-
   List<String> answers = [];
 
   QuestionRegisterCheck({

@@ -102,7 +102,7 @@ class _SuccessRegister extends State<SuccessRegister>
             ),
           ),
           SizedBox(
-            height: height * 0.3,
+            height: height * 0.27,
             child: Column(
               children: [
                 ClipRRect(

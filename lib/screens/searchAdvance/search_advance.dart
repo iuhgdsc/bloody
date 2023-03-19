@@ -1,6 +1,8 @@
-import 'package:bloody/model/SearchAdvance/option_search.dart';
+import 'dart:async';
+
 import 'package:bloody/widgets/cpn_home_event_header.dart';
 import 'package:flutter/material.dart';
+import 'package:bloody/model/blood_banner.dart';
 
 class SearchAdvanced extends StatefulWidget {
   const SearchAdvanced({super.key});
@@ -13,12 +15,67 @@ class SearchAdvanced extends StatefulWidget {
 
 class _SearchAdvanced extends State<SearchAdvanced>
     with WidgetsBindingObserver {
-  List<OptionSearch> optionSearch = [
-    OptionSearch(id: "1", name: "dwewd", icon: "fefe"),
-    OptionSearch(id: "2", name: "efefe", icon: "efef"),
-    OptionSearch(id: "3", name: "efer", icon: "rferfe"),
-    OptionSearch(id: "4", name: "fefe", icon: "efe"),
+  // ignore: prefer_final_fields
+  // ham de search
+  List<CenterBlood> _centerBloods = [
+    CenterBlood(
+        id: "1",
+        name: "Trung tâm Truyền máu Chợ Rẫy",
+        image: "assets/images/choray.png",
+        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+        date:
+            "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}",
+        isJoined: false),
+    CenterBlood(
+        id: "2",
+        name: "Trung tâm Truyền máu 2",
+        image: "assets/images/175.png",
+        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+        date:
+            "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}",
+        isJoined: false),
+    CenterBlood(
+        id: "3",
+        name: "Trung tâm Truyền máu 3",
+        image: "assets/images/huyethoc.png",
+        address: "Cổng số 5, đường Phạm Hữu Chí, phường 12, quận 5, TP.HCM",
+        date:
+            "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}",
+        isJoined: false),
   ];
+
+  List<CenterBlood> _foundDay = [];
+
+  late StreamSubscription<bool> keyboardSubscription;
+
+  @override
+  initState() {
+    _foundDay = _centerBloods;
+    super.initState();
+  }
+
+  // ham de search
+  // This function is called whenever the text field changes
+  void _runFilter(String enteredKeyword) {
+    List<CenterBlood> results = [];
+    if (enteredKeyword.isEmpty) {
+      // if the search field is empty or only contains white-space, we'll display all users
+      results = _centerBloods;
+    } else {
+      results = _centerBloods
+          .where((blood) => blood.date
+              .toString()
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
+          .toList();
+      // we use the toLowerCase() method to make it case-insensitive
+    }
+
+    setState(() {
+      _foundDay = results;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -43,8 +100,10 @@ class _SearchAdvanced extends State<SearchAdvanced>
                 ),
                 SizedBox(
                     width: width - 100,
-                    child: const TextField(
-                      decoration: InputDecoration(
+                    child: TextField(
+                      onChanged: (value) => _runFilter(value),
+                      autofocus: true,
+                      decoration: const InputDecoration(
                         hintText: "Tìm kiếm sự kiện tại đây",
                         hintStyle: TextStyle(
                           fontSize: 18,
@@ -167,9 +226,27 @@ class _SearchAdvanced extends State<SearchAdvanced>
             ),
           ]),
         ),
-        const SizedBox(
-          height: 50,
-        ),
+        MediaQuery.of(context).viewInsets.bottom == 0
+            ? ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: _foundDay.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                      height: 100,
+                      margin: const EdgeInsets.only(top: 5, bottom: 5),
+                      color: Color.fromARGB(255, 177, 255, 254),
+                      child: Column(
+                        children: [
+                          Text(_foundDay[index].id.toString()),
+                          Text(_foundDay[index].name.toString()),
+                          Text(_foundDay[index].address.toString()),
+                          Text(_foundDay[index].date.toString()),
+                        ],
+                      ));
+                })
+            : Text("ban phim dang bat len "),
         GestureDetector(
           onTap: () {},
           child: Container(
