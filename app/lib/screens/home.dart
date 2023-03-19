@@ -66,108 +66,118 @@ class _Home extends State<Home> with WidgetsBindingObserver {
           return Scaffold(
             appBar: _currentIndex == 0 && isC == true
                 ? null
-                : PreferredSize(
-                    preferredSize: const Size.fromHeight(80.0),
-                    child: Container(
-                      height: 80,
-                      width: width,
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                            top: 25, left: 20, right: 20, bottom: 2),
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 237, 235),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
-                          ),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin:
-                                  const EdgeInsets.only(left: 18, right: 10),
-                              child: const Image(
-                                image: AssetImage('assets/search.png'),
-                                width: 23,
-                                height: 23,
-                                color: Color.fromARGB(255, 70, 6, 13),
-                              ),
-                            ),
-                            SizedBox(
-                              height: height - 2,
-                              width: width - 140,
-                              child: GestureDetector(
-                                onTap: () {
-                                  GoRouter.of(context).pushNamed(
-                                      MyAppRouteConstants
-                                          .searchAdvancedRouteName);
-                                },
-                                child: Container(
-                                  margin:
-                                      const EdgeInsets.only(left: 10, top: 15),
-                                  child: const Text(
-                                    "Tìm kiếm sự kiện tại đây",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 122, 71, 75),
-                                    ),
+                : _currentIndex == 1
+                    ? null
+                    : _currentIndex == 2
+                        ? null
+                        : PreferredSize(
+                            preferredSize: const Size.fromHeight(80.0),
+                            child: Container(
+                              height: 80,
+                              width: width,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              child: Container(
+                                margin: const EdgeInsets.only(
+                                    top: 25, left: 20, right: 20, bottom: 2),
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 255, 237, 235),
+                                  border: Border.all(
+                                    color: const Color.fromARGB(
+                                        255, 152, 152, 152),
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(30),
+                                    bottomRight: Radius.circular(30),
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30),
                                   ),
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 45,
-                              width: 45,
-                              child: Center(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shape: const CircleBorder(),
-                                    padding: const EdgeInsets.all(0),
-                                  ),
-                                  onPressed: () => showDialog<String>(
-                                    context: context,
-                                    builder: (BuildContext context) =>
-                                        AlertDialog(
-                                      insetPadding: EdgeInsets.zero,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      actions: [
-                                        Profile(
-                                          user: user2,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(23),
-                                    child: SizedBox.fromSize(
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(
+                                          left: 18, right: 10),
                                       child: const Image(
-                                        width: 35,
-                                        height: 35,
-                                        fit: BoxFit.cover,
-                                        image: AssetImage(
-                                          'assets/avatar.png',
-                                        ),
-                                        opacity: AlwaysStoppedAnimation(1),
+                                        image: AssetImage('assets/search.png'),
+                                        width: 23,
+                                        height: 23,
+                                        color: Color.fromARGB(255, 70, 6, 13),
                                       ),
                                     ),
-                                  ),
+                                    SizedBox(
+                                      height: height - 2,
+                                      width: width - 140,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          GoRouter.of(context).pushNamed(
+                                              MyAppRouteConstants
+                                                  .searchAdvancedRouteName);
+                                        },
+                                        child: Container(
+                                          margin: const EdgeInsets.only(
+                                              left: 10, top: 15),
+                                          child: const Text(
+                                            "Tìm kiếm sự kiện tại đây",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Color.fromARGB(
+                                                  255, 122, 71, 75),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 45,
+                                      width: 45,
+                                      child: Center(
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            shape: const CircleBorder(),
+                                            padding: const EdgeInsets.all(0),
+                                          ),
+                                          onPressed: () => showDialog<String>(
+                                            context: context,
+                                            builder: (BuildContext context) =>
+                                                AlertDialog(
+                                              insetPadding: EdgeInsets.zero,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              ),
+                                              actions: [
+                                                Profile(
+                                                  user: user2,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(23),
+                                            child: SizedBox.fromSize(
+                                              child: const Image(
+                                                width: 35,
+                                                height: 35,
+                                                fit: BoxFit.cover,
+                                                image: AssetImage(
+                                                  'assets/avatar.png',
+                                                ),
+                                                opacity:
+                                                    AlwaysStoppedAnimation(1),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                          ),
             bottomNavigationBar: bottomNavigationBar(),
             body: Center(
               child: listTab.elementAt(_currentIndex),

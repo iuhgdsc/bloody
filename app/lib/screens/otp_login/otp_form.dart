@@ -70,9 +70,9 @@ class _OtpFormState extends State<OtpForm> {
                 }
               }
             },
-            child: const Text(
-              "Tiếp tục",
-              style: TextStyle(
+            child: Text(
+              name != null ? "Tiếp tục" : "Đăng ký",
+              style: const TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
                 color: Colors.white,

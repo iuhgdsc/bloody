@@ -77,7 +77,7 @@ class NyAppRouter {
       // build screen like successRoute
       GoRoute(
         name: MyAppRouteConstants.notifyRouteName,
-        path: '/SearchAdvanced',
+        path: '/notify',
         pageBuilder: (context, state) {
           return const MaterialPage(child: Notify());
         },

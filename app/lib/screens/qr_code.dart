@@ -2,6 +2,7 @@ import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class QRCode extends StatefulWidget {
   const QRCode({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ class _QRCodeState extends State<QRCode> {
               ),
               body: SingleChildScrollView(
                 child: Container(
+                  height: MediaQuery.of(context).size.height - 150,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/register_success.png"),
@@ -53,10 +55,16 @@ class _QRCodeState extends State<QRCode> {
                         height: 38,
                       ),
                       Center(
-                        child: Image.asset(
-                          "assets/images/qrcode.png",
-                          height: 225,
-                          width: 225,
+                        child: QrImage(
+                          data: user.phone!,
+                          size: 280,
+                          backgroundColor: Colors.white,
+                          embeddedImageStyle: QrEmbeddedImageStyle(
+                            size: const Size(
+                              100,
+                              100,
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(

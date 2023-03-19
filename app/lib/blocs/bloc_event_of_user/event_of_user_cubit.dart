@@ -1,4 +1,3 @@
-import 'package:bloody/blocs/bloc_event/event_cubit.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:equatable/equatable.dart';

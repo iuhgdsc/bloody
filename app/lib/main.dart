@@ -6,17 +6,11 @@ import 'package:bloody/blocs/bloc_message/message_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
 import 'package:bloody/firebase_options.dart';
-import 'package:bloody/model/message.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:bloody/services/api_service.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,39 +33,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-
-  @override
-  void initState() {
-    super.initState();
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      setState(() {
-        _messageTitle = message.notification!.title ?? '';
-        _messageBody = message.notification!.body ?? '';
-        messages.add(Message(
-          title: _messageTitle,
-          body: _messageBody,
-        ));
-      });
-    });
-
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-    _firebaseMessaging.setForegroundNotificationPresentationOptions(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
-
-    FirebaseMessaging.instance.getToken().then((String? token) {
-      assert(token != null);
-    });
-  }
-
-  String _messageTitle = '';
-  String _messageBody = '';
-  late List<Message> messages = [];
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

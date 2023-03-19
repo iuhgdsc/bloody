@@ -84,6 +84,7 @@ class ApiRepository {
 
   Future<List<Message>?> getNotiByUser(String phone) async {
     final response = await apiService.getNotiByUser(phone);
+
     if (response != null) {
       final data = response.data['notify'] as List<dynamic>;
       return data.map((event) => Message.fromMap(event)).toList();

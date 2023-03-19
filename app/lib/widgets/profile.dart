@@ -1,6 +1,5 @@
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/user.dart';
-import 'package:bloody/screens/history.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

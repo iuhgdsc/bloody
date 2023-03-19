@@ -1,7 +1,6 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/user.dart';
-import 'package:bloody/screens/signUp/signup.dart';
 import 'package:bloody/widgets/buttton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,11 +36,8 @@ class _SignUpInfoState extends State<SignUpInfo> {
                     ),
                     IconButton(
                       onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignUp()),
-                        ),
+                        GoRouter.of(context)
+                            .pushNamed(MyAppRouteConstants.loginRouteName)
                       },
                       icon: const Icon(
                         Icons.keyboard_arrow_left_outlined,

@@ -37,7 +37,6 @@ class ApiService {
   Future<Response?> getUser(String phone) async {
     String url = "$baseUrl/api/getUser";
     final response = await _dio.get(url, queryParameters: {"phone": phone});
-    print(response);
     try {
       return response;
     } catch (e) {
