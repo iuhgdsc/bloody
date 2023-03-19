@@ -44,6 +44,11 @@ class _HistoryState extends State<History> {
               }
               if (state is EventOfUserLoaded) {
                 final listMessage = state.eventUsers;
+                if (listMessage.isEmpty) {
+                  return const Center(
+                    child: Text("Bạn chưa từng đăng ký hiến máu nào"),
+                  );
+                }
                 return ListView.builder(
                   itemCount: listMessage.length,
                   itemBuilder: (context, index) {
@@ -198,8 +203,8 @@ class _HistoryState extends State<History> {
                                                 right: 20,
                                                 bottom: 15),
                                             child: Row(
-                                              children: const [
-                                                Expanded(
+                                              children: [
+                                                const Expanded(
                                                     child: Text(
                                                   "Địa chỉ",
                                                   style: TextStyle(
@@ -209,13 +214,15 @@ class _HistoryState extends State<History> {
                                                 )),
                                                 Flexible(
                                                   child: Text(
-                                                    "201B Nguyễn Chí Thanh, Phường 12, Quận 5, TP.HCM",
+                                                    listMessage[index]
+                                                        .centerBlood!
+                                                        .address!,
                                                     maxLines: 4,
                                                     softWrap: false,
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     textAlign: TextAlign.end,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -231,8 +238,8 @@ class _HistoryState extends State<History> {
                                                 right: 20,
                                                 bottom: 15),
                                             child: Row(
-                                              children: const [
-                                                Expanded(
+                                              children: [
+                                                const Expanded(
                                                     child: Text(
                                                   "Thời gian",
                                                   style: TextStyle(
@@ -241,8 +248,8 @@ class _HistoryState extends State<History> {
                                                           255, 10, 10, 10)),
                                                 )),
                                                 Text(
-                                                  "7:00 - 7:30, 16/10/2022",
-                                                  style: TextStyle(
+                                                  "${listMessage[index].timeChoose!} - ${listMessage[index].centerBlood!.date!}",
+                                                  style: const TextStyle(
                                                       fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.w600,
@@ -257,7 +264,12 @@ class _HistoryState extends State<History> {
                                           ),
                                           const BtnContact(
                                               text: "Liên hệ hỗ trợ"),
-                                          const BtnContact(text: "Hủy đăng kí"),
+                                          BtnContact(
+                                              text: "Hủy đăng kí",
+                                              phone: listMessage[index]
+                                                  .user!
+                                                  .phone!,
+                                              id: listMessage[index].id!),
                                           const SizedBox(
                                             height: 10,
                                           ),
@@ -298,7 +310,7 @@ class _HistoryState extends State<History> {
                 );
               } else {
                 return const Center(
-                  child: Text("Loading..."),
+                  child: Text("Bạn chưa đăng ký sự kiện nào"),
                 );
               }
             }),

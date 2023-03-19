@@ -23,7 +23,7 @@ class _SuccessRegister extends State<SuccessRegister>
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: height * 0.13),
+                  margin: EdgeInsets.only(top: height * 0.11),
                   child: const Center(
                     child: Icon(
                       Icons.check_circle_sharp,

@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 
 class ApiService {
   final Dio _dio = Dio();
-  final String baseUrl = "https://9712-171-252-155-225.ap.ngrok.io";
+  final String baseUrl = "http://192.168.56.1:5000";
 
   Future<Response?> getQuestion() async {
     String url = "$baseUrl/api/getQuestions";
@@ -36,9 +36,9 @@ class ApiService {
 
   Future<Response?> getUser(String phone) async {
     String url = "$baseUrl/api/getUser";
+    final response = await _dio.get(url, queryParameters: {"phone": phone});
+    print(response);
     try {
-      final response = await _dio.get(url, queryParameters: {"phone": phone});
-      print(url);
       return response;
     } catch (e) {
       if (kDebugMode) {
@@ -90,6 +90,33 @@ class ApiService {
     String url = "$baseUrl/api/getEventFromUser";
     try {
       final response = await _dio.get(url, data: {"phone": phone});
+      return response;
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error :$e");
+      }
+    }
+    return null;
+  }
+
+  Future<Response?> deleteEventFromUser(String phone, String eventId) async {
+    String url = "$baseUrl/api/deleteEventFromUser";
+    try {
+      final response =
+          await _dio.delete(url, data: {"phone": phone, "id": eventId});
+      return response;
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error :$e");
+      }
+    }
+    return null;
+  }
+
+  Future<Response?> getNotiByUser(String phone) async {
+    String url = "$baseUrl/api/getNotiInUser";
+    try {
+      final response = await _dio.get(url, queryParameters: {"phone": phone});
       return response;
     } catch (e) {
       if (kDebugMode) {

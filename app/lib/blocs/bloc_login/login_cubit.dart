@@ -17,18 +17,6 @@ class LoginCubit extends Cubit<LoginState> {
       if (user != null) {
         emit(LoginLoaded(user: user));
       }
-      return;
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
-    }
-  }
-
-  void setPhone(String phone) {
-    try {
-      User user = User(phone: phone);
-      emit(LoginLoaded(user: user));
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());

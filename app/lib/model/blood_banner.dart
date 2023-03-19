@@ -8,6 +8,7 @@ class CenterBlood {
   String? address;
   String? date;
   bool? isJoined = false;
+  String? bloodType;
   CenterBlood({
     this.id,
     this.name,
@@ -15,6 +16,7 @@ class CenterBlood {
     this.address,
     this.date,
     this.isJoined,
+    this.bloodType,
   });
 
   CenterBlood copyWith({
@@ -24,6 +26,7 @@ class CenterBlood {
     String? address,
     String? date,
     bool? isJoined,
+    String? bloodType,
   }) {
     return CenterBlood(
       id: id ?? this.id,
@@ -32,6 +35,7 @@ class CenterBlood {
       address: address ?? this.address,
       date: date ?? this.date,
       isJoined: isJoined ?? this.isJoined,
+      bloodType: bloodType ?? this.bloodType,
     );
   }
 
@@ -43,6 +47,7 @@ class CenterBlood {
       'address': address,
       'date': date,
       'isJoined': isJoined,
+      'bloodType': bloodType,
     };
   }
 
@@ -54,6 +59,7 @@ class CenterBlood {
       address: map['address'] != null ? map['address'] as String : null,
       date: map['date'] != null ? map['date'] as String : null,
       isJoined: map['isJoined'] != null ? map['isJoined'] as bool : null,
+      bloodType: map['bloodType'] != null ? map['bloodType'] as String : null,
     );
   }
 
@@ -61,11 +67,6 @@ class CenterBlood {
 
   factory CenterBlood.fromJson(String source) =>
       CenterBlood.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() {
-    return 'CenterBlood(id: $id, name: $name, image: $image, address: $address, date: $date, isJoined: $isJoined)';
-  }
 
   @override
   bool operator ==(covariant CenterBlood other) {
@@ -76,7 +77,8 @@ class CenterBlood {
         other.image == image &&
         other.address == address &&
         other.date == date &&
-        other.isJoined == isJoined;
+        other.isJoined == isJoined &&
+        other.bloodType == bloodType;
   }
 
   @override
@@ -86,6 +88,12 @@ class CenterBlood {
         image.hashCode ^
         address.hashCode ^
         date.hashCode ^
-        isJoined.hashCode;
+        isJoined.hashCode ^
+        bloodType.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'CenterBlood(id: $id, name: $name, image: $image, address: $address, date: $date, isJoined: $isJoined, bloodType: $bloodType)';
   }
 }

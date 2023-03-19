@@ -5,12 +5,14 @@ import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/model/user.dart';
 
 class EventRegis {
+  String? id;
   CenterBlood? centerBlood;
   String? timeChoose;
   List<dynamic>? answers = [];
   User? user;
   String? description;
   EventRegis({
+    this.id,
     this.centerBlood,
     this.timeChoose,
     this.answers,
@@ -19,6 +21,7 @@ class EventRegis {
   });
 
   EventRegis copyWith({
+    String? id,
     CenterBlood? centerBlood,
     String? timeChoose,
     List<String>? answers,
@@ -26,6 +29,7 @@ class EventRegis {
     String? description,
   }) {
     return EventRegis(
+      id: id ?? this.id,
       centerBlood: centerBlood ?? this.centerBlood,
       timeChoose: timeChoose ?? this.timeChoose,
       answers: answers ?? this.answers,
@@ -36,6 +40,7 @@ class EventRegis {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'centerBlood': centerBlood?.toMap(),
       'timeChoose': timeChoose,
       'answers': answers,
@@ -46,6 +51,7 @@ class EventRegis {
 
   factory EventRegis.fromMap(Map<String, dynamic> map) {
     return EventRegis(
+      id: map['id'] != null ? map['id'] as String : null,
       centerBlood: map['centerBlood'] != null
           ? CenterBlood.fromMap(map['centerBlood'] as Map<String, dynamic>)
           : null,
@@ -71,6 +77,6 @@ class EventRegis {
 
   @override
   String toString() {
-    return 'EventRegis(centerBlood: $centerBlood, timeChoose: $timeChoose, answers: $answers, user: $user, description: $description)';
+    return 'EventRegis(id: $id, centerBlood: $centerBlood, timeChoose: $timeChoose, answers: $answers, user: $user, description: $description)';
   }
 }

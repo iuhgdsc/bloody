@@ -1,3 +1,4 @@
+import 'package:bloody/blocs/bloc_event/event_cubit.dart';
 import 'package:bloody/model/Register/event_regis.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -19,9 +20,24 @@ class EventOfUserCubit extends Cubit<EventOfUserState> {
       emit(EventOfUserLoaded(eventUsers: eventRegis!));
     } catch (e) {
       if (kDebugMode) {
-        print(e.toString());
         print("Error :$e");
       }
     }
+  }
+
+  //delete event
+  Future<bool> deleteEventRegis(String phone, String id) async {
+    try {
+      await apiRepository.deleteEventRegis(phone, id);
+      List<EventRegis> events = (state as EventOfUserLoaded).eventUsers;
+      events.removeWhere((event) => event.id == id);
+      emit(EventOfUserLoaded(eventUsers: events));
+      return true;
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error :$e");
+      }
+    }
+    return false;
   }
 }

@@ -18,6 +18,7 @@ const eventCtrl = {
   getEventsFromUser: async (req, res) => {
     try {
       const { phone } = req.body
+      console.log(phone)
       const userRef = db.collection('users')
       const snapshot = await userRef.where('phone', '==', phone).get()
       if (snapshot.empty) {
@@ -31,7 +32,7 @@ const eventCtrl = {
           }
           const eventList = []
           events.forEach((event) => {
-            eventList.push(event.data())
+            if (event.data().user.phone === phone) eventList.push(event.data())
           })
           return res
             .status(200)
@@ -63,11 +64,24 @@ const eventCtrl = {
     try {
       // address, bloodGroup, name, phone, time, contactPerson,answers
       const event = req.body
-      await db
-        .collection('events')
-        .doc(uuidv4())
-        .set({ id: uuidv4(), ...event })
+      const id = uuidv4()
+      const item = { id: null, ...event }
+      item.id = id
+      if (item.id === null)
+        return res.status(400).json({ msg: 'Invalid event' })
+      await db.collection('events').doc(id).set(item)
       return res.status(200).json({ msg: 'Event created successfully' })
+    } catch (error) {
+      return res.status(500).json({ msg: error.message })
+    }
+  },
+  deleteEvent: async (req, res) => {
+    try {
+      const { id } = req.body
+
+      const rs = await db.collection('events').doc(id).delete()
+
+      return res.status(200).json({ msg: 'Event deleted successfully' })
     } catch (error) {
       return res.status(500).json({ msg: error.message })
     }

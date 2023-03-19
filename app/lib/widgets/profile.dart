@@ -158,12 +158,8 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const History(),
-                                ),
-                              );
+                              GoRouter.of(context).pushNamed(
+                                  MyAppRouteConstants.notifyRouteName);
                             },
                             child: const Icon(
                               Icons.arrow_forward_ios_sharp,

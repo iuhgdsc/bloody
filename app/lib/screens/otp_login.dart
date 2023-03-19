@@ -17,6 +17,7 @@ class OtpLogin extends StatefulWidget {
 }
 
 class _OtpLoginState extends State<OtpLogin> {
+  late User userExistting = User();
   @override
   Widget build(BuildContext context) {
     String phone = widget.phone;
@@ -64,17 +65,10 @@ class _OtpLoginState extends State<OtpLogin> {
                 buildTimer(),
                 BlocBuilder<LoginCubit, LoginState>(
                   builder: (context, state) {
-                    User userExistting = User();
-                    if (state is LoginInitial) {
-                      print(phone);
-                      context.read<LoginCubit>().loadUser(phone);
-                    }
                     if (state is LoginLoaded) {
                       userExistting = state.user;
-                      return OtpForm(name: userExistting.name);
-                    } else {
-                      return const Text('Loading');
                     }
+                    return OtpForm(name: userExistting.name);
                   },
                 ),
               ],

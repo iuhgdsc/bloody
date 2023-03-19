@@ -74,6 +74,14 @@ class NyAppRouter {
           ),
         ),
       ),
+      // build screen like successRoute
+      GoRoute(
+        name: MyAppRouteConstants.notifyRouteName,
+        path: '/SearchAdvanced',
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: Notify());
+        },
+      ),
       GoRoute(
         name: MyAppRouteConstants.searchAdvancedRouteName,
         path: '/SearchAdvanced',
@@ -86,7 +94,6 @@ class NyAppRouter {
         path: '/optLogin',
         pageBuilder: (context, state) {
           String phone = state.queryParams['phone'] ?? '';
-          print(phone);
           return MaterialPage(
             child: OtpLogin(
               phone: phone,
@@ -127,13 +134,6 @@ class NyAppRouter {
         path: '/person',
         pageBuilder: (context, state) {
           return const MaterialPage(child: Person());
-        },
-      ),
-      GoRoute(
-        name: MyAppRouteConstants.notifyRouteName,
-        path: '/notify',
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: Notify());
         },
       ),
     ],
