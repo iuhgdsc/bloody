@@ -1,6 +1,8 @@
+import 'package:bloody/blocs/bloc_message/message_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
 import 'package:bloody/model/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class Profile extends StatefulWidget {
@@ -156,9 +158,15 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {
-                              GoRouter.of(context).pushNamed(
-                                  MyAppRouteConstants.notifyRouteName);
+                            onTap: () async {
+                              bool rs = await context
+                                  .read<MessageCubit>()
+                                  .loadMessages(user.phone!);
+                              if (rs) {
+                                // ignore: use_build_context_synchronously
+                                GoRouter.of(context).pushNamed(
+                                    MyAppRouteConstants.notifyRouteName);
+                              }
                             },
                             child: const Icon(
                               Icons.arrow_forward_ios_sharp,

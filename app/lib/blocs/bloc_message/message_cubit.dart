@@ -11,16 +11,18 @@ class MessageCubit extends Cubit<MessageState> {
 
   MessageCubit({required this.apiRepository}) : super(MessageInitial());
 
-  Future<void> loadMessages(String phone) async {
+  Future<bool> loadMessages(String phone) async {
     emit(MessageLoading());
 
     try {
       List<Message>? messages = await apiRepository.getNotiByUser(phone);
       emit(MessageLoaded(messages: messages!));
+      return true;
     } catch (e) {
       if (kDebugMode) {
         print("Error :$e");
       }
     }
+    return false;
   }
 }

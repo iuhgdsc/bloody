@@ -35,9 +35,6 @@ class _NotifyState extends State<Notify> {
             ),
             body: BlocBuilder<MessageCubit, MessageState>(
               builder: (context, state) {
-                if (state is MessageInitial) {
-                  context.read<MessageCubit>().loadMessages(user.phone!);
-                }
                 if (state is MessageLoaded) {
                   final messages = state.messages;
                   return ListView.builder(

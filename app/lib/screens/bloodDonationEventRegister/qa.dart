@@ -224,6 +224,15 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                       );
                                       selectedCheckBoxOptions.clear();
                                       selectedCheckedOptions.clear();
+                                    } else {
+                                      // ignore: use_build_context_synchronously
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                              "Đăng kí không thành công, vui lòng thử lại"),
+                                        ),
+                                      );
                                     }
                                   },
                                   child: const Center(

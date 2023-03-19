@@ -69,7 +69,31 @@ const eventCtrl = {
       item.id = id
       if (item.id === null)
         return res.status(400).json({ msg: 'Invalid event' })
+      const idNoti = uuidv4()
+
+      const currentDate = new Date()
+      const year = currentDate.getFullYear()
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0')
+      const day = String(currentDate.getDate()).padStart(2, '0')
+      const hours = String(currentDate.getHours()).padStart(2, '0')
+      const minutes = String(currentDate.getMinutes()).padStart(2, '0')
+      const seconds = String(currentDate.getSeconds()).padStart(2, '0')
+      const milliseconds = String(currentDate.getMilliseconds()).padStart(
+        3,
+        '0'
+      )
+      const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`
+      const noti = {
+        id: idNoti,
+        title: 'Thông báo đăng ký hiến máu',
+        body: `Bạn đã đăng ký hiến máu thành công. Thời gian hiến máu: ${item.timeChoose}`,
+        phone: item.user.phone,
+        createdAt: formattedDate
+      }
+      await db.collection('notify').doc(idNoti).set(noti)
       await db.collection('events').doc(id).set(item)
+      console.log(item)
+      console.log(noti)
       return res.status(200).json({ msg: 'Event created successfully' })
     } catch (error) {
       return res.status(500).json({ msg: error.message })
