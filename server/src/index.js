@@ -4,8 +4,9 @@ require('./config/firestoreConfig')
 const app = express()
 const routes = require('./routes')
 const cors = require('cors')
-require('dotenv').config()
 const { Storage } = require('@google-cloud/storage')
+
+require('dotenv').config()
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
