@@ -1,6 +1,7 @@
 import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
+import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:bloody/screens/home.dart';
 import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/notify.dart';
@@ -67,12 +68,15 @@ class NyAppRouter {
       GoRoute(
         name: MyAppRouteConstants.successRoute,
         path: '/SuccessRegister',
-        pageBuilder: (context, state) => NoTransitionPage<void>(
-          key: state.pageKey,
-          child: const Home(
-            isSucc: true,
-          ),
-        ),
+        pageBuilder: (context, state) {
+          CenterBlood centerBlood = state.extra as CenterBlood;
+          return NoTransitionPage<void>(
+            key: state.pageKey,
+            child: SuccessRegister(
+              centerBlood: centerBlood,
+            ),
+          );
+        },
       ),
       // build screen like successRoute
       GoRoute(
