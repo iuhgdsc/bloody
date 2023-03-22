@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Wed Mar 22 19:44:11 ICT 2023
+=======
+#Wed Mar 22 12:52:02 ICT 2023
+>>>>>>> 93b6f380ac80054d39584b5a9cce94f59eb117a8
 base.1=F\:\\bloody\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.1=classes2.dex
 base.0=F\:\\bloody\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex

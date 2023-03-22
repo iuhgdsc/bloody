@@ -1,4 +1,5 @@
 const express = require('express')
+require('./config/firestoreConfig')
 
 const app = express()
 const routes = require('./routes')
