@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bloody/services/maputils.dart';
 
 class SuccessRegister extends StatefulWidget {
   const SuccessRegister({super.key});
@@ -19,11 +20,11 @@ class _SuccessRegister extends State<SuccessRegister>
       body: Column(
         children: [
           SizedBox(
-            height: height * 0.45,
+            height: height * 0.44,
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: height * 0.15),
+                  margin: EdgeInsets.only(top: height * 0.14),
                   child: const Center(
                     child: Icon(
                       Icons.check_circle_sharp,
@@ -102,7 +103,7 @@ class _SuccessRegister extends State<SuccessRegister>
             ),
           ),
           SizedBox(
-            height: height * 0.27,
+            height: height * 0.295,
             child: Column(
               children: [
                 ClipRRect(
@@ -120,6 +121,7 @@ class _SuccessRegister extends State<SuccessRegister>
                   onTap: () {
                     // GoRouter.of(context)
                     // .pushNamed(MyAppRouteConstants.donation3RouteName);
+                    MapUtils.openMap("Trường Đại học công nghiệp");
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 5, bottom: 5),
