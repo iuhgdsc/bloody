@@ -221,6 +221,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                       // ignore: use_build_context_synchronously
                                       GoRouter.of(context).pushNamed(
                                         MyAppRouteConstants.successRoute,
+                                        extra: centerBlood,
                                       );
                                       selectedCheckBoxOptions.clear();
                                       selectedCheckedOptions.clear();

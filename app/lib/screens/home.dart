@@ -48,7 +48,11 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                 ? false
                 : widget.isSucc;
     List<Widget> listTab = [
-      isC == true ? const SuccessRegister() : const HomeEvent(),
+      isC == true
+          ? const SuccessRegister(
+              centerBlood: null,
+            )
+          : const HomeEvent(),
       const QRCode(),
       const History()
     ];

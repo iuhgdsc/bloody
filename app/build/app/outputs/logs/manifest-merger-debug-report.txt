@@ -7,6 +7,8 @@ MERGED from [:firebase_messaging] F:\bloody\app\build\firebase_messaging\interme
 MERGED from [:firebase_messaging] F:\bloody\app\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-48:19
 MERGED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\LONG\.gradle\caches\transforms-3\733978a1bcd9a9309484dcdfdd4e3818\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\LONG\.gradle\caches\transforms-3\733978a1bcd9a9309484dcdfdd4e3818\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [com.google.firebase:firebase-auth:21.1.0] C:\Users\LONG\.gradle\caches\transforms-3\67584f11cd538cc3d04220b3a968f506\transformed\jetified-firebase-auth-21.1.0\AndroidManifest.xml:26:5-71:19
@@ -65,6 +67,7 @@ MERGED from [:shared_preferences_android] F:\bloody\app\build\shared_preferences
 MERGED from [:firebase_auth] F:\bloody\app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_messaging] F:\bloody\app\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-50:12
 MERGED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [:smart_auth] F:\bloody\app\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_native_splash] F:\bloody\app\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\LONG\.gradle\caches\transforms-3\90aee27110d8b91adab80f3f6704700d\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -146,6 +149,8 @@ MERGED from [:firebase_messaging] F:\bloody\app\build\firebase_messaging\interme
 MERGED from [:firebase_messaging] F:\bloody\app\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:smart_auth] F:\bloody\app\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:smart_auth] F:\bloody\app\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_native_splash] F:\bloody\app\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -396,6 +401,14 @@ ADDED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merg
 		ADDED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:firebase_core] F:\bloody\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+	android:exported
+		ADDED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+	android:theme
+		ADDED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+	android:name
+		ADDED from [:url_launcher_android] F:\bloody\app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\LONG\.gradle\caches\transforms-3\733978a1bcd9a9309484dcdfdd4e3818\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 	android:required

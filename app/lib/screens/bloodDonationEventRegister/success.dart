@@ -1,8 +1,10 @@
+import 'package:bloody/model/blood_banner.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SuccessRegister extends StatefulWidget {
-  const SuccessRegister({super.key});
-
+  const SuccessRegister({super.key, required this.centerBlood});
+  final CenterBlood? centerBlood;
   @override
   State<StatefulWidget> createState() {
     return _SuccessRegister();
@@ -58,10 +60,10 @@ class _SuccessRegister extends State<SuccessRegister>
                 ),
                 Container(
                   margin: EdgeInsets.only(top: height * 0.01),
-                  child: const Text(
-                    "7:00 sáng\n16/10",
+                  child: Text(
+                    widget.centerBlood!.date!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 18,
                         color: Color.fromARGB(255, 126, 172, 147),
                         fontWeight: FontWeight.w500),
@@ -117,9 +119,14 @@ class _SuccessRegister extends State<SuccessRegister>
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    // GoRouter.of(context)
-                    // .pushNamed(MyAppRouteConstants.donation3RouteName);
+                  onTap: () async {
+                    final Uri url = Uri.parse(
+                        'https://www.google.com/maps/search/?api=1&query=${widget.centerBlood!.address}');
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 5, bottom: 5),

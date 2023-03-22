@@ -1,15 +1,15 @@
-const credentials = require('../firestore.json')
 const { initializeApp, cert } = require('firebase-admin/app')
+require('dotenv').config()
 
 const initFirestore = initializeApp({
   credentials: cert({
-    projectId: credentials.project_id,
-    clientEmail: credentials.client_email,
+    projectId: process.env.PROJECT_ID,
+    clientEmail: process.env.CLIENT_EMAIL,
     privateKey: JSON.parse(
-      '{"privateKey": "' + credentials.private_key.replace(/\n/g, '\\n') + '"}'
+      '{"privateKey": "' + process.env.PRIVATE_KEY.replace(/\n/g, '\\n') + '"}'
     ).privateKey
   }),
-  projectId: credentials.project_id
+  projectId: process.env.PROJECT_ID
 })
 
 module.exports = initFirestore
