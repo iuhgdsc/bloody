@@ -35,14 +35,20 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               SizedBox(
                 height: height * 0.065,
                 child: Row(children: [
-                  SizedBox(
-                    width: width * 0.12,
-                    child: const Center(
-                      child: Image(
-                        image: AssetImage('assets/back.png'),
-                        width: 20,
-                        height: 20,
-                        color: Color.fromARGB(255, 16, 16, 16),
+                  GestureDetector(
+                    onTap: () {
+                      // back to previous screen
+                      context.pop();
+                    },
+                    child: SizedBox(
+                      width: width * 0.12,
+                      child: const Center(
+                        child: Image(
+                          image: AssetImage('assets/back.png'),
+                          width: 20,
+                          height: 20,
+                          color: Color.fromARGB(255, 16, 16, 16),
+                        ),
                       ),
                     ),
                   ),
@@ -203,25 +209,26 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                     name: emergency.name!,
                   );
                   GoRouter.of(context).pushNamed(
-                    MyAppRouteConstants.addressBloodGr,
+                    MyAppRouteConstants.qaRoute,
                     extra: centerBlood,
                   );
                 },
                 child: Container(
-                    margin: const EdgeInsets.only(top: 5, bottom: 15),
-                    height: height * 0.054,
-                    width: width * 0.86,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 182, 27, 45),
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  margin: const EdgeInsets.only(top: 5, bottom: 15),
+                  height: height * 0.054,
+                  width: width * 0.86,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 182, 27, 45),
+                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Tham gia",
+                      style:
+                          TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
                     ),
-                    child: const Center(
-                      child: Text(
-                        "Tham gia",
-                        style: TextStyle(
-                            color: Color.fromARGB(252, 225, 225, 225)),
-                      ),
-                    )),
+                  ),
+                ),
               )
             ],
           ),
