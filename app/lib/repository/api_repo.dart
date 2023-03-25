@@ -30,9 +30,7 @@ class ApiRepository {
   }
 
   Future<User?> getUser(String phone) async {
-    print(phone);
     final response = await apiService.getUser(phone);
-    print(response?.data);
     if (response != null) {
       User user = User.fromMap(response.data['user']);
       return user;

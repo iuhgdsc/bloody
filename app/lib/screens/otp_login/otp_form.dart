@@ -49,10 +49,10 @@ class _OtpFormState extends State<OtpForm> {
             style: buttonPrimary,
             onPressed: () async {
               try {
-                // PhoneAuthCredential phoneAuthCredential =
-                //     PhoneAuthProvider.credential(
-                //         verificationId: Login.verify, smsCode: code);
-                // await _auth.signInWithCredential(phoneAuthCredential);
+                PhoneAuthCredential phoneAuthCredential =
+                    PhoneAuthProvider.credential(
+                        verificationId: Login.verify, smsCode: code);
+                await _auth.signInWithCredential(phoneAuthCredential);
                 if (name != null) {
                   GoRouter.of(context)
                       .pushNamed(MyAppRouteConstants.homeRouteName);

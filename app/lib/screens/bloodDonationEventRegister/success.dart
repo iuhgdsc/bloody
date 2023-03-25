@@ -121,7 +121,7 @@ class _SuccessRegister extends State<SuccessRegister>
                 GestureDetector(
                   onTap: () async {
                     final Uri url = Uri.parse(
-                        'https://www.google.com/maps/search/?api=1&query=${widget.centerBlood!.address}');
+                        'https://www.google.com/maps/search/?api=1&query=Đại học Bách Khoa Hà Nội');
                     if (await canLaunchUrl(url)) {
                       await launchUrl(url);
                     } else {

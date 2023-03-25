@@ -5,7 +5,6 @@ import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/blocs/bloc_message/message_cubit.dart';
 import 'package:bloody/blocs/bloc_question/question_cubit.dart';
 import 'package:bloody/config/routes/app_route_config.dart';
-import 'package:bloody/firebase_options.dart';
 import 'package:bloody/repository/api_repo.dart';
 import 'package:bloody/services/api_service.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,9 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
 
   runApp(MyApp(
     apiService: ApiService(),

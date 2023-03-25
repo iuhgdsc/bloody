@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1079206980247-8akoioe4rhmi8eskgi9su0vdt0muo2fq.apps.googleusercontent.com",
+          "client_id": "1079206980247-aabbgfj2p9ahn8v1vkvlrcltvt5dl338.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.bloody",
-            "certificate_hash": "2de2a58323e7505e59f3ad1085d9adb0e71dd66d"
+            "certificate_hash": "838ff9772cdfabff6f1f9f012098e99c2313cd0c"
           }
         },
         {
