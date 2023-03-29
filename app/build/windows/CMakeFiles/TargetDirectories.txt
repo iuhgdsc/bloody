@@ -1,0 +1,16 @@
+F:/bloody/app/build/windows/CMakeFiles/INSTALL.dir
+F:/bloody/app/build/windows/CMakeFiles/ALL_BUILD.dir
+F:/bloody/app/build/windows/CMakeFiles/ZERO_CHECK.dir
+F:/bloody/app/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+F:/bloody/app/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+F:/bloody/app/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+F:/bloody/app/build/windows/flutter/CMakeFiles/INSTALL.dir
+F:/bloody/app/build/windows/runner/CMakeFiles/bloody_challenge.dir
+F:/bloody/app/build/windows/runner/CMakeFiles/INSTALL.dir
+F:/bloody/app/build/windows/runner/CMakeFiles/ALL_BUILD.dir
+F:/bloody/app/build/windows/plugins/smart_auth/CMakeFiles/smart_auth_plugin.dir
+F:/bloody/app/build/windows/plugins/smart_auth/CMakeFiles/INSTALL.dir
+F:/bloody/app/build/windows/plugins/smart_auth/CMakeFiles/ALL_BUILD.dir
+F:/bloody/app/build/windows/plugins/url_launcher_windows/CMakeFiles/url_launcher_windows_plugin.dir
+F:/bloody/app/build/windows/plugins/url_launcher_windows/CMakeFiles/INSTALL.dir
+F:/bloody/app/build/windows/plugins/url_launcher_windows/CMakeFiles/ALL_BUILD.dir

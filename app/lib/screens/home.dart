@@ -1,5 +1,6 @@
 import 'package:bloody/blocs/bloc_login/login_cubit.dart';
 import 'package:bloody/config/routes/app_route_constants.dart';
+import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/model/user.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:bloody/screens/history.dart';
@@ -13,8 +14,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'home/home_event.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.isSucc});
+  const Home({super.key, required this.isSucc, this.centerBlood});
   final bool isSucc;
+  final CenterBlood? centerBlood;
   @override
   State<Home> createState() => _Home();
 }
@@ -49,8 +51,8 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                 : widget.isSucc;
     List<Widget> listTab = [
       isC == true
-          ? const SuccessRegister(
-              centerBlood: null,
+          ? SuccessRegister(
+              centerBlood: widget.centerBlood!,
             )
           : const HomeEvent(),
       const QRCode(),

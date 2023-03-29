@@ -72,7 +72,8 @@ class NyAppRouter {
           CenterBlood centerBlood = state.extra as CenterBlood;
           return NoTransitionPage<void>(
             key: state.pageKey,
-            child: SuccessRegister(
+            child: Home(
+              isSucc: true,
               centerBlood: centerBlood,
             ),
           );

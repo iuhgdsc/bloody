@@ -201,12 +201,15 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
               ),
               GestureDetector(
                 onTap: () {
+                  String time =
+                      "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}";
                   CenterBlood centerBlood = CenterBlood(
                     address: emergency.address!,
                     id: emergency.id!,
                     image: emergency.image!,
                     isJoined: false,
                     name: emergency.name!,
+                    date: time,
                   );
                   GoRouter.of(context).pushNamed(
                     MyAppRouteConstants.qaRoute,
