@@ -28,7 +28,7 @@ The problem statement is that the shortage of blood supply in the medical field 
 
 The app is built using the following technologies:
 
-![Bloody](images/SC_Presentation02.png)
+![Bloody](images/SC_Presentation.png)
 
 ## How we named the app and why
 
