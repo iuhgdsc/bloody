@@ -22,6 +22,8 @@ The shortage of blood is a serious problem in Vietnam, especially after the COVI
 
 ## Demo
 
+[![Watch the video]](https://www.youtube.com/watch?v=-s6L74s0a9E)
+
 ## Tech Stack
 
 The app is built using the following technologies:
@@ -38,10 +40,10 @@ On the other hand, when the blood supply is low or there is an emergency, hospit
 
 Our team comes from the [Google Developer Student Clubs](https://developers.google.com/community/dsc) at Industrial University of Ho Chi Minh City.
 
-- [Nguyen Xuan Long]()
-- [Nguyen Duc Chien]()
-- [Hoa Xuan Sang]()
-- [Phong Dang Ngoc]()
+- [Nguyen Xuan Long](https://github.com/longnguyen-cyber)
+- [Nguyen Duc Chien](https://github.com/Kaiwinn)
+- [Hoa Xuan Sang](https://github.com/HXSang)
+- [Phong Dang Ngoc](https://github.com/PhonggDangg)
 
 ## Architecture
 
@@ -62,6 +64,7 @@ To run the backend locally, you need to install the dependencies with:
 ```bash
 yarn install
 ```
+
 > Note: You need to have Node.js and Yarn installed on your machine.
 
 Then, you can run the backend with:
@@ -95,6 +98,7 @@ From the root of the project, cd into the frontend directory:
 ```bash
 cd app
 ```
+
 Now, install the dependencies with:
 
 ```bash

@@ -1,7 +1,6 @@
 import 'package:bloody/model/blood_banner.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/address_blood_gr.dart';
 import 'package:bloody/screens/bloodDonationEventRegister/qa.dart';
-import 'package:bloody/screens/bloodDonationEventRegister/success.dart';
 import 'package:bloody/screens/home.dart';
 import 'package:bloody/screens/login.dart';
 import 'package:bloody/screens/notify.dart';
