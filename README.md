@@ -22,7 +22,7 @@ The shortage of blood is a serious problem in Vietnam, especially after the COVI
 
 ## Demo
 
-[![Watch the video]](https://www.youtube.com/watch?v=-s6L74s0a9E)
+[![Watch the video]](https://youtu.be/EDCIDU-hPrU)
 
 ## Tech Stack
 
