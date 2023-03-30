@@ -62,7 +62,7 @@ Now, install the dependencies with:
 flutter pub get
 ```
 
-After that, you need to update the `BASE_URL` in `lib/services/api.dart` to the URL that you got from ngrok.
+After that, you need to update the `baseUrl` in `lib/services/api_service.dart` to the URL that you got from ngrok.
 
 ```dart
   final String baseUrl = "<replace_with_ngrok_url>";
