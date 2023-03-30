@@ -28,9 +28,11 @@ The app is built using the following technologies:
 
 ![Bloody](images/SC_Presentation02.png)
 
-## Our app name
+## How we named the app and why
 
-We chose the name Bloody because it is short and easy to remember. It's combination of the words blood and ready.
+We chose the name Bloody because it is short and easy to remember. It's combination of the words blood and ready. When you are ready to donate blood, you can use Bloody to find blood donation events. 
+
+On the other hand, when the blood supply is low or there is an emergency, hospitals and blood donation centers will create blood donation events that could help save lives and reduce the shortage of blood.
 
 ## Team
 
