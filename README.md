@@ -10,7 +10,7 @@ Bloody is a intended to solve Goal 3: Good Health and Well-Being of the United N
 
 ## Problem Statement
 
-The shortage of blood is a serious problem in Vietnam, especially after the COVID-19 pandemic. And the pandemic has made it even harder to find blood donors. The pandemic has caused a lot of blood donation events to be canceled. This has led to a shortage of blood in hospitals and blood donation centers.
+The problem statement is that the shortage of blood supply in the medical field is a significant issue, particularly in areas with low levels of economic and medical development. This shortage can lead to severe consequences, including a risk of accidents and death, health system stress, impact on labor productivity, and health disparities between ethnic and economic groups. There are several reasons for this shortage, including a lack of blood donors, medical staff, high costs of organizing blood donation activities, limited knowledge of blood donors, and inefficient blood donation applications in the market. This problem needs to be addressed to ensure that patients receive the necessary blood supply and prevent potential accidents and deaths.
 
 ## Features
 
@@ -22,7 +22,7 @@ The shortage of blood is a serious problem in Vietnam, especially after the COVI
 
 ## Demo
 
-[![Watch the video]](https://youtu.be/EDCIDU-hPrU)
+[Youtube](https://youtu.be/EDCIDU-hPrU)
 
 ## Tech Stack
 
