@@ -39,7 +39,7 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
                 width: 55,
               ),
               const Text(
-                "Xác thực khuôn mặt",
+                "Face Authentication",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
             ],
@@ -137,7 +137,7 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
             alignment: AlignmentDirectional.center,
             width: 246,
             child: const Text(
-              "Định vị khuôn mặt của bạn trong",
+              "Position your face in",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
           ),
@@ -145,7 +145,7 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
             alignment: AlignmentDirectional.center,
             width: 246,
             child: const Text(
-              "khung",
+              "frame",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
           ),
@@ -158,7 +158,7 @@ class _SuccessSignUpState extends State<SuccessSignUp> {
               GoRouter.of(context).pushNamed(MyAppRouteConstants.homeRouteName)
             },
             child: const Text(
-              "Hoàn thành",
+              "Complete",
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,

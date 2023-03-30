@@ -43,7 +43,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     width: 50,
                   ),
                   const Text(
-                    "Xác thực CMND/CCCD",
+                    "ID/CCCD verification",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -139,7 +139,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     width: 5,
                   ),
                   const Text(
-                    "Mặt trước",
+                    "Front",
                     style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                   )
                 ],
@@ -163,7 +163,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                     width: 5,
                   ),
                   const Text(
-                    "Mặt sau",
+                    "Backside",
                     style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                   )
                 ],
@@ -186,7 +186,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                       .pushNamed(MyAppRouteConstants.authFaceRouteName)
                 },
                 child: const Text(
-                  "Tiếp tục",
+                  "Continue",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
@@ -199,7 +199,7 @@ class _AuthIDSignUpState extends State<AuthIDSignUp> {
                       .pushNamed(MyAppRouteConstants.authFaceRouteName)
                 },
                 child: const Text(
-                  "Để sau",
+                  "Later",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,

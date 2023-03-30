@@ -30,7 +30,7 @@ class _HistoryState extends State<History> {
               bottomOpacity: 0.0,
               elevation: 0.0,
               title: const Text(
-                "Lịch sử hiến máu",
+                "Blood donation history",
                 style: TextStyle(color: Colors.black),
               ),
               centerTitle: true,
@@ -46,7 +46,7 @@ class _HistoryState extends State<History> {
                 final listMessage = state.eventUsers;
                 if (listMessage.isEmpty) {
                   return const Center(
-                    child: Text("Bạn chưa từng đăng ký hiến máu nào"),
+                    child: Text("You have never registered to donate blood"),
                   );
                 }
                 return ListView.builder(
@@ -83,7 +83,7 @@ class _HistoryState extends State<History> {
                                                         const EdgeInsets.only(
                                                             left: 25),
                                                     child: const Text(
-                                                      "Chi tiết sự kiện",
+                                                      "Event details",
                                                       style: TextStyle(
                                                           fontSize: 17,
                                                           fontWeight:
@@ -123,7 +123,7 @@ class _HistoryState extends State<History> {
                                               children: [
                                                 const Expanded(
                                                     child: Text(
-                                                  "Trạng thái",
+                                                  "Status",
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       color: Color.fromARGB(
@@ -148,7 +148,7 @@ class _HistoryState extends State<History> {
                                                                 15)),
                                                   ),
                                                   child: const Text(
-                                                    "Đã đăng ký",
+                                                    "Registered",
                                                     style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
@@ -167,7 +167,7 @@ class _HistoryState extends State<History> {
                                               children: [
                                                 const Expanded(
                                                     child: Text(
-                                                  "Đơn vị",
+                                                  "Unit",
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       color: Color.fromARGB(
@@ -206,7 +206,7 @@ class _HistoryState extends State<History> {
                                               children: [
                                                 const Expanded(
                                                     child: Text(
-                                                  "Địa chỉ",
+                                                  "Address",
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       color: Color.fromARGB(
@@ -241,7 +241,7 @@ class _HistoryState extends State<History> {
                                               children: [
                                                 const Expanded(
                                                     child: Text(
-                                                  "Thời gian",
+                                                  "Time",
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       color: Color.fromARGB(
@@ -263,9 +263,9 @@ class _HistoryState extends State<History> {
                                             height: 50,
                                           ),
                                           const BtnContact(
-                                              text: "Liên hệ hỗ trợ"),
+                                              text: "Contact help"),
                                           BtnContact(
-                                              text: "Hủy đăng kí",
+                                              text: "Unsubscribe",
                                               phone: listMessage[index]
                                                   .user!
                                                   .phone!,
@@ -310,7 +310,7 @@ class _HistoryState extends State<History> {
                 );
               } else {
                 return const Center(
-                  child: Text("Bạn chưa đăng ký sự kiện nào"),
+                  child: Text("You have not registered for any events yet"),
                 );
               }
             }),

@@ -34,7 +34,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
                     height: height * 0.035,
                     alignment: Alignment.centerLeft,
                     child: const Text(
-                      "Đề xuất cho bạn",
+                      "Recommend for you",
                       style: TextStyle(
                           fontSize: 16,
                           color: Color.fromARGB(255, 37, 37, 37),
@@ -45,7 +45,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
                     height: height * 0.025,
                     alignment: Alignment.topLeft,
                     child: const Text(
-                      "Dựa trên thông tin hồ sơ của bạn",
+                      "Based on your profile information",
                       style: TextStyle(
                           fontSize: 15,
                           color: Color.fromARGB(255, 92, 92, 92),
@@ -246,7 +246,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
                                               ),
                                               const Center(
                                                 child: Text(
-                                                  "Phù hợp với hồ sơ hiến máu của bạn",
+                                                  "Match your blood donation profile",
                                                   style: TextStyle(
                                                     fontSize: 13,
                                                     color: Color.fromARGB(
@@ -288,7 +288,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
               ),
               child: const Center(
                 child: Text(
-                  "Xem tất cả",
+                  "See all",
                   style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
                 ),
               ),
@@ -300,7 +300,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
             alignment: Alignment.center,
             child: Container(
               alignment: Alignment.centerLeft,
-              child: const Text("Trường hợp khẩn cấp mới nhất",
+              child: const Text("The latest emergency",
                   style: TextStyle(
                       fontSize: 16,
                       color: Color.fromARGB(255, 37, 37, 37),
@@ -474,7 +474,7 @@ class _Emergency extends State<EmergencyHome> with WidgetsBindingObserver {
               ),
               child: const Center(
                 child: Text(
-                  "Xem tất cả",
+                  "See all",
                   style: TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
                 ),
               ),

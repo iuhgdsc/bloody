@@ -47,7 +47,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                 child: Container(
                   margin: const EdgeInsets.only(right: 23),
                   child: const Center(
-                      child: Text("Câu hỏi lọc hồ sơ",
+                      child: Text("Profile filter question",
                           style: TextStyle(
                               fontSize: 18,
                               color: Color.fromARGB(255, 41, 41, 41),
@@ -206,7 +206,7 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                     String time =
                                         "${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()}";
                                     String description =
-                                        "Bạn đã đăng ký tham gia hiến máu tình nguyện ngày $time tại địa điểm ${centerBlood.name}";
+                                        "You have registered to participate in voluntary blood donation on $time at ${centerBlood.name}";
                                     EventRegis eventRegis = EventRegis(
                                         centerBlood: centerBlood,
                                         timeChoose: widget.time,
@@ -231,14 +231,14 @@ class _QA extends State<QA> with WidgetsBindingObserver {
                                           .showSnackBar(
                                         const SnackBar(
                                           content: Text(
-                                              "Đăng kí không thành công, vui lòng thử lại"),
+                                              "Registration failed, please try again"),
                                         ),
                                       );
                                     }
                                   },
                                   child: const Center(
                                     child: Text(
-                                      "Đăng kí",
+                                      "Register",
                                       style: TextStyle(
                                         color:
                                             Color.fromARGB(250, 211, 211, 211),
@@ -319,7 +319,7 @@ class MyQuestionWidgetCheckBox extends StatefulWidget {
 }
 
 class _MyQuestionWidgetCheckBoxState extends State<MyQuestionWidgetCheckBox> {
-  late List<String> values = ["Không"];
+  late List<String> values = ["No"];
   @override
   void initState() {
     super.initState();
@@ -339,12 +339,12 @@ class _MyQuestionWidgetCheckBoxState extends State<MyQuestionWidgetCheckBox> {
               value: values.contains(option),
               onChanged: (value) {
                 setState(() {
-                  if (option == "Không") {
+                  if (option == "No") {
                     values.clear();
                     values.add(option);
                   } else if (value == true) {
-                    if (values.contains("Không")) {
-                      values.remove("Không");
+                    if (values.contains("No")) {
+                      values.remove("No");
                     }
                     values.add(option);
                   } else {

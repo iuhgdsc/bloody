@@ -72,7 +72,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                           margin: const EdgeInsets.only(right: 23),
                           child: const Center(
                             child: Text(
-                              "Thời gian và địa điểm ",
+                              "Time and place ",
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color.fromARGB(255, 41, 41, 41),
@@ -89,7 +89,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: Text(
-                    "${centerBlood.name!}\n${centerBlood.address!}\nNgày: ${centerBlood.date ?? time}",
+                    "${centerBlood.name!}\n${centerBlood.address!}\nDate: ${centerBlood.date ?? time}",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       height: 1.1,
@@ -107,7 +107,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
                   child: const Text(
-                    "Nhóm máu cần hiến",
+                    "Blood group to donate",
                     style: TextStyle(
                       height: 1.5,
                       color: Color.fromARGB(255, 16, 16, 16),
@@ -158,7 +158,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
                   child: const Text(
-                    "Chọn khung giờ tham gia",
+                    "Choose a time slot to join",
                     style: TextStyle(
                       height: 1.5,
                       color: Color.fromARGB(255, 16, 16, 16),
@@ -217,7 +217,7 @@ class _AddressBloodGr extends State<AddressBloodGr>
                     GoRouter.of(context).pushNamed(MyAppRouteConstants.qaRoute,
                         extra: centerBlood, queryParams: {"time": timeChoose});
                   },
-                  child: const Btn(text: "Tham gia"),
+                  child: const Btn(text: "Join"),
                 ),
               ],
             ),

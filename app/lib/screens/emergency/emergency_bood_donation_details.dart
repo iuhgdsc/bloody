@@ -18,8 +18,8 @@ class EmergencyBoodDonationDetails extends StatefulWidget {
 class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
     with WidgetsBindingObserver {
   final textData = [
-    "Bác XXX XXX sinh 19xx. Hiện đang điều trị tại BV Đa Khoa Thủ Đức (BV Việt Thắng) Khoa Hồi sức tích cực trong tình trạng viêm phổi, suy gan, thận, chảy máu không cầm được.",
-    "Hiến sáng mai 10/10 tại BV Truyền máu huyết học. Yêu cầu: Nhóm máu AB, trên 50kg và sức khỏe tốt.",
+    "Uncle XXX XXX was born 19xx. Currently being treated at Thu Duc General Hospital (Viet Thang Hospital) Department of Intensive Care for pneumonia, liver and kidney failure, uncontrollable bleeding.",
+    "Donated tomorrow morning 10/10 at the Hospital of Blood Transfusion and Hematology. Requirements: Blood group AB, over 50kg and good health.",
   ];
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                     child: Container(
                       margin: const EdgeInsets.only(right: 23),
                       child: const Center(
-                          child: Text("Thông tin chi tiết",
+                          child: Text("Details",
                               style: TextStyle(
                                   fontSize: 19,
                                   color: Color.fromARGB(255, 41, 41, 41),
@@ -74,7 +74,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                       Container(
                         alignment: Alignment.topLeft,
                         width: width * 0.21,
-                        child: const Text("Nhu cầu:",
+                        child: const Text("Demand:",
                             style: TextStyle(
                                 height: 1.5,
                                 color: Color.fromARGB(255, 16, 16, 16),
@@ -102,7 +102,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                     Container(
                       alignment: Alignment.topLeft,
                       width: width * 0.21,
-                      child: const Text("Địa điểm: ",
+                      child: const Text("Address: ",
                           style: TextStyle(
                               height: 1.5,
                               color: Color.fromARGB(255, 16, 16, 16),
@@ -135,7 +135,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                     Container(
                       alignment: Alignment.topLeft,
                       width: width * 0.21,
-                      child: const Text("Liên hệ:",
+                      child: const Text("Contact:",
                           style: TextStyle(
                               height: 1.5,
                               color: Color.fromARGB(255, 16, 16, 16),
@@ -144,7 +144,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      child: const Text("0982 001 737 (Mai Hoàng)",
+                      child: const Text("0982 001 737 (Mai Hoang)",
                           style: TextStyle(
                               height: 1.5,
                               color: Color.fromARGB(255, 23, 23, 23),
@@ -163,7 +163,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                       Container(
                         alignment: Alignment.topLeft,
                         width: width * 0.21,
-                        child: const Text("Mô tả:",
+                        child: const Text("Description:",
                             style: TextStyle(
                                 height: 1.5,
                                 color: Color.fromARGB(255, 16, 16, 16),
@@ -226,7 +226,7 @@ class _EmergencyBoodDonationDetails extends State<EmergencyBoodDonationDetails>
                   ),
                   child: const Center(
                     child: Text(
-                      "Tham gia",
+                      "Join",
                       style:
                           TextStyle(color: Color.fromARGB(252, 225, 225, 225)),
                     ),

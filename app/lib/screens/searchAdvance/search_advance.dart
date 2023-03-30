@@ -94,7 +94,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                             controller: textEditingController,
                             autofocus: true,
                             decoration: const InputDecoration(
-                              hintText: "Tìm kiếm sự kiện tại đây",
+                              hintText: "Find events here",
                               hintStyle: TextStyle(
                                 fontSize: 18,
                                 color: Color.fromARGB(255, 19, 19, 19),
@@ -135,7 +135,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                                 color: Color.fromARGB(255, 182, 27, 45)),
                           ),
                           Center(
-                            child: Text("Thời gian",
+                            child: Text("Time",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 13,
@@ -163,7 +163,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                                 color: Color.fromARGB(255, 182, 27, 45)),
                           ),
                           Center(
-                            child: Text("Nhóm máu",
+                            child: Text("Blood group",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 13,
@@ -191,7 +191,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                                 color: Color.fromARGB(255, 182, 27, 45)),
                           ),
                           Center(
-                            child: Text("Bệnh viện",
+                            child: Text("Hospital",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 13,
@@ -220,7 +220,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                                   color: Color.fromARGB(255, 182, 27, 45)),
                             ),
                             Center(
-                              child: Text("Thời gian",
+                              child: Text("Time",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 13,
@@ -247,7 +247,7 @@ class _SearchAdvanced extends State<SearchAdvanced>
                     ),
                     child: const Center(
                       child: Text(
-                        "Tìm kiếm",
+                        "Search",
                         style: TextStyle(
                             color: Color.fromARGB(252, 225, 225, 225)),
                       ),

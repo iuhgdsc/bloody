@@ -33,7 +33,7 @@ class _OtpFormState extends State<OtpForm> {
                   .pushNamed(MyAppRouteConstants.signUpRouteName)
             },
             child: const Text(
-              "Tiếp thep",
+              "Continue",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 16,

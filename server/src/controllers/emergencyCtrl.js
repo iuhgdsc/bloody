@@ -13,12 +13,6 @@ const emergencyCtrl = {
           .set({ id: uuidv4(), ...element })
       })
       return res.status(200).json({ msg: 'emergency created successfully' })
-
-      // await db
-      //   .collection('emergencies')
-      //   .doc(uuidv4())
-      //   .set({ id: uuidv4(), ...emergency })
-      // return res.status(200).json({ msg: 'emergency created successfully' })
     } catch (error) {
       return res.status(500).json({ msg: error.message })
     }

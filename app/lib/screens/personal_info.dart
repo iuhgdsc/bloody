@@ -47,7 +47,7 @@ class _PersonState extends State<Person> {
                       width: 60,
                     ),
                     const Text(
-                      "Thông tin tài khoản",
+                      "Account information",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                     ),
@@ -67,7 +67,7 @@ class _PersonState extends State<Person> {
                   width: 210,
                   child: Center(
                     child: Text(
-                      userExisting.name ?? "Nguyễn Việt Hoàng",
+                      userExisting.name ?? "Unconfirmed",
                       style: const TextStyle(
                           fontWeight: FontWeight.w600, fontSize: 20),
                     ),
@@ -84,7 +84,7 @@ class _PersonState extends State<Person> {
                           width: 39,
                         ),
                         Text(
-                          "Họ và tên",
+                          "First and last name",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                         )
@@ -101,7 +101,7 @@ class _PersonState extends State<Person> {
                         SizedBox(
                           width: 230,
                           child: Text(
-                            userExisting.name ?? "Nguyễn Việt Hoàng",
+                            userExisting.name ?? "Unconfirmed",
                             style: const TextStyle(
                                 color: Color(0xFF717171),
                                 fontWeight: FontWeight.w400,
@@ -149,7 +149,7 @@ class _PersonState extends State<Person> {
                             width: 39,
                           ),
                           Text(
-                            "Số điện thoại",
+                            "Phone",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           )
@@ -166,7 +166,7 @@ class _PersonState extends State<Person> {
                           SizedBox(
                             width: 230,
                             child: Text(
-                              userExisting.phone ?? "Chưa xác thực",
+                              userExisting.phone ?? "Unconfirmed",
                               style: const TextStyle(
                                   color: Color(0xFF717171),
                                   fontWeight: FontWeight.w400,
@@ -215,7 +215,7 @@ class _PersonState extends State<Person> {
                             width: 39,
                           ),
                           Text(
-                            "CMND/CCCD",
+                            "ID/CCCD",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           )
@@ -232,7 +232,7 @@ class _PersonState extends State<Person> {
                           SizedBox(
                             width: 230,
                             child: Text(
-                              userExisting.cccd ?? "Chưa xác thực",
+                              userExisting.cccd ?? "Unconfirmed",
                               style: const TextStyle(
                                   color: Color(0xFF717171),
                                   fontWeight: FontWeight.w400,
@@ -281,7 +281,7 @@ class _PersonState extends State<Person> {
                             width: 39,
                           ),
                           Text(
-                            "Địa chỉ",
+                            "Address",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           )
@@ -298,7 +298,7 @@ class _PersonState extends State<Person> {
                           SizedBox(
                             width: 230,
                             child: Text(
-                              userExisting.address ?? "Chưa xác thực",
+                              userExisting.address ?? "Unconfirmed",
                               style: const TextStyle(
                                   color: Color(0xFF717171),
                                   fontWeight: FontWeight.w400,
@@ -347,7 +347,7 @@ class _PersonState extends State<Person> {
                             width: 39,
                           ),
                           Text(
-                            "Xác thực khuôn mặt",
+                            "Face Authentication",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           )
@@ -364,7 +364,7 @@ class _PersonState extends State<Person> {
                           const SizedBox(
                             width: 230,
                             child: Text(
-                              "Chưa thiết lập",
+                              "Unconfirmed",
                               style: TextStyle(
                                   color: Color(0xFF717171),
                                   fontWeight: FontWeight.w400,

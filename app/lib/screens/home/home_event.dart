@@ -60,10 +60,10 @@ class _HomeEvent extends State<HomeEvent> with WidgetsBindingObserver {
                 labelColor: const Color.fromARGB(255, 182, 27, 45),
                 tabs: const [
                   Tab(
-                    text: 'Sự kiện',
+                    text: 'Event',
                   ),
                   Tab(
-                    text: 'Khẩn cấp',
+                    text: 'Emergency',
                   ),
                 ],
               ),

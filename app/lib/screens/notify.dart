@@ -28,7 +28,7 @@ class _NotifyState extends State<Notify> {
               bottomOpacity: 0.0,
               elevation: 0.0,
               title: const Text(
-                "Thông báo gần đấy",
+                "Announcement nearby",
                 style: TextStyle(color: Colors.black),
               ),
               centerTitle: true,

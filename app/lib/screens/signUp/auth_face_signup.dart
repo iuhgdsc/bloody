@@ -39,7 +39,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                 width: 55,
               ),
               const Text(
-                "Xác thực khuôn mặt",
+                "Face Authentication",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
             ],
@@ -134,7 +134,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
             height: 40,
           ),
           const Text(
-            "Hướng dẫn",
+            "Instruct",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
@@ -146,15 +146,15 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
             child: Column(
               children: const [
                 Text(
-                  "1. Giữ điện thoại ổn định và thẳng khuôn mặt.",
+                  "1. Hold the phone steady and face straight.",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  "2. Điều chỉnh để khuôn mặt nằm giữa vòng tròn.",
+                  "2. Adjust so that the face is in the center of the circle.",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  "3. Thực hiện quay trái, phải, nhìn thẳng để hoàn thành xác thực khuôn mặt.",
+                  "3. Perform left, right, and straight-forward rotation to complete face authentication.",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                 )
               ],
@@ -167,7 +167,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
                   .pushNamed(MyAppRouteConstants.signUpSuccessRouteName)
             },
             child: const Text(
-              "Tiếp tục",
+              "Continue",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
@@ -177,7 +177,7 @@ class _AuthFaceSignUpState extends State<AuthFaceSignUp> {
           TextButton(
               onPressed: () {},
               child: const Text(
-                "Để sau",
+                "Later",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,

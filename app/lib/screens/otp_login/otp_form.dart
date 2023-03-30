@@ -40,7 +40,7 @@ class _OtpFormState extends State<OtpForm> {
           ),
           const SizedBox(height: 30),
           const Text(
-            "Gửi lại mã OTP",
+            "Resend OTP",
             style: TextStyle(
                 fontWeight: FontWeight.w400, fontSize: 16, color: Colors.black),
           ),
@@ -64,14 +64,14 @@ class _OtpFormState extends State<OtpForm> {
                 if (kDebugMode) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text("Mã OTP không đúng !"),
+                      content: Text("OTP code is incorrect!"),
                     ),
                   );
                 }
               }
             },
             child: Text(
-              name != null ? "Tiếp tục" : "Đăng ký",
+              name != null ? "Continue" : "Register",
               style: const TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,

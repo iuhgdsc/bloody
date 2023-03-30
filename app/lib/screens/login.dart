@@ -76,7 +76,7 @@ class _LoginState extends State<Login> {
                     height: 35,
                   ),
                   const Text(
-                    "Đăng nhập",
+                    "Login",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -95,7 +95,7 @@ class _LoginState extends State<Login> {
                         phone = value;
                       },
                       decoration: const InputDecoration(
-                        labelText: "Nhập số điện thoại của bạn ở đây",
+                        labelText: "Enter your phone number here",
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -133,11 +133,12 @@ class _LoginState extends State<Login> {
                           codeAutoRetrievalTimeout: (verificationId) {});
                     },
                     child: const Text(
-                      "Tiếp tục",
+                      "Continue",
                       style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          color: Colors.white),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -152,7 +153,7 @@ class _LoginState extends State<Login> {
                         children: [
                           TextSpan(
                             text:
-                                "Khi bạn chọn tiếp tục, bạn đã đồng ý với các ",
+                                "When you choose to continue, you agree to the ",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,
@@ -160,7 +161,7 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           TextSpan(
-                            text: "Điều Khoản\n",
+                            text: "Rules\n",
                             style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 12,
@@ -179,7 +180,7 @@ class _LoginState extends State<Login> {
                       text: const TextSpan(
                         children: [
                           TextSpan(
-                            text: "và ",
+                            text: "and ",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,
@@ -187,7 +188,7 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           TextSpan(
-                            text: "Chính Sách Bảo Mật",
+                            text: "Privacy Policy",
                             style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 12,
@@ -195,7 +196,7 @@ class _LoginState extends State<Login> {
                                 decoration: TextDecoration.underline),
                           ),
                           TextSpan(
-                            text: " của chúng tôi",
+                            text: " ours",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,

@@ -5,7 +5,8 @@ import 'package:flutter/foundation.dart';
 
 class ApiService {
   final Dio _dio = Dio();
-  final String baseUrl = "https://f0dc-171-252-155-225.ap.ngrok.io";
+  final String baseUrl =
+      "https://8314-2402-800-63a6-9c57-952-53c3-2af4-4278.ap.ngrok.io";
 
   Future<Response?> getQuestion() async {
     String url = "$baseUrl/api/getQuestions";

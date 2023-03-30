@@ -45,7 +45,7 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                     const Expanded(
                       child: Center(
                         child: Text(
-                          "Tài khoản",
+                          "Account",
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             fontSize: 16,
@@ -90,7 +90,7 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const Text("Đã xác thực"),
+                          const Text("Verified"),
                         ],
                       ),
                     ),
@@ -149,7 +149,7 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                           ),
                           const Expanded(
                             child: Text(
-                              "Thông báo",
+                              "Notification",
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF333335),
@@ -193,7 +193,7 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                           ),
                           Expanded(
                             child: Text(
-                              "Thiết lập",
+                              "Establish",
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF333335),
@@ -225,7 +225,7 @@ class _Profile extends State<Profile> with WidgetsBindingObserver {
                           ),
                           Expanded(
                             child: Text(
-                              "Đăng xuất",
+                              "Log out",
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF333335),

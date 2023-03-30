@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 List<String> notes = [
-  "Các nhóm máu quan trọng nhất trong truyền máu là hệ thống nhóm máu ABO và hệ thống nhóm máu RhD.",
-  "Nhóm máu được xác định bởi một loại protein (kháng nguyên) trên bề mặt hồng cầu. Vì vậy, hệ thống ABO có kháng nguyên A và B và hệ thống RhD có kháng nguyên D.",
-  "Tổng cộng, có 30 hệ thống nhóm máu chính. Điều này có nghĩa là một người có thể có A RhD dương tính, đồng thời Kell (hệ thống Kell) dương tính, M và N (hệ thống MNS) dương tính và Lea và Leb (hệ thống Lewis) dương tính.",
+  "The most important blood groups in transfusion are the ABO blood group system and the RhD blood group system.",
+  "Blood type is determined by a protein (antigen) on the surface of red blood cells. So the ABO system has A and B antigens and the RhD system has D antigens.",
+  "In total, there are 30 major blood type systems. This means that a person can be A RhD positive, Kell (Kell system) positive, M and N (MNS system) positive, and Lea positive. and Leb (Lewis system) positive."
 ];
 
 class CrEv3 extends StatefulWidget {

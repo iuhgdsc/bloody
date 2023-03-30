@@ -50,7 +50,7 @@ class _OtpLoginState extends State<OtpLogin> {
                       width: 45,
                     ),
                     const Text(
-                      "Đăng nhập - Nhập mã OTP",
+                      "Login - Enter OTP",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                     ),
@@ -58,7 +58,7 @@ class _OtpLoginState extends State<OtpLogin> {
                 ),
                 const SizedBox(height: 25),
                 Text(
-                  "Mã xác thực đã được gửi đến số $phone ",
+                  "Verification code has been sent to $phone",
                   style: const TextStyle(
                       height: 1, fontSize: 13, fontWeight: FontWeight.w400),
                 ),
@@ -84,7 +84,7 @@ class _OtpLoginState extends State<OtpLogin> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          "Mã xác thực còn hiệu lực trong ",
+          "Authentication code is valid for",
           style:
               TextStyle(height: 2, fontSize: 13, fontWeight: FontWeight.w400),
         ),
@@ -92,7 +92,7 @@ class _OtpLoginState extends State<OtpLogin> {
           tween: Tween(begin: 30.0, end: 0.0),
           duration: const Duration(seconds: 30),
           builder: (_, dynamic value, child) => Text(
-            "${value.toInt()} giây",
+            "${value.toInt()} seconds",
             style: const TextStyle(
                 height: 2, fontSize: 13, fontWeight: FontWeight.w400),
           ),

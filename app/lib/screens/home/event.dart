@@ -218,7 +218,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                                       extra: centerBloods[index],
                                     );
                                   },
-                                  child: const Btn(text: "Tham gia")),
+                                  child: const Btn(text: "Join")),
                             ],
                           ),
                         ));
@@ -272,7 +272,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                             height: height * 0.04 - 13,
                             child: const Center(
                               child: Text(
-                                "Chỉ có",
+                                "Only",
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: Color.fromARGB(255, 28, 28, 28),
@@ -299,7 +299,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: const Center(
                               child: Text(
-                                "người Việt tham gia hiến máu",
+                                "Vietnamese people donate blood",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 15,
@@ -341,7 +341,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                             height: height * 0.1 - 20,
                             child: const Center(
                               child: Text(
-                                "Mỗi lần tham gia hiến máu có thể cứu sống ",
+                                "Every time you participate in blood donation, you can save a life",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 15,
@@ -354,7 +354,7 @@ class _Event extends State<Event> with WidgetsBindingObserver {
                             height: height * 0.04,
                             child: const Center(
                               child: Text(
-                                "3 người",
+                                "3 people",
                                 style: TextStyle(
                                   fontSize: 19,
                                   fontWeight: FontWeight.w500,

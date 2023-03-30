@@ -125,7 +125,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                                           margin: const EdgeInsets.only(
                                               left: 10, top: 15),
                                           child: const Text(
-                                            "Tìm kiếm sự kiện tại đây",
+                                            "Find events here",
                                             style: TextStyle(
                                               fontSize: 18,
                                               color: Color.fromARGB(
@@ -214,7 +214,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                   ? const Color.fromARGB(255, 65, 0, 7)
                   : const Color.fromARGB(255, 161, 120, 122),
             ),
-            label: 'Hiến máu',
+            label: 'Blood Donation',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -223,7 +223,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                   ? const Color.fromARGB(255, 65, 0, 7)
                   : const Color.fromARGB(255, 161, 120, 122),
             ),
-            label: 'Mã QR',
+            label: 'QR Code',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -232,7 +232,7 @@ class _Home extends State<Home> with WidgetsBindingObserver {
                   ? const Color.fromARGB(255, 65, 0, 7)
                   : const Color.fromARGB(255, 161, 120, 122),
             ),
-            label: 'Lịch sử',
+            label: 'History',
           ),
         ],
         selectedItemColor: const Color.fromARGB(255, 161, 120, 122),

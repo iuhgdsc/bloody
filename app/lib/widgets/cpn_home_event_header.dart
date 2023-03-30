@@ -29,7 +29,7 @@ class _CPNHomeEventHeader extends State<CPNHomeEventHeader>
                 topLeft: Radius.circular(8),
                 topRight: Radius.circular(8)),
           ),
-          child: const Text("Bệnh viện Quân Y 175",
+          child: const Text("Military Hospital 175",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 15,
@@ -47,7 +47,7 @@ class _CPNHomeEventHeader extends State<CPNHomeEventHeader>
                 topLeft: Radius.circular(8),
                 topRight: Radius.circular(8)),
           ),
-          child: const Text("Gần tôi nhất",
+          child: const Text("Nearest to me",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 15,
@@ -65,7 +65,7 @@ class _CPNHomeEventHeader extends State<CPNHomeEventHeader>
                 topLeft: Radius.circular(8),
                 topRight: Radius.circular(8)),
           ),
-          child: const Text("Mới nhất",
+          child: const Text("Latest",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 15,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 List<String> notes = [
-  "Duỗi thẳng, hơi nâng cao cánh tay trong 15 phút.",
-  "Hạn chế gập tay trong quá trình nghỉ sau hiến máu.",
-  "Nghỉ tại điểm hiến máu tối thiểu 15 phút.",
-  "Uống nhiều nước.",
-  "Chỉ ra về khi cảm thấy thực sự thoải mái.",
-  "Nếu xuất hiện chảy máu từ vết băng cầm máu:",
-  "Nâng cánh tay lên và ấn nhẹ vào vết bông.",
-  "Ngồi xuống ghế và thông báo cho nhân viên y tế để được hỗ trợ.",
+  "Straighten, slightly raise arms for 15 minutes.",
+  "Refrain from bending your arms during rest after donating blood.",
+  "Rest at the blood donation point for at least 15 minutes.",
+  "Drink a lot of water.",
+  "Only leave when you feel really comfortable.",
+  "If bleeding occurs from the hemostatic dressing:",
+  "Raise the arm and gently press the cotton stain.",
+  "Sit down on a chair and notify medical personnel for assistance.",
 ];
 
 class CrEv2 extends StatefulWidget {

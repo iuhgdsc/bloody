@@ -38,7 +38,7 @@ class _SuccessRegister extends State<SuccessRegister>
                   margin: EdgeInsets.only(top: height * 0.01),
                   child: const Center(
                     child: Text(
-                      "Cảm ơn bạn đã đăng ký\nhiến máu thành công!",
+                      "Thank you for your successful registration\nblood donation!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 22,
@@ -48,11 +48,11 @@ class _SuccessRegister extends State<SuccessRegister>
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: height * 0.035),
-                  child: const Text(
-                    "Bệnh viện Chợ Rẫy",
+                  margin: EdgeInsets.only(top: height * 0.045),
+                  child: Text(
+                    widget.centerBlood!.name!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 18,
                         color: Color.fromARGB(255, 27, 27, 27),
                         fontWeight: FontWeight.w500),
@@ -82,7 +82,7 @@ class _SuccessRegister extends State<SuccessRegister>
                 SizedBox(
                   width: width * 1,
                   child: const Text(
-                    "Địa điểm",
+                    "Address",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color.fromARGB(255, 27, 27, 27),
@@ -92,9 +92,9 @@ class _SuccessRegister extends State<SuccessRegister>
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   width: width * 1,
-                  child: const Text(
-                    "201B Nguyễn Chí Thanh, Phường 12, Quận 5, TP.HCM",
-                    style: TextStyle(
+                  child: Text(
+                    widget.centerBlood!.address!,
+                    style: const TextStyle(
                         fontSize: 15,
                         color: Color.fromARGB(255, 53, 53, 53),
                         fontWeight: FontWeight.w400),
@@ -140,7 +140,7 @@ class _SuccessRegister extends State<SuccessRegister>
                     ),
                     child: const Center(
                       child: Text(
-                        "Dẫn đường",
+                        "Guide",
                         style: TextStyle(
                           color: Color.fromARGB(252, 225, 225, 225),
                         ),

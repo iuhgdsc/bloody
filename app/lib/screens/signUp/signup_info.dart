@@ -49,7 +49,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                       width: 60,
                     ),
                     const Text(
-                      "Thông tin cá nhân",
+                      "Personal information",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                     ),
@@ -143,7 +143,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                     },
                     obscureText: false,
                     decoration: const InputDecoration(
-                      labelText: "Họ tên",
+                      labelText: "Full name",
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -163,7 +163,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                     },
                     obscureText: false,
                     decoration: const InputDecoration(
-                      labelText: "CMND/CCCD",
+                      labelText: "ID/CCCD",
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -187,7 +187,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                         .pushNamed(MyAppRouteConstants.authIDRouteName);
                   },
                   child: const Text(
-                    "Tiếp tục",
+                    "Continue",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
@@ -200,7 +200,7 @@ class _SignUpInfoState extends State<SignUpInfo> {
                         .pushNamed(MyAppRouteConstants.authIDRouteName)
                   },
                   child: const Text(
-                    "Để sau",
+                    "Later",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,

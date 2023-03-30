@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 List<String> notes = [
-  "Đêm trước hiến máu không nên thức quá khuya (ngủ ít nhất 6 tiếng).",
-  "Nên ăn nhẹ, KHÔNG ăn các đồ ăn có nhiều đạm, nhiều mỡ.",
-  "KHÔNG uống rượu, bia.",
-  "Chuẩn bị tâm lý thực sự thoải mái.",
-  "Mang theo giấy tờ tùy thân.",
-  "Uống nhiều nước."
+  "Don't stay up too late the night before donating blood (sleep for at least 6 hours).",
+  "Should eat light, DO NOT eat foods high in protein, high in fat.",
+  "DO NOT drink alcohol or beer.",
+  "Mental preparation is really comfortable.",
+  "Bring identification.",
+  "Drink a lot of water."
 ];
 
 class CrEv1 extends StatefulWidget {

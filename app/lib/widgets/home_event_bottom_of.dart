@@ -3,15 +3,6 @@ import 'package:bloody/widgets/cr_ev_3.dart';
 import 'package:flutter/material.dart';
 import 'package:bloody/widgets/cr_ev_1.dart';
 
-List<String> notes = [
-  "Đêm trước hiến máu không nên thức quá khuya (ngủ ít nhất 6 tiếng).",
-  "Nên ăn nhẹ, KHÔNG ăn các đồ ăn có nhiều đạm, nhiều mỡ.",
-  "KHÔNG uống rượu, bia.",
-  "Chuẩn bị tâm lý thực sự thoải mái.",
-  "Mang theo giấy tờ tùy thân.",
-  "Uống nhiều nước."
-];
-
 class HomeEventBottomOf extends StatefulWidget {
   const HomeEventBottomOf({super.key});
 
@@ -63,13 +54,13 @@ class _HomeEventBottomOf extends State<HomeEventBottomOf>
                   ),
                   tabs: const [
                     Tab(
-                      text: 'Trước khi\nhiến máu',
+                      text: 'Before\ndonating blood',
                     ),
                     Tab(
-                      text: 'Sau khi\nhiến máu',
+                      text: 'After donating blood',
                     ),
                     Tab(
-                      text: 'Thông tin\nnhóm máu',
+                      text: 'Info\nblood group',
                     ),
                   ],
                 ),

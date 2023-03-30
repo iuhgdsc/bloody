@@ -31,7 +31,7 @@ class _QRCodeState extends State<QRCode> {
                   color: Colors.black,
                 ),
                 title: const Text(
-                  "Mã QR của bạn",
+                  "Your QR code",
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -73,7 +73,7 @@ class _QRCodeState extends State<QRCode> {
                       const Padding(
                         padding: EdgeInsets.only(left: 20),
                         child: Text(
-                          "Thông tin cá nhân",
+                          "Personal information",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -111,7 +111,7 @@ class _QRCodeState extends State<QRCode> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const Text("Họ tên",
+                                      const Text("Full name",
                                           style: TextStyle(
                                               fontSize: 14,
                                               color: Color(0xFF79747E))),
@@ -119,7 +119,7 @@ class _QRCodeState extends State<QRCode> {
                                         height: 5,
                                       ),
                                       Text(
-                                        user.name ?? "Chưa cập nhật",
+                                        user.name ?? "Not update",
                                         style: const TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
@@ -150,22 +150,17 @@ class _QRCodeState extends State<QRCode> {
                                   Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
-                                      const Text("Ngày sinh",
+                                    children: const [
+                                      Text("Birthday",
                                           style: TextStyle(
                                               fontSize: 14,
                                               color: Color(0xFF79747E))),
-                                      const SizedBox(
+                                      SizedBox(
                                         height: 5,
                                       ),
                                       Text(
-                                        // user.birthday.compareTo(DateTime.now()) > 0
-                                        //     ? "Chưa cập nhật"
-                                        //     : "${user.birthday.day}/"
-                                        //         '0'
-                                        //         "${user.birthday.month}/${user.birthday.year}",
-                                        user.address ?? "Chưa cập nhật",
-                                        style: const TextStyle(
+                                        "Not update",
+                                        style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -196,7 +191,7 @@ class _QRCodeState extends State<QRCode> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const Text("Số CMND/CCCD",
+                                      const Text("ID number/CCCD",
                                           style: TextStyle(
                                               fontSize: 14,
                                               color: Color(0xFF79747E))),
@@ -204,7 +199,7 @@ class _QRCodeState extends State<QRCode> {
                                         height: 5,
                                       ),
                                       Text(
-                                        user.cccd ?? "Chưa cập nhật",
+                                        user.cccd ?? "Not update",
                                         style: const TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
@@ -254,7 +249,7 @@ Padding header({required String name, required int count}) {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Xin chào",
+                    "Hello",
                     style: TextStyle(fontSize: 16, color: Color(0xFF333335)),
                   ),
                   Text(
