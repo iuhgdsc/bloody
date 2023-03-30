@@ -1,8 +1,45 @@
-# Bloody
+# Bloody - GDSC Solution Challenge 2023
 
 ## Getting Started
 
+Bloody is a blood donation app that displays blood events created by hospitals or blood donation centers. Users can register for these events and donate blood through the app.
 
+## 17 SDGs
+
+Bloody is a intended to solve Goal 3: Good Health and Well-Being of the United Nations Sustainable Development Goals.
+
+## Problem Statement
+
+The shortage of blood is a serious problem in Vietnam, especially after the COVID-19 pandemic. And the pandemic has made it even harder to find blood donors. The pandemic has caused a lot of blood donation events to be canceled. This has led to a shortage of blood in hospitals and blood donation centers.
+
+## Features
+
+- Users can register and login to the app.
+- Users can view blood events (regular and emergency).
+- Users can register for blood events.
+- Users can view their registered events.
+- Users can view their profile.
+
+## Demo
+
+## Tech Stack
+
+The app is built using the following technologies:
+
+![Bloody](images/SC_Presentation02.png)
+
+## Our app name
+
+We chose the name Bloody because it is short and easy to remember. It's combination of the words blood and ready.
+
+## Team
+
+Our team comes from the [Google Developer Student Clubs](https://developers.google.com/community/dsc) at Industrial University of Ho Chi Minh City.
+
+- [Nguyen Xuan Long]()
+- [Nguyen Duc Chien]()
+- [Hoa Xuan Sang]()
+- [Phong Dang Ngoc]()
 
 ## Architecture
 
