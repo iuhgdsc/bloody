@@ -1,25 +1,75 @@
-## steps to connect to server with ngok
+# Bloody
 
-### 1. Download and install ngrok from the official website (https://ngrok.com/).
+## Getting Started
 
-### 2. Open your terminal or command prompt and navigate to the directory where you installed ngrok.
 
-### 3. Connect your account
 
-### `ngrok config add-authtoken your-authtoken`
+## Architecture
 
-### 4. To start ngrok, run the following command:
+### Backend
 
-### `ngrok http <port>`
+Our backend is a REST API written in Node.js. It uses the Express framework and is connected to Firestore.
 
-### Besides, you also have to run the server with the command
+The backend is located in the `server` directory.
 
-### `cd server`
+From the root of the project, cd into the backend directory:
 
-### `npm install ` or `yarn`
+```bash
+cd server
+```
 
-### `npm run start ` or `yarn start`
+To run the backend locally, you need to install the dependencies with:
 
-### Replace <port> with the port number of your server. For example, if your server is running on port 8000, you would run ngrok http 8000.
+```bash
+yarn install
+```
+> Note: You need to have Node.js and Yarn installed on your machine.
 
-### 5. Ngrok will generate a public URL that you can use to access your server from the internet. Copy the public URL and paste it into your baseURL in file api with path app\lib\services\api_service.dart
+Then, you can run the backend with:
+
+```bash
+yarn start
+```
+
+The backend will be running on `http://localhost:8000`.
+
+Unfortunately, the backend is running locally and cannot be accessed from the frontend. To solve this, we use [ngrok](https://ngrok.com/). Ngrok allows us to expose our local server to the internet.
+
+To run ngrok, you need to install it first. You can find the instructions [here](https://ngrok.com/download).
+
+Once you have ngrok installed, you can start tunneling your local server which runs on port 8000 with:
+
+```bash
+ngrok http 8000
+```
+
+After running this command, you will see a URL that looks like this: `http://<random_string>.ngrok.io`. This is the URL that you need to use in the frontend.
+
+### Frontend
+
+Our frontend is a Flutter app. To run it, first you need to install Flutter development tools. You can find the instructions [here](https://flutter.dev/docs/get-started/install).
+
+The frontend is located in the `app` directory.
+
+From the root of the project, cd into the frontend directory:
+
+```bash
+cd app
+```
+Now, install the dependencies with:
+
+```bash
+flutter pub get
+```
+
+After that, you need to update the `BASE_URL` in `lib/services/api.dart` to the URL that you got from ngrok.
+
+```dart
+  final String baseUrl = "<replace_with_ngrok_url>";
+```
+
+Then, you can run the app with:
+
+```bash
+flutter run lib/main.dart
+```
